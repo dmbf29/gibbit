@@ -1,0 +1,13 @@
+<h1>Inquiries</h1>
+
+<% if @inquiries.empty? %>
+    <p>Sorry, you have no offers yet.</p>
+<% else %>
+  <% @inquiries.each do |inquiry| %>
+    <p><%= inquiry.first_name %></p>
+    <p><%= inquiry.email %></p>
+    <p><%= inquiry.description %></p>
+    <p><%= inquiry.status %></p>
+    <hr>
+  <% end %>
+<% end %>
