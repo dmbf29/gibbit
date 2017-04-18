@@ -6,10 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Destrong all messages"
 Message.destroy_all
+puts "Destroying all inquiries"
 Inquiry.destroy_all
+puts "Destroying all gibbers"
 Gibber.destroy_all
+puts "Destroying all users"
 User.destroy_all
+
+puts "Finding new ones"
 
 ainaa = Gibber.new(
   first_name: "Ainaa",
@@ -56,3 +62,5 @@ pending_inquiry = Inquiry.new(
   email: "george@fakemail.com",
   first_name: "George"
   )
+
+puts "..Done"
