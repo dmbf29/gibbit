@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :messages, :as => :sender
   has_many :inquiries
-  validates :email, presence: true
+
   validates :first_name, presence: true
 end
