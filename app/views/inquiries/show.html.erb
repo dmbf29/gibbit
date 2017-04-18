@@ -18,6 +18,11 @@
 
 <p>Price : <%= @inquiry.credits %> credit</p>
 <p>Status : <%= @inquiry.status %> </p>
-<p>Requested by <%= @inquiry.user.first_name %></p>
-<p>Handled by <%= @inquiry.gibber.first_name  %></p>
+<p>Requested by <%= @inquiry.first_name %></p>
+<p>Handled by :
+  <% if @inquiry.gibber.nil? %>
+    <%= "" %>
+  <% else %>
+    <%= @inquiry.gibber.first_name %>
+  <% end %></p>
 <%= link_to "Make a new inquiry", new_inquiry_path %>
