@@ -3,5 +3,5 @@ class Inquiry < ApplicationRecord
   belongs_to :gibber
   has_many :messages
 
-  validates :descriptions, presence: true
+  validates :description, presence: true
 end
