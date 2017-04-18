@@ -1,6 +1,7 @@
 <h1>Inquiries#index</h1>
-<p>Find me in app/views/inquiries/index.html.erb</p>
 
 <% @inquiries.each do |inquiry| %>
-<%= inquiry.description %>
+<p><%= inquiry.description %></p>
+<p><%= inquiry.first_name %></p>
+<p><%= inquiry.status  %></p>
 <% end %>

@@ -1,2 +1,6 @@
 <h1>Inquiries#show</h1>
-<p>Find me in app/views/inquiries/show.html.erb</p>
+
+<p><%= @inquiry.description %></p>
+<p><%= @inquiry.status  %> </p>
+<p>Requested by <%= @inquiry.user.first_name %></p>
+<p>Handled by <%= @inquiry.gibber.first_name  %></p>

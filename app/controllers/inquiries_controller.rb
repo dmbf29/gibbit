@@ -1,17 +1,37 @@
 class InquiriesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :show ]
+
   def index
-    @inquiries = Inquiry.all
+    @inquiries = current_user.inquiries
   end
 
   def show
+    @inquiry = Inquiry.find(params[:id])
   end
 
   def new
+    @inquiry = Inquiry.new
   end
 
   def create
+    @inquiry = Inquiry.new(inquiry_params)
+    @inquiry.status = "pending"
+    if @inquiry.save
+      redirect_to inquiry_path(@inquiry)
+    else
+      render 'inquiries/new'
+    end
   end
 
   def destroy
+    @inquiry = Inquiry.find(params[:id])
+    @inquiry.destroy
   end
+
+  private
+
+  def inquiry_params
+    params.require.(:inquiry).permit(:description, :first_name, :email)
+  end
+
 end
