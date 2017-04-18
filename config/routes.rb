@@ -3,15 +3,23 @@ Rails.application.routes.draw do
   devise_for :gibbers
   devise_for :users
 
+  namespace :gibbers do
+    resources :inquiries, only:[:index] do
+      member do
+        patch :pending
+        patch :propose
+        patch :complete
+        patch :assign_gibber
+      end
+    end
+  end
+
   resources :inquiries, only:[:index, :show, :new, :create, :destroy] do
     member do
       patch :pending
-      patch :proposed
-      patch :accepted
-      patch :rejected
-      patch :completed
+      patch :accept
+      patch :reject
     end
     resources :messages, only:[:create]
   end
-    resources :orders, only:[:index]
 end
