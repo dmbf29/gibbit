@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'inquiries/index'
-
-  get 'inquiries/show'
-
-  get 'inquiries/new'
-
   root to: 'pages#home'
   devise_for :gibbers
   devise_for :users
@@ -17,7 +11,7 @@ Rails.application.routes.draw do
       patch :rejected
       patch :completed
     end
-    resources :orders, only:[:index]
     resources :messages, only:[:create]
   end
+    resources :orders, only:[:index]
 end
