@@ -1,6 +1,23 @@
 <h1>Inquiries#show</h1>
 
-<p><%= @inquiry.description %></p>
-<p><%= @inquiry.status  %> </p>
+<div class="container">
+  <div class="row">
+    <div class="wrapper">
+      <div class="col-xs-12 col-md-6">
+        <div class="description-card">
+          <p><%= @inquiry.first_name %> : <%= @inquiry.description %></p>
+          <p><% @messages.each do |message| %>
+          <%= message.sender.first_name %> : <%= message.content %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p>Price : <%= @inquiry.credits %> credit</p>
+<p>Status : <%= @inquiry.status %> </p>
 <p>Requested by <%= @inquiry.user.first_name %></p>
 <p>Handled by <%= @inquiry.gibber.first_name  %></p>
+<%= link_to "Make a new inquiry", new_inquiry_path %>
