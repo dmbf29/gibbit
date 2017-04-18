@@ -7,6 +7,7 @@ class InquiriesController < ApplicationController
 
   def show
     @inquiry = Inquiry.find(params[:id])
+    @messages = Message.where(inquiry_id: 1)
   end
 
   def new
@@ -31,7 +32,7 @@ class InquiriesController < ApplicationController
   private
 
   def inquiry_params
-    params.require.(:inquiry).permit(:description, :first_name, :email)
+    params.require.(:inquiry).permit(:description, :first_name, :email, :photo, :photo_cache)
   end
 
 end
