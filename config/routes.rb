@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :gibbers
   devise_for :users
 
-  resources :inquiries, only: [:index, :show, :new, :create, :destroy] do
-    resources :orders, :only [:index] do
+  resources :inquiries, only:[:index, :show, :new, :create, :destroy] do
+    resources :orders, only:[:index] do
       member do
         patch :pending
         patch :proposed
@@ -13,6 +13,6 @@ Rails.application.routes.draw do
         patch :completed
       end
     end
-    resources :messages, :only [:create]
+    resources :messages, only:[:create]
   end
 end
