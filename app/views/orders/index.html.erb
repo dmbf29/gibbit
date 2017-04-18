@@ -1,0 +1,9 @@
+<p>Orders</p>
+<% if @orders.empty? %>
+    <p>Sorry, you have no offers yet.</p>
+<% else %>
+  <% @orders.each do |order| %>
+    <p><%= order.inquiry.description %></p>
+    <p><%= order.inquiry.status %></p>
+    <p><%= order.user.name %></p>
+<% end %>
