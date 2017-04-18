@@ -3,6 +3,8 @@ class Inquiry < ApplicationRecord
   belongs_to :gibber, optional: true
   has_many :messages
 
+  mount_uploader :photo, PhotoUploader
+
   validates :description, presence: true
   validates :email, presence: true
   validates :first_name, presence: true
