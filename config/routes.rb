@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'inquiries/index'
+
+  get 'inquiries/show'
+
+  get 'inquiries/new'
+
   root to: 'pages#home'
   devise_for :gibbers
   devise_for :users

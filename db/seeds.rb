@@ -23,11 +23,15 @@ ainaa = Gibber.new(
   password: "123456"
   )
 
+ainaa.save
+
 doug = Gibber.new(
   first_name: "Douglas",
   email: "douglas@lewagon.com",
   password: "123456"
   )
+
+doug.save
 
 ryo = Gibber.new(
   first_name: "Ryo",
@@ -35,12 +39,16 @@ ryo = Gibber.new(
   password: "123456"
   )
 
+ryo.save
+
 felix_user = User.new(
   first_name: "Felix",
   last_name: "the cat",
   email: "felixthecat@fakemail.com",
   password: "123456"
   )
+
+felix_user.save
 
 completed_inquiry = Inquiry.new(
   description: "I need a booking for 2 at a good izakaya in meguro for tomorrow",
@@ -53,6 +61,7 @@ completed_inquiry = Inquiry.new(
   first_name: felix_user.first_name
   )
 
+completed_inquiry.save
 
 pending_inquiry = Inquiry.new(
   description: "Need to find English speaking doctor in Shinjuku",
@@ -62,5 +71,7 @@ pending_inquiry = Inquiry.new(
   email: "george@fakemail.com",
   first_name: "George"
   )
+
+pending_inquiry.save
 
 puts "..Done"
