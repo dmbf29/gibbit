@@ -1,13 +1,13 @@
 class OrdersController < ApplicationController
-    before_action :set_order, only: [:index]
+    before_action :authenticate_gibber!
 
     def index
-      @orders = current_user.orders
+      @orders = Inquiry.all
     end
 
-    private
-    def set_order
-      @order = Inquiry.find(params[:id])
-    end
+    # private
+    # def set_order
+    #   @order = Inquiry.find(params[:id])
+    # end
 
 end
