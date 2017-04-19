@@ -36,13 +36,13 @@
   <% end %>
 
   <% @proposals.each do |proposal| %>
-      <p><%= proposal.status %> <%= proposal.description %> <%= proposal.gibber.first_name %>
+      <p><%= proposal.status %> <%= proposal.description %> <%= proposal.gibber.nil? ? "No gibbers!" : proposal.gibber.first_name %>
       <%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "btn btn-danger" %>
       <%= link_to "Complete", complete_gibbers_inquiry_path(proposal), method: :patch, class: "btn btn-success" %>
   <% end %></p>
 
-  <% @acceptions.each do |accpetion| %>
-      <p><%= accpetion.status %> <%= accpetion.description %> <%= accpetion.gibber.first_name %></p>
+  <% @acceptions.each do |acception| %>
+      <p><%= accpetion.status %> <%= accpetion.description %> <%= accpetion.gibber.nil? "No gibbers!" : acception.gibber.first_name %></p>
   <% end %>
 
   <h3>Completed Inquiries</h3>
