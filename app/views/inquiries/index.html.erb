@@ -10,16 +10,22 @@
     <div class="col-xs-12 col-sm-3">
     <ul class="list-group">
       <li class="list-group-item justify-content-between">
-        <h3>Credits</h3>
-        <span class="badge badge-default badge-pill"><%= @user.credits %></span>
+        <div class="dashboard-headers">
+          <h3>Credits</h3>
+          <span class="badge badge-default badge-pill"><%= @user.credits %></span>
+        </div>
       </li>
       <li class="list-group-item justify-content-between">
+        <div class="dashboard-headers">
         <h3>Pending</h3>
         <span class="badge badge-default badge-pill"><%= @user.inquiries.count %></span>
+        </div>
       </li>
       <li class="list-group-item justify-content-between">
+      <div class="dashboard-headers">
         <h3>Completed</h3>
         <span class="badge badge-default badge-pill"><%= @completions.count %></span>
+        </div>
       </li>
     </ul>
     </div>
