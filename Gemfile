@@ -10,6 +10,7 @@ gem 'devise'
 gem 'redis'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'omniauth-facebook'
 
 gem 'sass-rails'
 gem 'jquery-rails'
