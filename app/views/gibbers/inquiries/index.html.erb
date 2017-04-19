@@ -41,8 +41,8 @@
       <%= link_to "Complete", complete_gibbers_inquiry_path(proposal), method: :patch, class: "btn btn-success" %>
   <% end %></p>
 
-  <% @acceptions.each do |accpetion| %>
-      <p><%= accpetion.status %> <%= accpetion.description %> <%= accpetion.gibber.first_name %></p>
+  <% @acceptions.each do |acception| %>
+      <p><%= accpetion.status %> <%= accpetion.description %> <%= accpetion.gibber.nil? "No gibbers!" : acception.gibber.first_name %></p>
   <% end %>
 
   <h3>Completed Inquiries</h3>
