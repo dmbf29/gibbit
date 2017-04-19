@@ -13,7 +13,8 @@ class InquiriesController < ApplicationController
 
   def show
     @inquiry = Inquiry.find(params[:id])
-    @messages = Message.where(inquiry_id: 1)
+    @messages = Message.where(inquiry: @inquiry)
+    @message = Message.new
   end
 
   def new
@@ -36,12 +37,12 @@ class InquiriesController < ApplicationController
   end
 
   private
+
   def inquiry_params
     params.require(:inquiry).permit(:description, :photo, :photo_cache)
   end
 
   def set_user
-    @user = User.find(current_user.id)
+    current_user.nil? ? @gibber = current_gibber : @user = current_user
   end
-
 end
