@@ -18,8 +18,6 @@
   <% @empties.each do |empty| %>
       <p><%= empty.status %> <%= empty.description %> No gibbers yet ! </p>
       <%= link_to "Propose", propose_gibbers_inquiry_path(empty), method: :patch, class: "btn btn-warning" %>
-      <%= link_to "Pending", pending_gibbers_inquiry_path(empty), method: :patch, class: "btn btn-danger" %>
-
   <% end %>
 
   <h3>Open Inquiries</h3>

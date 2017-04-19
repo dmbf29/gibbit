@@ -7,8 +7,7 @@ class Gibbers::InquiriesController < ApplicationController
   def index
     @inquiries = Inquiry.all
     @empties = Inquiry.where(gibber_id: nil)
-    @pendings = Inquiry.where(status: "pending")
-    #pendings also needs where gibber_id is not nil
+    @pendings = Inquiry.where(status: "pending").where.not(gibber: nil)
     @proposals = Inquiry.where(status: "proposed")
     @acceptions = Inquiry.where(status: "accepted")
     @rejections = Inquiry.where(status: "rejected")
