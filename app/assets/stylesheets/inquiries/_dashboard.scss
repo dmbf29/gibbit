@@ -1,0 +1,29 @@
+.request-wrap {
+  background-color: #CECECE;
+  border-radius: 0 0 5px 5px;
+}
+
+.request {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.request-title {
+  background-color: #424244;
+  color: white;
+  margin-bottom: 0;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+  padding: 5px;
+}
+
+.request-current {
+  flex: 0 0 20%;
+}
+
+.request-description {
+  flex: 1 1 auto;
+}
