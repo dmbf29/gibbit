@@ -5,7 +5,7 @@
     <div class="wrapper">
       <div class="col-xs-12 col-md-6">
         <div class="description-card">
-          <p><%= @inquiry.first_name %> : <%= @inquiry.description %></p>
+          <p><%= @inquiry.user.first_name %> : <%= @inquiry.description %></p>
           <p><% @messages.each do |message| %>
           <%= message.sender.first_name %> : <%= message.content %></p>
           <% end %>

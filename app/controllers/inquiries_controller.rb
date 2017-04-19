@@ -1,5 +1,6 @@
 class InquiriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show ]
+  before_action :set_user, only: [:new, :create, :show, :index]
 
   def index
     @inquiries = current_user.inquiries
@@ -16,7 +17,7 @@ class InquiriesController < ApplicationController
 
   def create
     @inquiry = Inquiry.new(inquiry_params)
-    @inquiry.status = "pending"
+    @inquiry.user = @user
     if @inquiry.save
       redirect_to inquiry_path(@inquiry)
     else
@@ -30,9 +31,12 @@ class InquiriesController < ApplicationController
   end
 
   private
-
   def inquiry_params
-    params.require(:inquiry).permit(:first_name, :email, :description, :photo, :photo_cache)
+    params.require(:inquiry).permit(:description, :photo, :photo_cache)
+  end
+
+  def set_user
+    @user = User.find(current_user.id)
   end
 
 end
