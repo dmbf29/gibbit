@@ -1,6 +1,7 @@
 .request-wrap {
   background-color: #E0E0E0;
   border-radius: 0 0 5px 5px;
+  box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
 }
 
 .request-wrap a {
@@ -36,4 +37,19 @@
 
 .request-description {
   flex: 1 1 auto;
+}
+
+.user-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.user-details-item {
+  flex: 0 0 33%
+}
+
+.item-photo {
+  width: 100px;
 }
