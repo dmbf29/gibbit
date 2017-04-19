@@ -1,67 +1,159 @@
-<!-- <h1>Inquiries</h1>
-
-<% if @inquiries.empty? %>
-    <p>Sorry, you have no offers yet.</p>
-<% else %>
-  <% @inquiries.each do |inquiry| %>
-    <p><%= inquiry.first_name %></p>
-    <p><%= inquiry.email %></p>
-    <p><%= inquiry.description %></p>
-    <p><%= inquiry.status %></p>
-    <hr>
-  <% end %>
-<% end %> -->
-
-
-<%# @gibbers.each do |gibber| %>
-<%#= gibber.first_name %>
-<%# end %>
-
 <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <div class="avatar-wrap">
+          <%= cl_image_tag "v1492070390/defaultavatar_dnhacp.png", class: "avatar-large" %>
+        <h3><%= @gibber.first_name %></h3>
+        <p><%= @gibber.email %></p>
+        <%= link_to("Change Status", "#" , class: "btn join-button") %>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item justify-content-between">
+        <div class="dashboard-headers">
+          <h4>Need Assignment</h4>
+          <span class="badge badge-default badge-pill"><%= @empties.count %></span>
+        </div>
+        </li>
+        <li class="list-group-item justify-content-between">
+        <div class="dashboard-headers">
+          <h4>Pending Requests</h4>
+          <span class="badge badge-default badge-pill"><%= @pendings.count %></span>
+        </div>
+        </li>
+        <li class="list-group-item justify-content-between">
+        <div class="dashboard-headers">
+          <h4>Accepted Proposals</h4>
+          <span class="badge badge-default badge-pill"><%= @acceptions.count %></span>
+        </div>
+        </li>
+        <li class="list-group-item justify-content-between">
+        <div class="dashboard-headers">
+          <h4>Proposals Outstanding</h4>
+          <span class="badge badge-default badge-pill"><%= @proposals.count %></span>
+        </div>
+        </li>
+        <li class="list-group-item justify-content-between">
+        <div class="dashboard-headers">
+          <h4>Completed Requests</h4>
+          <span class="badge badge-default badge-pill"><%= @completions.count %></span>
+        </div>
+        </li>
+      </ul>
+    </div>
 
-  <h3>Need Assignment</h3>
-  <% @empties.each do |empty| %>
-      <p><%= empty.status %> <%= empty.description %> No gibbers yet ! </p>
-      <%= link_to "Propose", propose_gibbers_inquiry_path(empty), method: :patch, class: "btn btn-warning" %>
-  <% end %>
 
-  <h3>Open Inquiries</h3>
-  <% @pendings.each do |pending| %>
-      <p><%= pending.status %> <%= pending.description %> <%= pending.gibber.nil? ? "No gibbers yet!" : pending.gibber.first_name %>
-      <%= link_to "Propose", propose_gibbers_inquiry_path(pending), method: :patch, class: "btn btn-warning" %></p>
-            <%= form_tag assign_gibber_gibbers_inquiry_path(pending), method: :patch do %>
-            <%= collection_select :gibber, :id, @gibbers,:id, :first_name %>
-            <%= submit_tag "Assign", class: "btn btn-primary" %>
-          <% end %>
-  <% end %>
+   <div class="col-xs-12 col-sm-9">
+      <div class="request-wrap">
+        <h3 class="request-title">Need Assignment</h3>
+        <hr>
+        <% @empties.each do |empty| %>
+          <div class="request">
+            <div class="gibber-current">
+              <p><strong><%= empty.status.capitalize %></strong></p>
+            </div>
+            <div class="gibber-choices">
+              <%= form_tag assign_gibber_gibbers_inquiry_path(empty), method: :patch do %>
+                <%= collection_select :gibber, :id, @gibbers,:id, :first_name %>
+                <%= submit_tag "Assign", class: "btn assign-button" %>
+              <% end %>
+            </div>
+              <div class="gibber-description">
+            <%= link_to inquiry_path(empty) do %>
+                <p><%= empty.description %></p>
+            <% end %>
+              </div>
+          </div>
+          <hr>
+        <% end %>
+      </div>
 
-  <% @proposals.each do |proposal| %>
-      <p><%= proposal.status %> <%= proposal.description %> <%= proposal.gibber.nil? ? "No gibbers!" : proposal.gibber.first_name %>
-      <%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "btn btn-danger" %>
-      <%= link_to "Complete", complete_gibbers_inquiry_path(proposal), method: :patch, class: "btn btn-success" %>
-      <%= form_tag assign_gibber_gibbers_inquiry_path(proposal), method: :patch do %>
-            <%= collection_select :gibber, :id, @gibbers,:id, :first_name %>
-            <%= submit_tag "Assign", class: "btn btn-primary" %>
-          <% end %>
-  <% end %></p>
-
-  <% @acceptions.each do |acception| %>
-      <p><%= acception.status %> <%= acception.description %> <%= acception.gibber.nil? ? "No gibbers!" : acception.gibber.first_name %></p>
-      <%= link_to "Pending", pending_gibbers_inquiry_path(acception), method: :patch, class: "btn btn-danger" %>
-      <%= link_to "Complete", complete_gibbers_inquiry_path(acception), method: :patch, class: "btn btn-success" %>
-      <%= form_tag assign_gibber_gibbers_inquiry_path(acception), method: :patch do %>
-            <%= collection_select :gibber, :id, @gibbers,:id, :first_name %>
-            <%= submit_tag "Assign", class: "btn btn-primary" %>
-          <% end %>
-  <% end %>
-
-  <h3>Completed Inquiries</h3>
-  <% @completions.each do |completion| %>
-      <p><%= completion.status %> <%= completion.description %></p>
-  <% end %>
-  <% @rejections.each do |rejection| %>
-      <p><%= rejection.status %> <%= rejection.description %></p>
-  <% end %>
+      <div class="request-wrap">
+        <h3 class="request-title">Open Requests</h3>
+        <hr>
+        <% @pendings.each do |pending| %>
+          <div class="request">
+            <div class="gibber-current">
+              <p><strong><%= pending.status.capitalize %></strong></p>
+              <p><%= pending.gibber.nil? ? "No gibbers yet!" : pending.gibber.first_name %></p>
+            </div>
+            <div class="gibber-choices">
+              <%= link_to "Propose", propose_gibbers_inquiry_path(pending), method: :patch, class: "btn propose-button" %>
+            </div>
+            <div class="gibber-description">
+              <%= link_to inquiry_path(pending) do %>
+                <p><%= pending.description %></p>
+              <% end %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+        <% @proposals.each do |proposal| %>
+          <div class="request">
+            <div class="gibber-current">
+              <p><strong><%= proposal.status.capitalize %></strong></p>
+              <p><%= proposal.gibber.nil? ? "No gibbers!" : proposal.gibber.first_name %></p>
+            </div>
+            <div class="gibber-choices">
+              <%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "btn pending-button" %>
+            </div>
+            <div class="gibber-description">
+              <%= link_to inquiry_path(proposal) do %>
+                <p><%= proposal.description %></p>
+              <% end %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+        <% @acceptions.each do |acception| %>
+          <div class="request">
+            <div class="gibber-current">
+              <p><strong><%= acception.status.capitalize %></strong></p>
+               <p><%= acception.gibber.nil? ? "No gibbers!" : acception.gibber.first_name %></p>
+            </div>
+            <div class="gibber-choices">
+              <%= link_to "Complete", complete_gibbers_inquiry_path(acception), method: :patch, class: "btn complete-button" %>
+            </div>
+            <div class="gibber-description">
+              <%= link_to inquiry_path(acception) do %>
+                <%= acception.description %>
+              <% end %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      </div>
+      <div class="request-wrap">
+        <h3 class="request-title">Completed Requests</h3>
+        <hr>
+        <% @completions.each do |completion| %>
+          <div class="request">
+            <div class="request-current">
+              <p><strong><%= completion.status.capitalize %></strong></p>
+            </div>
+            <div class="request-description">
+              <%= link_to inquiry_path(completion) do %>
+                <%= completion.description %></p>
+              <% end %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+        <% @rejections.each do |rejection| %>
+          <div class="request">
+            <div class="request-current">
+              <p><strong><%= rejection.status.capitalize %></strong></p>
+            </div>
+            <div class="request-description">
+              <%= link_to inquiry_path(rejection) do %>
+                <p><%= rejection.description %></p>
+              <% end %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 

@@ -18,12 +18,18 @@
   color: #424244;
 }
 
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 95%;
+}
+
 .request {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-left: 20px;
-  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .request:hover {
@@ -44,10 +50,12 @@
 
 .request-current {
   flex: 0 0 20%;
+  text-align: center;
 }
 
 .request-description {
   flex: 1 1 auto;
+  margin-left: 5px;
 }
 
 .dashboard-headers {
