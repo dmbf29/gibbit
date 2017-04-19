@@ -42,7 +42,7 @@
   <% end %></p>
 
   <% @acceptions.each do |acception| %>
-      <p><%= accpetion.status %> <%= accpetion.description %> <%= accpetion.gibber.nil? "No gibbers!" : acception.gibber.first_name %></p>
+      <p><%= acception.status %> <%= acception.description %> <%= acception.gibber.nil? ? "No gibbers!" : acception.gibber.first_name %></p>
   <% end %>
 
   <h3>Completed Inquiries</h3>
