@@ -5,8 +5,8 @@
       <%= f.input :first_name %>
       <%= f.input :email %>
       <%= f.input :description, as: :text %>
-      <%= f.input :photo %>
-      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.input :photo, required: false %>
+      <%= f.input :photo_cache, required: false, as: :hidden %>
       <%= f.submit class: "btn btn-primary" %>
     <% end %>
   </div>

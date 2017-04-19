@@ -8,5 +8,5 @@ class Inquiry < ApplicationRecord
   validates :description, presence: true
   validates :email, presence: true
   validates :first_name, presence: true
-  validates :status, presence: true, inclusion: { in: %w(pending proposed accepted rejected completed) }
+  # validates :status, presence: true, inclusion: { in: %w(pending proposed accepted rejected completed) }
 end
