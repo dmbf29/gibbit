@@ -17,6 +17,8 @@
   <h3>Need Assignment</h3>
   <% @empties.each do |empty| %>
       <p><%= empty.status %><%= empty.description %></p>
+      <%= link_to "Propose", propose_gibbers_inquiry_path(empty), method: :patch, class: "btn btn-success offer-button" %>
+      <%= link_to "Pending", pending_gibbers_inquiry_path(empty), method: :patch, class: "btn btn-danger offer-button" %>
   <% end %>
 
   <h3>Open Inquiries</h3>
@@ -38,3 +40,5 @@
       <p><%= rejection.status %><%= rejection.description %></p>
   <% end %>
 </div>
+
+
