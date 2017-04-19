@@ -1,7 +1,66 @@
-<h1>Inquiries#index</h1>
+<div class="container">
+  <h1 style="text-align: center" >My Requests</h1>
+  <div class="request-wrap">
+    <h3 class="request-title">Open Requests</h3>
+    <% @pendings.each do |pending| %>
+      <div class="request">
+        <div class="request-current">
+          <p><%= pending.status %></p>
+        </div>
+        <div class="request-description">
+          <p><%= pending.description %></p>
+        </div>
+      </div>
+    <% end %>
+    <% @proposals.each do |proposal| %>
+      <div class="request">
+        <div class="request-current">
+          <p><%= proposal.status %></p>
+        </div>
+        <div class="request-description">
+          <p><%= proposal.description %></p>
+        </div>
+      </div>
+    <% end %>
+    <% @acceptions.each do |accpetion| %>
+      <div class="request">
+        <div class="request-current">
+          <p><%= accpetion.status %></p>
+        </div>
+        <div class="request-description">
+          <p><%= accpetion.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<% @inquiries.each do |inquiry| %>
-<p><%= inquiry.description %></p>
-<p><%= inquiry.first_name %></p>
-<p><%= inquiry.status  %></p>
-<% end %>
+
+  <div class="request-wrap">
+    <h3 class="request-title">Completed Requests</h3>
+    <% @completions.each do |completion| %>
+      <div class="request">
+        <div class="request-current">
+          <p><%= completion.status %></p>
+        </div>
+        <div class="request-description">
+          <p><%= completion.description %></p>
+        </div>
+      </div>
+    <% end %>
+    <% @rejections.each do |rejection| %>
+      <div class="request">
+        <div class="request-current">
+          <p><%= rejection.status %></p>
+        </div>
+        <div class="request-description">
+          <p><%= rejection.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+  <h5>*Test*</h5>
+  <p># of inquiries: <%= @inquiries.count %></p>
+
+</div>

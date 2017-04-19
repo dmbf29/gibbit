@@ -4,6 +4,11 @@ class InquiriesController < ApplicationController
 
   def index
     @inquiries = current_user.inquiries
+    @pendings = @inquiries.where(status: "pending")
+    @proposals = @inquiries.where(status: "proposed")
+    @acceptions = @inquiries.where(status: "accepted")
+    @rejections = @inquiries.where(status: "rejected")
+    @completions = @inquiries.where(status: "completed")
   end
 
   def show
