@@ -2,28 +2,6 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-// .banner {
-//   width: 100%;
-//   height: auto;
-// }
-
-// .trim {
-//   width: auto;
-//   height: 600px;
-//   overflow: hidden;
-//   position: relative;
-// }
-// .trim banner {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   -webkit-transform: translate(-50%, -50%);
-//   -ms-transform: translate(-50%, -50%);
-//   transform: translate(-50%, -50%);
-//   width: auto;
-//   height: 100%;
-// }
-
 .banner {
   color: white;
   text-align: center;
@@ -58,4 +36,38 @@
 }
 .banner-search-input:focus  {
   border: 1px solid #CCCCCC;
+}
+
+body {
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 1.4;
+}
+h2 {
+  font-weight: 200;
+  font-size: 25px;
+  margin: 0;
+  padding: 15px;
+
+}
+
+.card-white {
+  background: white;
+  padding: 30px;
+  box-shadow: 1px 1px 2px #e7e7e7;
+  border-radius: 4px;
+  margin: 20px 50px;
+}
+
+.wrapper-gray {
+  background: #b3b3bc;
+  color: #4e4e4e;
+  padding-bottom: 45px;
+}
+
+.wrapper-header {
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 27px;
+  color: white;
 }
