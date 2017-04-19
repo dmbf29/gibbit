@@ -1,6 +1,11 @@
 .request-wrap {
-  background-color: #CECECE;
+  background-color: #E0E0E0;
   border-radius: 0 0 5px 5px;
+}
+
+.request-wrap a {
+  text-decoration: none;
+  color: #424244;
 }
 
 .request {
@@ -9,6 +14,11 @@
   align-items: center;
   padding-left: 20px;
   padding-top: 5px;
+}
+
+.request:hover {
+  background-color: #CECECE;
+  cursor: pointer;
 }
 
 .request-title {
