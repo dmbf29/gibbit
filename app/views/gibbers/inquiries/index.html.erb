@@ -1,4 +1,4 @@
-<h1>Inquiries</h1>
+<!-- <h1>Inquiries</h1>
 
 <% if @inquiries.empty? %>
     <p>Sorry, you have no offers yet.</p>
@@ -10,4 +10,31 @@
     <p><%= inquiry.status %></p>
     <hr>
   <% end %>
-<% end %>
+<% end %> -->
+
+<div class="container">
+
+  <h3>Need Assignment</h3>
+  <% @empties.each do |empty| %>
+      <p><%= empty.status %><%= empty.description %></p>
+  <% end %>
+
+  <h3>Open Inquiries</h3>
+  <% @pendings.each do |pending| %>
+      <p><%= pending.status %><%= pending.description %></p>
+  <% end %>
+  <% @proposals.each do |proposal| %>
+      <p><%= proposal.status %><%= proposal.description %></p>
+  <% end %>
+  <% @acceptions.each do |accpetion| %>
+      <p><%= accpetion.status %><%= accpetion.description %></p>
+  <% end %>
+
+  <h3>Completed Inquiries</h3>
+  <% @completions.each do |completion| %>
+      <p><%= completion.status %><%= completion.description %></p>
+  <% end %>
+  <% @rejections.each do |rejection| %>
+      <p><%= rejection.status %><%= rejection.description %></p>
+  <% end %>
+</div>
