@@ -2,3 +2,60 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+// .banner {
+//   width: 100%;
+//   height: auto;
+// }
+
+// .trim {
+//   width: auto;
+//   height: 600px;
+//   overflow: hidden;
+//   position: relative;
+// }
+// .trim banner {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -webkit-transform: translate(-50%, -50%);
+//   -ms-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
+//   width: auto;
+//   height: 100%;
+// }
+
+.banner {
+  color: white;
+  text-align: center;
+  height: 50vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+}
+
+.banner-image-search {
+  flex: 0 1 300px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px;
+  position: relative;
+}
+
+.banner-search-input {
+  flex: 0 1 300px;
+  transition: all 0.15s ease;
+  line-height: 40px;
+  font-weight: lighter;
+  color: #666666;
+  border: 1px solid #E6E6E6;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+}
+.banner-search-input:focus  {
+  border: 1px solid #CCCCCC;
+}
