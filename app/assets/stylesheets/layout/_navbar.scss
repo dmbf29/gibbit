@@ -55,12 +55,28 @@
   padding: 0 20px;
   border-radius: 5px;
   line-height: 40px;
+  background-color: $green;
+  color: white;
+  font-size: 14px;
+  border: 2px solid $green;
+}
+.gibbit-button:hover {
+  color: $green;
+  background: white;
+  border-color: $green;
+}
+
+.join-button {
+  margin-left: 10px;
+  padding: 0 20px;
+  border-radius: 5px;
+  line-height: 40px;
   background-color: white;
   color: $green;
   font-size: 14px;
   border: 2px solid $green;
 }
-.gibbit-button:hover {
+.join-button:hover {
   color: white;
   background: $green;
   border-color: white;
