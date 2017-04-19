@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418050130) do
+ActiveRecord::Schema.define(version: 20170419001805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,15 +35,15 @@ ActiveRecord::Schema.define(version: 20170418050130) do
   end
 
   create_table "inquiries", force: :cascade do |t|
-    t.string   "status"
+    t.string   "status",      default: "pending"
     t.text     "description"
     t.string   "photo"
-    t.boolean  "live"
+    t.boolean  "live",        default: false
     t.integer  "credits"
     t.integer  "user_id"
     t.integer  "gibber_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "email"
     t.string   "first_name"
     t.index ["gibber_id"], name: "index_inquiries_on_gibber_id", using: :btree
