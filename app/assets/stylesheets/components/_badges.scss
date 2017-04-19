@@ -1,15 +1,15 @@
 .badge-container {
   position: relative;
   font-size: 25px;
-  line-height: 30px;
-  width: 30px;
-  color: grey;
+  line-height: 50px;
+  width: 50px;
+  color: $green;
 }
 .badge {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  font-size: 10px;
+  top: 15px;
+  right: 15px;
+  font-size: 16px;
   color: white;
   display: flex;
   align-items: center;
