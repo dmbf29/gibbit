@@ -17,9 +17,9 @@ class Gibbers::InquiriesController < ApplicationController
 
   def propose
     @inquiry.status = "proposed"
+    @inquiry.gibber = current_gibber
     @inquiry.save
     redirect_to :back
-    # set current_gibber
   end
 
   def pending
@@ -29,6 +29,9 @@ class Gibbers::InquiriesController < ApplicationController
   end
 
   def complete
+    @inquiry.status = "completed"
+    @inquiry.save
+    redirect_to :back
   end
 
   private
