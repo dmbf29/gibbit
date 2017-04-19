@@ -39,10 +39,20 @@
       <p><%= proposal.status %> <%= proposal.description %> <%= proposal.gibber.nil? ? "No gibbers!" : proposal.gibber.first_name %>
       <%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "btn btn-danger" %>
       <%= link_to "Complete", complete_gibbers_inquiry_path(proposal), method: :patch, class: "btn btn-success" %>
+      <%= form_tag assign_gibber_gibbers_inquiry_path(proposal), method: :patch do %>
+            <%= collection_select :gibber, :id, @gibbers,:id, :first_name %>
+            <%= submit_tag "Assign", class: "btn btn-primary" %>
+          <% end %>
   <% end %></p>
 
   <% @acceptions.each do |acception| %>
       <p><%= acception.status %> <%= acception.description %> <%= acception.gibber.nil? ? "No gibbers!" : acception.gibber.first_name %></p>
+      <%= link_to "Pending", pending_gibbers_inquiry_path(acception), method: :patch, class: "btn btn-danger" %>
+      <%= link_to "Complete", complete_gibbers_inquiry_path(acception), method: :patch, class: "btn btn-success" %>
+      <%= form_tag assign_gibber_gibbers_inquiry_path(acception), method: :patch do %>
+            <%= collection_select :gibber, :id, @gibbers,:id, :first_name %>
+            <%= submit_tag "Assign", class: "btn btn-primary" %>
+          <% end %>
   <% end %>
 
   <h3>Completed Inquiries</h3>
