@@ -1,111 +1,114 @@
 <div class="container">
   <div class="row">
-  <div class="request-wrap">
-<!--   <h1 style="text-align: center" >My Requests</h1> -->
-
-
-<!--     <div class="user-details">
-      <div class="user-details-item">
- -->
     <div class="col-xs-12 col-sm-3">
-    <ul class="list-group">
-      <li class="list-group-item justify-content-between">
+      <div class="avatar-wrap">
+        <% if current_user.facebook_picture_url.nil? %>
+            <%= cl_image_tag "v1492070390/defaultavatar_dnhacp.png", class: "avatar-large" %>
+        <% else %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
+        <% end %>
+        <h3><%= @user.first_name %></h3>
+        <p><%= @user.email %></p>
+        <%= link_to("Get Credits", "#" , class: "btn gibbit-button") %>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item justify-content-between">
+          <div class="dashboard-headers">
+            <h3>Credits</h3>
+            <span class="badge badge-default badge-pill"><%= @user.credits %></span>
+          </div>
+        </li>
+        <li class="list-group-item justify-content-between">
+          <div class="dashboard-headers">
+          <h3>Pending</h3>
+          <span class="badge badge-default badge-pill"><%= @user.inquiries.count %></span>
+          </div>
+        </li>
+        <li class="list-group-item justify-content-between">
         <div class="dashboard-headers">
-          <h3>Credits</h3>
-          <span class="badge badge-default badge-pill"><%= @user.credits %></span>
-        </div>
-      </li>
-      <li class="list-group-item justify-content-between">
-        <div class="dashboard-headers">
-        <h3>Pending</h3>
-        <span class="badge badge-default badge-pill"><%= @user.inquiries.count %></span>
-        </div>
-      </li>
-      <li class="list-group-item justify-content-between">
-      <div class="dashboard-headers">
-        <h3>Completed</h3>
-        <span class="badge badge-default badge-pill"><%= @completions.count %></span>
-        </div>
-      </li>
-    </ul>
-    </div>
+          <h3>Completed</h3>
+          <span class="badge badge-default badge-pill"><%= @completions.count %></span>
+          </div>
+        </li>
+      </ul>
     </div>
 
 
-  <div class="col-xs-12 col-sm-9">
-  <div class="request-wrap">
-    <h3 class="request-title">New Request</h3>
-    <%= render 'shared/inquiry_form' %>
-  </div>
 
-  <div class="request-wrap">
-    <h3 class="request-title">Open Requests</h3>
-    <% @pendings.each do |pending| %>
-      <%= link_to inquiry_path(pending) do %>
-      <div class="request">
-        <div class="request-current">
-          <p><%= pending.status %></p>
-        </div>
-        <div class="request-description">
-          <p><%= pending.description %></p>
-        </div>
+    <div class="col-xs-12 col-sm-9">
+      <div class="request-wrap">
+        <h3 class="request-title">New Request</h3>
+        <%= render 'shared/inquiry_form' %>
       </div>
-      <% end %>
-    <% end %>
-    <% @proposals.each do |proposal| %>
-      <%= link_to inquiry_path(proposal) do %>
-      <div class="request">
-        <div class="request-current">
-          <p><%= proposal.status %></p>
-        </div>
-        <div class="request-description">
-          <p><%= proposal.description %></p>
-        </div>
+
+      <div class="request-wrap">
+        <h3 class="request-title">Open Requests</h3>
+        <% @pendings.each do |pending| %>
+          <%= link_to inquiry_path(pending) do %>
+          <div class="request">
+            <div class="request-current">
+              <p><%= pending.status %></p>
+            </div>
+            <div class="request-description">
+              <p><%= pending.description %></p>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+        <% @proposals.each do |proposal| %>
+          <%= link_to inquiry_path(proposal) do %>
+          <div class="request">
+            <div class="request-current">
+              <p><%= proposal.status %></p>
+            </div>
+            <div class="request-description">
+              <p><%= proposal.description %></p>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+        <% @acceptions.each do |accepetion| %>
+          <%= link_to inquiry_path(accepetion) do %>
+          <div class="request">
+            <div class="request-current">
+              <p><%= accepetion.status %></p>
+            </div>
+            <div class="request-description">
+              <p><%= accepetion.description %></p>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
       </div>
-      <% end %>
-    <% end %>
-    <% @acceptions.each do |accepetion| %>
-      <%= link_to inquiry_path(accepetion) do %>
-      <div class="request">
-        <div class="request-current">
-          <p><%= accepetion.status %></p>
-        </div>
-        <div class="request-description">
-          <p><%= accepetion.description %></p>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
 
 
-  <div class="request-wrap">
-    <h3 class="request-title">Completed Requests</h3>
-    <% @completions.each do |completion| %>
-      <%= link_to inquiry_path(completion) do %>
-      <div class="request">
-        <div class="request-current">
-          <p><%= completion.status %></p>
-        </div>
-        <div class="request-description">
-          <p><%= completion.description %></p>
-        </div>
+      <div class="request-wrap">
+        <h3 class="request-title">Completed Requests</h3>
+        <% @completions.each do |completion| %>
+          <%= link_to inquiry_path(completion) do %>
+          <div class="request">
+            <div class="request-current">
+              <p><%= completion.status %></p>
+            </div>
+            <div class="request-description">
+              <p><%= completion.description %></p>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+        <% @rejections.each do |rejection| %>
+          <%= link_to inquiry_path(rejection) do %>
+          <div class="request">
+            <div class="request-current">
+              <p><%= rejection.status %></p>
+            </div>
+            <div class="request-description">
+              <p><%= rejection.description %></p>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
       </div>
-      <% end %>
-    <% end %>
-    <% @rejections.each do |rejection| %>
-      <%= link_to inquiry_path(rejection) do %>
-      <div class="request">
-        <div class="request-current">
-          <p><%= rejection.status %></p>
-        </div>
-        <div class="request-description">
-          <p><%= rejection.description %></p>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
-  </div>
-  </div>
+    </div>
+  </di    v>
 </div>
