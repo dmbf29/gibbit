@@ -6,6 +6,8 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <%= link_to t(".sign_in", default: "Gibber"), new_gibber_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
