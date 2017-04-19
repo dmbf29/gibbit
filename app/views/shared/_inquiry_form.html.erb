@@ -2,5 +2,7 @@
   <%= f.input :description, as: :text %>
   <%= f.input :photo, required: false %>
   <%= f.input :photo_cache, required: false, as: :hidden %>
-  <%= f.submit class: "btn btn-primary" %>
+  <div class="form-button">
+  <%= f.submit "Make Request", class: "btn gibbit-button" %>
+  </div>
 <% end %>
