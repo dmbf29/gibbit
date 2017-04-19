@@ -16,25 +16,31 @@
 
   <h3>Need Assignment</h3>
   <% @empties.each do |empty| %>
-      <p><%= empty.status %><%= empty.description %></p>
+      <p><%= empty.status %> <%= empty.description %> No gibbers yet ! </p>
+      <%= link_to "Propose", propose_gibbers_inquiry_path(empty), method: :patch, class: "btn btn-warning" %>
   <% end %>
 
   <h3>Open Inquiries</h3>
   <% @pendings.each do |pending| %>
-      <p><%= pending.status %><%= pending.description %></p>
+      <p><%= pending.status %> <%= pending.description %> <%= pending.gibber.nil? ? "No gibbers yet!" : pending.gibber.first_name %></p>
+      <%= link_to "Propose", propose_gibbers_inquiry_path(pending), method: :patch, class: "btn btn-warning" %>
   <% end %>
   <% @proposals.each do |proposal| %>
-      <p><%= proposal.status %><%= proposal.description %></p>
+      <p><%= proposal.status %> <%= proposal.description %> <%= proposal.gibber.first_name %></p>
+      <%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "btn btn-danger" %>
+      <%= link_to "Complete", complete_gibbers_inquiry_path(proposal), method: :patch, class: "btn btn-success" %>
   <% end %>
   <% @acceptions.each do |accpetion| %>
-      <p><%= accpetion.status %><%= accpetion.description %></p>
+      <p><%= accpetion.status %> <%= accpetion.description %> <%= accpetion.gibber.first_name %></p>
   <% end %>
 
   <h3>Completed Inquiries</h3>
   <% @completions.each do |completion| %>
-      <p><%= completion.status %><%= completion.description %></p>
+      <p><%= completion.status %> <%= completion.description %></p>
   <% end %>
   <% @rejections.each do |rejection| %>
-      <p><%= rejection.status %><%= rejection.description %></p>
+      <p><%= rejection.status %> <%= rejection.description %></p>
   <% end %>
 </div>
+
+

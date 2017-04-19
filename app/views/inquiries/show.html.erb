@@ -13,26 +13,33 @@
       </div>
 
       <div class="col-xs-12 col-md-6">
+        <div class="card-inquiry-description">
+          <h2>Inquiry Details</h2>
+          <p>Price : <%= @inquiry.credits %> credit</p>
+          <p>Status : <%= @inquiry.status %> </p>
+          <p>Requested by <%= @inquiry.first_name %></p>
+          <p>Handled by :
+            <% if @inquiry.gibber.nil? %>
+              <%= "" %>
+            <% else %>
+              <%= @inquiry.gibber.first_name %>
+            <% end %></p>
+          <p><%= link_to "View All My Requests", inquiries_path %></p>
+          <p><%= link_to "Make a new inquiry", new_inquiry_path %></p>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-12">
         <div class="description-card">
+          <h2>Messages</h2>
           <p><%= @inquiry.user.first_name %> : <%= @inquiry.description %></p>
           <p><% @messages.each do |message| %>
-          <%= message.sender.first_name %> : <%= message.content %></p>
+          <%= message.sender.first_name %> : <%= message.content %> </p>
           <% end %>
         </div>
       </div>
+
+
     </div>
   </div>
 </div>
-
-
-<p>Price : <%= @inquiry.credits %> credit</p>
-<p>Status : <%= @inquiry.status %> </p>
-<p>Requested by <%= @inquiry.first_name %></p>
-<p>Handled by :
-  <% if @inquiry.gibber.nil? %>
-    <%= "" %>
-  <% else %>
-    <%= @inquiry.gibber.first_name %>
-  <% end %></p>
-<p><%= link_to "View All My Requests", inquiries_path %></p>
-<p><%= link_to "Make a new inquiry", new_inquiry_path %></p>
