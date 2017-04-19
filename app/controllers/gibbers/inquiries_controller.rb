@@ -2,7 +2,7 @@ class Gibbers::InquiriesController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :authenticate_gibber!
   # user should not be authorized to check this page
-  before_action :set_inquiry, only: [:propose, :pending]
+  before_action :set_inquiry, only: [:propose, :pending, :complete, :assign_gibber]
 
   def index
     @inquiries = Inquiry.all
@@ -12,6 +12,7 @@ class Gibbers::InquiriesController < ApplicationController
     @acceptions = Inquiry.where(status: "accepted")
     @rejections = Inquiry.where(status: "rejected")
     @completions = Inquiry.where(status: "completed")
+    @gibbers = Gibber.where.not(id: current_gibber)
   end
 
   def propose
@@ -30,6 +31,15 @@ class Gibbers::InquiriesController < ApplicationController
   def complete
     @inquiry.status = "completed"
     @inquiry.save
+    redirect_to :back
+  end
+
+  def assign_gibber
+    # binding.pry
+    @gibber = Gibber.find(params[:gibber][:id])
+    @inquiry.gibber = @gibber
+    @inquiry.save
+
     redirect_to :back
   end
 
