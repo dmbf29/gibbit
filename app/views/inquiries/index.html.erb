@@ -9,7 +9,7 @@
         <% end %>
         <h3><%= @user.first_name %></h3>
         <p><%= @user.email %></p>
-        <%= link_to("Get Credits", "#" , class: "btn gibbit-button") %>
+        <%= link_to("Get Credits", "#" , class: "btn join-button") %>
       </div>
       <ul class="list-group">
         <li class="list-group-item justify-content-between">
@@ -37,8 +37,10 @@
 
     <div class="col-xs-12 col-sm-9">
       <div class="request-wrap">
-        <h3 class="request-title">New Request</h3>
-        <%= render 'shared/inquiry_form' %>
+        <div class="mini-form">
+          <h3 class="request-title">New Request</h3>
+          <%= render 'shared/inquiry_form' %>
+        </div>
       </div>
 
       <div class="request-wrap">
