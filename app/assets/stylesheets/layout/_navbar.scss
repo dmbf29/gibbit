@@ -49,20 +49,21 @@
 }
 
 /* Navbar right button */
-.navbar-wagon-button {
+
+.gibbit-button {
   margin-left: 10px;
   padding: 0 20px;
-  border-radius: 20em;
+  border-radius: 5px;
   line-height: 40px;
-  background-color: #D23333;
+  background-color: $green;
   color: white;
   font-size: 14px;
-  border: 2px solid #D23333;
+  border: 2px solid white;
 }
-.navbar-wagon-button:hover {
-  color: white;
-  background: #D23333;
-  border-color: #ac2626;
+.gibbit-button:hover {
+  color: $green;
+  background: white;
+  border-color: $green;
 }
 
 /* Navbar search form */
