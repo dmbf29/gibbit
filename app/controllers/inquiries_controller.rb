@@ -9,6 +9,7 @@ class InquiriesController < ApplicationController
     @acceptions = @inquiries.where(status: "accepted")
     @rejections = @inquiries.where(status: "rejected")
     @completions = @inquiries.where(status: "completed")
+    @inquiry = Inquiry.new
   end
 
   def show
