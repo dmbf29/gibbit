@@ -1,20 +1,48 @@
-<h1>Inquiries#show</h1>
-
 <div class="container">
   <div class="row">
-    <div class="wrapper">
-      <div class="col-xs-12 col-md-6">
-       <div class="message-box">
-        <%= simple_form_for [@inquiry, @message] do |f| %>
-        <%= f.input :content, placeholder: "Type your message", label: false %>
-        <%= f.submit "Send", class: "gibbit-button btn" %>
-        <% end %>
-       </div>
+    <div class="col-xs-12">
+      <div class="chatbox-wrap">
+        <div class="chatbox-title">
+          <h2>Messages</h2>
+        </div>
+        <div class="chatbox-messages">
+          <p><strong><%= @inquiry.user.first_name %></strong> : <%= @inquiry.description %></p>
+          <p><% @messages.each do |message| %>
+          <strong><%= message.sender.first_name %></strong> : <%= message.content %> </p>
+          <% end %>
+        </div>
       </div>
-
-      <div class="col-xs-12 col-md-6">
-        <div class="card-inquiry-description">
-          <h2>Inquiry Details</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="chatdetails-wrap">
+        <div class="chatbox-title">
+          <h5>Order Status</h5>
+        </div>
+        <div class="chatdetails-status">
+          <%= render 'inquiries/order_status' %>
+        </div>
+      </div>
+      <div class="chatdetails-wrap">
+        <div class="message-box">
+          <div class="message-box-field">
+            <%= simple_form_for [@inquiry, @message] do |f| %>
+            <%= f.input :content, placeholder: "Type your message", label: false %>
+          </div>
+          <div class="message-box-button">
+            <%= f.submit "Send", class: "gibbit-button btn" %>
+          </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="chatdetails-wrap">
+        <div class="chatbox-title">
+          <h5>Request Details</h5>
+        </div>
+        <div class="chatdetails-description">
           <p>Price : <%= @inquiry.credits %> credit</p>
           <p>Status : <%= @inquiry.status %> </p>
           <p>Requested by <%= @inquiry.first_name %></p>
@@ -24,22 +52,9 @@
             <% else %>
               <%= @inquiry.gibber.first_name %>
             <% end %></p>
-          <p><%= link_to "View All My Requests", inquiries_path %></p>
-          <p><%= link_to "Make a new inquiry", new_inquiry_path %></p>
+          <p><%= link_to "View All My Requests", inquiries_path, class: "btn show-button" %>
+          <%= link_to "Make a New Request", new_inquiry_path, class: "btn show-button" %></p>
         </div>
       </div>
-
-      <div class="col-xs-12 col-md-12">
-        <div class="description-card">
-          <h2>Messages</h2>
-          <p><%= @inquiry.user.first_name %> : <%= @inquiry.description %></p>
-          <p><% @messages.each do |message| %>
-          <%= message.sender.first_name %> : <%= message.content %> </p>
-          <% end %>
-        </div>
-      </div>
-
-
     </div>
   </div>
-</div>

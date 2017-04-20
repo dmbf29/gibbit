@@ -1,6 +1,7 @@
 class InquiriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show ]
   before_action :set_user, only: [:new, :create, :show, :index]
+  before_action :set_inquiry, only: [:accept, :reject]
 
   def index
     @inquiries = current_user.inquiries
@@ -16,6 +17,18 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.find(params[:id])
     @messages = Message.where(inquiry: @inquiry)
     @message = Message.new
+  end
+
+  def accept
+    @inquiry.status = "accepted"
+    @inquiry.save
+    redirect_to :back
+  end
+
+  def reject
+    @inquiry.status = "rejected"
+    @inquiry.save
+    redirect_to :back
   end
 
   def new
@@ -46,5 +59,9 @@ class InquiriesController < ApplicationController
 
   def set_user
     current_user.nil? ? @gibber = current_gibber : @user = current_user
+  end
+
+  def set_inquiry
+    @inquiry = Inquiry.find(params[:id])
   end
 end
