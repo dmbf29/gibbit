@@ -41,13 +41,21 @@
 .card-white {
   background: white;
   padding: 30px;
+  // padding-right: 50px;
+  // padding-left: 50px;
   box-shadow: 1px 1px 2px #e7e7e7;
   border-radius: 4px;
-  margin: 20px 50px;
+  margin: 20px 10px;
 }
 
 .wrapper-gray {
-  background: #b3b3bc;
+  background: #c6c6ce;
+  color: #4e4e4e;
+  padding-bottom: 45px;
+}
+
+.wrapper-white {
+  background: white;
   color: #4e4e4e;
   padding-bottom: 45px;
 }
@@ -56,5 +64,12 @@
   text-align: center;
   margin-top: 0px;
   padding-top: 27px;
-  color: white;
+  color: #000000;
+}
+
+.wrapper-review-header {
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 27px;
+  color: #636363;
 }
