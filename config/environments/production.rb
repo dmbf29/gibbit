@@ -1,7 +1,7 @@
 Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "http://www.gibbit.online" }
+  config.action_mailer.default_url_options = { host: "www.gibbit.online" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
