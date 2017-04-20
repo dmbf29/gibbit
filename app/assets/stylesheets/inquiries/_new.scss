@@ -1,15 +1,30 @@
 .sign-wrap { min-height: 100%;
 }
 
-.sign-box {
-  text-align: center;
-  border-style: solid;
-  border-color: $green;
-  padding: 20px;
-  margin-top: 50px;
-  border-radius: 10px;
-}
+// .sign-box {
+//   text-align: center;
+//   border-style: solid;
+//   border-color: $green;
+//   padding: 20px;
+//   margin-top: 50px;
+//   border-radius: 10px;
+// }
 
 .form-button {
   text-align: center;
+}
+
+.new-inquiry-banner {
+  background-image: url('http://res.cloudinary.com/dmbf29/image/upload/v1492614887/frogtoilet_gmeeys.jpg');
+  color: white;
+  height: 70vh;
+  background-size: cover !important;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  background-position: center;
+}
+
+.left-box {
+  width: 500px
 }
