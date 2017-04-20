@@ -1,0 +1,106 @@
+.chatbox-wrap {
+  background-color: #E0E0E0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
+}
+.chatdetails-wrap {
+  background-color: #E0E0E0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
+}
+
+.chatdetails-status {
+  text-align: center;
+  padding: 5px;
+}
+
+.chatbox-title {
+  background-color: #424244;
+  color: $green;
+  border-radius: 0 0 5px 5px;
+  padding: 5px;
+  margin-top: 0;
+}
+
+.chatbox-messages {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.message-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.message-box-field {
+  flex: 1 1 auto;
+  margin-left: 5px;
+
+}
+
+.message-box-button {
+  flex: 0 0 10%;
+  text-align: center;
+}
+
+.chatdetails-description {
+  padding: 10px;
+}
+
+.chatdetails-description a {
+  text-decoration: none;
+}
+
+.show-button {
+  margin-left: 10px;
+  padding: 0 20px;
+  border-radius: 5px;
+  line-height: 40px;
+  background-color: #E0E0E0;
+  color: $green;
+  font-size: 14px;
+  border: 2px solid $green;
+}
+.show-button:hover {
+  color: #424244;
+  background: #E0E0E0;
+  border-color: #424244;
+}
+
+.accept-button {
+  padding: 0 20px;
+  border-radius: 5px;
+  line-height: 40px;
+  background-color: $green;
+  color: white;
+  font-size: 20px;
+  border: 2px solid $green;
+  margin-bottom: 5px;
+}
+.accept-button:hover {
+  color: $green;
+  background: #E0E0E0;
+  border-color: $green;
+}
+
+.reject-button {
+  padding: 0 20px;
+  border-radius: 5px;
+  line-height: 40px;
+  background-color: $red;
+  color: white;
+  font-size: 20px;
+  border: 2px solid $red;
+  margin-bottom: 5px;
+}
+.reject-button:hover {
+  color: $red;
+  background: #E0E0E0;
+  border-color: $red;
+}

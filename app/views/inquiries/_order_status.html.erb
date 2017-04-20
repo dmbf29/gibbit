@@ -1,0 +1,20 @@
+<% if @inquiry.status == "proposed" %>
+  <h3 style="color:#469AE0;"><%= @inquiry.status.capitalize %> </h3>
+  <p>Your proposal is in your messages.</p>
+  <ul class="list-inline">
+    <li><%= link_to "Accept", accept_inquiry_path(@inquiry), method: :patch, class: "btn accept-button" %></li>
+    <li><%= link_to "Reject", reject_inquiry_path(@inquiry), method: :patch, class: "btn reject-button" %></li>
+  </ul>
+<% elsif @inquiry.status == "pending" %>
+    <h3 style="color:#FDB631;"><%= @inquiry.status.capitalize %> </h3>
+    <p>A gibber is checking your order now!</p>
+<% elsif @inquiry.status == "accepted" %>
+    <h3 style="color:#20bd3e;"><%= @inquiry.status.capitalize %> </h3>
+    <p>A gibber will finalize your order now!</p>
+<% elsif @inquiry.status == "rejected" %>
+    <h3 style="color:#EE5F5B;"><%= @inquiry.status.capitalize %> </h3>
+    <p>We're sorry the proposal didn't meet your needs. Let us know if we can do anything differently.</p>
+<% elsif @inquiry.status == "completed" %>
+    <h3 style="color:#20bd3e;"><%= @inquiry.status.capitalize %> </h3>
+    <p>You're all set! Thank you for choosing Gibbit.</p>
+<% end %>
