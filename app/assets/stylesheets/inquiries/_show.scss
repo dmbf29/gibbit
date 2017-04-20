@@ -110,26 +110,43 @@
   border-color: $red;
 }
 
-.user-message {
+.message-user {
   text-align: left;
   margin-bottom: 10px;
   margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center
 }
-.gibber-message {
+.message-gibber {
   text-align: right;
   margin-bottom: 10px;
   margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center
 }
 
-.user-name {
+.message-user-name {
+ // margin: 0 10px 0 0;
+  flex: 0 1 10%;
   font-weight: bold;
+  span {
+    white-space: nowrap;
+  }
 }
 
-.gibber-name {
+.message-gibber-name {
+  margin: 0 0 0 10px;
+  flex: 0 1 10%;
   font-weight: bold;
+  span {
+    white-space: nowrap;
+  }
 }
 
-.user-content {
+.message-user-content {
+  flex: 0 1 auto;
   background-color: $green;
   border-radius: 10px;
   padding: 5px;
@@ -137,7 +154,8 @@
   box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
 }
 
-.gibber-content {
+.message-gibber-content {
+  flex: 0 1 auto;
   background-color: white;
   border-radius: 10px;
   padding: 5px;

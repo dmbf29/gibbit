@@ -1,21 +1,49 @@
-<div class="user-message">
-  <p><span class="user-name"><%= @inquiry.user.first_name %></span> : <span class="user-content"><%= @inquiry.description %></span></p>
+<div class="message-user">
+  <div class="message-user-name">
+    <span><%= @inquiry.user.first_name %>: </span>
+  </div>
+  <div class="message-user-content">
+    <span><%= @inquiry.description %></span>
+  </div>
 </div>
-<div class="gibber-message">
-    <p><span class="gibber-content">Your request has been received!</span> : <span class="gibber-name">Auto-Gibber</span></p>
+
+<div class="message-gibber">
+  <div class="message-gibber-content">
+    <span>Your request has been received!</span>
+  </div>
+  <div class="message-gibber-name">
+    <span>: Auto-Gibber</span>
+  </div>
 </div>
-<div class="gibber-message">
-    <p><span class="gibber-content">A gibber will reply to you within the next 30 minutes.</span> : <span class="gibber-name">Auto-Gibber</span></p>
+
+<div class="message-gibber">
+  <div class="message-gibber-content">
+    <span>A gibber will reply to you within the next 30 minutes.</span>
+  </div>
+  <div class="message-gibber-name">
+    <span> : Auto-Gibber</span>
+  </div>
 </div>
+
 
 <% @messages.each do |message| %>
   <% if message.sender_type == "Gibber" %>
-    <div class="gibber-message">
-    <p><span class="gibber-content"><%= message.content %></span> : <span class="gibber-name"><%= message.sender.first_name %></span></p>
+    <div class="message-gibber">
+      <div class="message-gibber-content">
+        <span><%= message.content %></span>
+      </div>
+      <div class="message-gibber-name">
+        <span> : <%= message.sender.first_name %></span>
+      </div>
     </div>
   <% else %>
-    <div class="user-message">
-    <p><span class="user-name"><%= message.sender.first_name %></span> : <span class="user-content"><%= message.content %></span></p>
+    <div class="message-user">
+      <div class="message-user-name">
+        <span><%= message.sender.first_name %> : </span>
+      </div>
+      <div class="message-user-content">
+        <span><%= message.content %></span>
+      </div>
     </div>
   <% end %>
 <% end %>
