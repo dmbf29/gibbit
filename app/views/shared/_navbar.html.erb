@@ -6,7 +6,6 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= link_to t(".sign_in", default: "Gibber"), new_gibber_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
@@ -39,14 +38,15 @@
       </div>
 
     <% else %>
+      <%= link_to t(".sign_in", default: "Gibber"), new_gibber_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
+      <!-- Button (call-to-action) -->
+      <%= link_to t(".top_call_to_action", default: "Join"), new_user_registration_path, class: "navbar-wagon-item join-button btn" %>
     <% end %>
 
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Join"), new_user_registration_path, class: "navbar-wagon-item join-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
