@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-3">
@@ -80,8 +82,37 @@
               <p><%= pending.gibber.nil? ? "No gibbers yet!" : pending.gibber.first_name %></p>
             </div>
             <div class="gibber-choices">
-              <%= link_to "Propose", propose_gibbers_inquiry_path(pending), method: :patch, class: "btn propose-button" %>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn propose-button" data-toggle="modal" data-target="#myModal">
+                Propose
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Send a proposal</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="gibber-message-propose">
+                          <%= simple_form_for [pending, @message] do |f| %>
+                          <%= f.input :content, placeholder: "Type your message", label: false %>
+                          <%= f.submit "Propose", class: "btn propose-button" %>
+                          <% end %>
+                        </div>
+                    </div>
+<!--                     <div class="modal-footer"> -->
+<!--                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              <!--         <button type="button" class="btn btn-primary">Save changes</button> -->
+<!--                       <%= link_to "Propose", propose_gibbers_inquiry_path(pending), method: :patch, class: "btn propose-button" %> -->
+<!--                     </div> -->
+                  </div>
+                </div>
+              </div>
             </div>
+
             <div class="gibber-description">
               <%= link_to inquiry_path(pending) do %>
                 <p><%= pending.description %></p>
@@ -100,7 +131,8 @@
               <p><%= proposal.gibber.nil? ? "No gibbers!" : proposal.gibber.first_name %></p>
             </div>
             <div class="gibber-choices">
-              <%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "btn pending-button" %>
+            <div class="btn pending-button">Pending</div>
+<!--               <%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "btn pending-button" %> -->
             </div>
             <div class="gibber-description">
               <%= link_to inquiry_path(proposal) do %>

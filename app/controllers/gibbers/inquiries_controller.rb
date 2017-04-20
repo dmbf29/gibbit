@@ -15,13 +15,14 @@ class Gibbers::InquiriesController < ApplicationController
     @gibbers = Gibber.all
     # @gibbers = Gibber.where.not(id: current_gibber)
     @gibber = Gibber.find(current_gibber.id)
+    @message = Message.new
   end
 
   def propose
     @inquiry.status = "proposed"
     @inquiry.gibber = current_gibber
     @inquiry.save
-    redirect_to :back
+    redirect_to inquiry_path(@inquiry)
   end
 
   def pending
