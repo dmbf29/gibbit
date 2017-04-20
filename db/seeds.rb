@@ -128,8 +128,9 @@ pending_inquiry = Inquiry.new(
   status: "pending",
   live: false,
   credits: 1,
-  email: "george@fakemail.com",
-  first_name: "George"
+  user: felix_user,
+  email: felix_user.email,
+  first_name: felix_user.first_name
   )
 
 pending_inquiry.save

@@ -1,7 +1,7 @@
 class Inquiry < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :gibber, optional: true
-  has_many :messages
+  has_many :messages, :dependent => :destroy
 
   mount_uploader :photo, PhotoUploader
 
