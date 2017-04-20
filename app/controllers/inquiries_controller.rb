@@ -39,7 +39,7 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
     @inquiry.user = @user
     if @inquiry.save
-      InquiryMailer.creation_confirmation(@inquiry).deliver_now
+      # InquiryMailer.creation_confirmation(@inquiry).deliver_now
       redirect_to inquiry_path(@inquiry)
     else
       render 'inquiries/new'
