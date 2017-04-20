@@ -94,11 +94,17 @@
         <% @completions.each do |completion| %>
           <%= link_to inquiry_path(completion) do %>
           <div class="request">
-            <div class="request-current">
+            <div class="completed-current">
               <button class="complete-button"><%= completion.status.capitalize %></button>
             </div>
-            <div class="request-description">
+            <div class="completed-description">
               <p><%= completion.description %></p>
+            </div>
+            <div class="completed-choices">
+              <ul class="list-inline">
+                <li><i class="fa fa-share" aria-hidden="true"></i></li>
+                <li><i class="fa fa-trash-o" aria-hidden="true"></i></li>
+              </ul>
             </div>
           </div>
           <% end %>
@@ -107,11 +113,16 @@
         <% @rejections.each do |rejection| %>
           <%= link_to inquiry_path(rejection) do %>
           <div class="request">
-            <div class="request-current">
+            <div class="completed-current">
               <p><strong><%= rejection.status.capitalize %></strong></p>
             </div>
-            <div class="request-description">
+            <div class="completed-description">
               <p><%= rejection.description %></p>
+            </div>
+            <div class="completed-choices">
+              <ul class="list-inline">
+                <li><i class="fa fa-trash-o" aria-hidden="true"></i></li>
+              </ul>
             </div>
           </div>
           <% end %>
@@ -119,5 +130,5 @@
         <% end %>
       </div>
     </div>
-  </di    v>
+  </div>
 </div>
