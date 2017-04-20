@@ -37,6 +37,19 @@
         </div>
       </div>
 
+
+    <% elsif gibber_signed_in? %>
+
+      <ul class="list-inline">
+        <li>
+          <%= link_to t(".sign_in", default: "Dashboard"),  gibbers_inquiries_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+
+        <li>
+          <%= link_to "Sign Out", destroy_gibber_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+      </ul>
+
     <% else %>
       <%= link_to t(".sign_in", default: "Gibber"), new_gibber_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
