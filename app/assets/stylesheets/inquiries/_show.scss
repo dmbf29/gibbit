@@ -149,11 +149,26 @@
   padding-bottom: 10px;
 }
 
+.show-propose-button {
+  width: 200px;
+  background-color: #424244;
+  color: white;
+  border: 5px solid $red;
+}
 
+.show-pending-button {
+  width: 200px;
+  background-color: #424244;
+  color: white;
+  border: 5px solid $yellow;
+}
 
-
-
-
+.show-complete-button {
+  width: 200px;
+  background-color: #424244;
+  color: white;
+  border: 5px solid $green;
+}
 
 
 
