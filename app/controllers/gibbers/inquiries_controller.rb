@@ -12,7 +12,9 @@ class Gibbers::InquiriesController < ApplicationController
     @acceptions = Inquiry.where(status: "accepted")
     @rejections = Inquiry.where(status: "rejected")
     @completions = Inquiry.where(status: "completed")
-    @gibbers = Gibber.where.not(id: current_gibber)
+    @gibbers = Gibber.all
+    # @gibbers = Gibber.where.not(id: current_gibber)
+    @gibber = Gibber.find(current_gibber.id)
   end
 
   def propose
