@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <li><%= link_to "View All My Requests", inquiries_path, class: "btn show-button" %></li>
+  <li><%= link_to "Make a New Request", new_inquiry_path, class: "btn show-button" %></li>
+<% elsif gibber_signed_in? %>
+  <li><%= link_to "Back to Dashboard", gibbers_inquiries_path, class: "btn show-button" %></li>
+<% end %>

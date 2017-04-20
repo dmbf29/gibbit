@@ -17,7 +17,7 @@
         <div class="message-box">
           <div class="message-box-field">
             <%= simple_form_for [@inquiry, @message] do |f| %>
-            <%= f.input :content, placeholder: "Type your message", label: false %>
+            <%= f.input :content, placeholder: "You can add more details here", label: false %>
           </div>
           <div class="message-box-button">
             <%= f.submit "Send", class: "gibbit-button btn" %>
@@ -25,8 +25,7 @@
             <% end %>
         </div>
         <ul class="list-inline text-center helper-button">
-          <li><%= link_to "View All My Requests", inquiries_path, class: "btn show-button" %></li>
-          <li><%= link_to "Make a New Request", new_inquiry_path, class: "btn show-button" %></li>
+          <%= render 'inquiries/helper_buttons' %>
         </ul>
       </div>
     </div>
