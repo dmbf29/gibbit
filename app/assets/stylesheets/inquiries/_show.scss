@@ -29,6 +29,11 @@
 .chatbox-messages {
   padding: 10px;
   font-size: 18px;
+  margin-top: 0px;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .message-box {
@@ -104,3 +109,59 @@
   background: #E0E0E0;
   border-color: $red;
 }
+
+.user-message {
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.gibber-message {
+  text-align: right;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.gibber-name {
+  font-weight: bold;
+}
+
+.user-content {
+  background-color: $green;
+  border-radius: 10px;
+  padding: 5px;
+  color: white;
+  box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
+}
+
+.gibber-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  color: $green;
+  box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
+}
+
+.helper-button {
+  padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

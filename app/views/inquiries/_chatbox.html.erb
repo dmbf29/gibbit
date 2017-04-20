@@ -1,0 +1,15 @@
+<div class="user-message">
+  <p><span class="user-name"><%= @inquiry.user.first_name %></span> : <span class="user-content"><%= @inquiry.description %></span></p>
+</div>
+
+<% @messages.each do |message| %>
+  <% if message.sender_type == "Gibber" %>
+    <div class="gibber-message">
+    <p><span class="gibber-content"><%= message.content %></span> : <span class="gibber-name"><%= message.sender.first_name %></span></p>
+    </div>
+  <% else %>
+    <div class="user-message">
+    <p><span class="user-name"><%= message.sender.first_name %></span> : <span class="user-content"><%= message.content %></span></p>
+    </div>
+  <% end %>
+<% end %>

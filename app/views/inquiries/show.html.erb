@@ -6,24 +6,13 @@
           <h2>Messages</h2>
         </div>
         <div class="chatbox-messages">
-          <p><strong><%= @inquiry.user.first_name %></strong> : <%= @inquiry.description %></p>
-          <p><% @messages.each do |message| %>
-          <strong><%= message.sender.first_name %></strong> : <%= message.content %> </p>
-          <% end %>
+          <%= render 'inquiries/chatbox' %>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <div class="chatdetails-wrap">
-        <div class="chatbox-title">
-          <h5>Order Status</h5>
-        </div>
-        <div class="chatdetails-status">
-          <%= render 'inquiries/order_status' %>
-        </div>
-      </div>
       <div class="chatdetails-wrap">
         <div class="message-box">
           <div class="message-box-field">
@@ -35,25 +24,19 @@
           </div>
             <% end %>
         </div>
+        <ul class="list-inline text-center helper-button">
+          <li><%= link_to "View All My Requests", inquiries_path, class: "btn show-button" %></li>
+          <li><%= link_to "Make a New Request", new_inquiry_path, class: "btn show-button" %></li>
+        </ul>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6">
       <div class="chatdetails-wrap">
         <div class="chatbox-title">
-          <h5>Request Details</h5>
+          <h5>Order Status</h5>
         </div>
-        <div class="chatdetails-description">
-          <p>Price : <%= @inquiry.credits %> credit</p>
-          <p>Status : <%= @inquiry.status %> </p>
-          <p>Requested by <%= @inquiry.first_name %></p>
-          <p>Handled by :
-            <% if @inquiry.gibber.nil? %>
-              <%= "" %>
-            <% else %>
-              <%= @inquiry.gibber.first_name %>
-            <% end %></p>
-          <p><%= link_to "View All My Requests", inquiries_path, class: "btn show-button" %>
-          <%= link_to "Make a New Request", new_inquiry_path, class: "btn show-button" %></p>
+        <div class="chatdetails-status">
+          <%= render 'inquiries/order_status' %>
         </div>
       </div>
     </div>
