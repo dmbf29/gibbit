@@ -110,11 +110,11 @@
                       <% if pending.messages == [] %>
                         <%=  "No messages yet" %>
                       <% else %>
-                        <ul>
                         <% pending.messages.each do |message| %>
-                          <li> <%= message.sender.first_name %> : <%= message.content %> </li>
+                        <div class="modal-messages text-left">
+                          <p><%= message.sender.first_name %> : <%= message.content %></p>
+                           </div>
                           <% end %>
-                          </ul>
                       <% end %>
                     </div>
                     <div class="modal-footer">
@@ -182,11 +182,11 @@
                       <% if proposal.messages == [] %>
                         <%=  "No messages yet" %>
                       <% else %>
-                        <ul>
                         <% proposal.messages.each do |message| %>
-                          <li> <%= message.sender.first_name %> : <%= message.content %> </li>
+                        <div class="modal-messages text-left">
+                          <p><%= message.sender.first_name %> : <%= message.content %></p>
+                          </div>
                           <% end %>
-                          </ul>
                       <% end %>
                     </div>
                     <div class="modal-footer">
