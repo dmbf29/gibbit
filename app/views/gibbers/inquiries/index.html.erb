@@ -98,16 +98,18 @@
                       <% if pending.messages == [] %>
                         <%=  "No messages yet" %>
                       <% else %>
+                        <ul>
                         <% pending.messages.each do |message| %>
-                          <%= message.content %>
+                          <li> <%= message.sender.first_name %> : <%= message.content %> </li>
                           <% end %>
+                          </ul>
                       <% end %>
                     </div>
                     <div class="modal-footer">
                       <div class="gibber-message-propose">
                         <%= simple_form_for [pending, @message] do |f| %>
                         <%= f.input :content, placeholder: "Type your message", label: false %>
-                        <%= f.submit "Propose", class: "btn propose-button" %>
+                        <%= f.submit "Send", class: "btn propose-button" %>
                         <% end %>
                       </div>
                     </div>
