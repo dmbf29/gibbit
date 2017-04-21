@@ -30,7 +30,7 @@
   <% elsif @inquiry.status == "accepted" %>
       <h3 style="color:#20bd3e;"><%= @inquiry.status.capitalize %> </h3>
       <p>Lock that request in for <%= @inquiry.user.first_name %>!</p>
-      <div class="gibber-choices">
+      <div class="gibber-show-choices">
         <%= link_to "Complete the Request", complete_gibbers_inquiry_path(@inquiry), method: :patch, class: "btn show-complete-button" %>
       </div>
   <% elsif @inquiry.status == "completed" %>
