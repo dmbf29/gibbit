@@ -6,6 +6,7 @@
       <li><%= link_to "Accept", accept_inquiry_path(@inquiry), method: :patch, class: "btn accept-button" %></li>
       <li><%= link_to "Reject", reject_inquiry_path(@inquiry), method: :patch, class: "btn reject-button" %></li>
     </ul>
+    <p style="text-align: center;">Price: 1 credit</p>
   <% elsif @inquiry.status == "pending" %>
       <h3 style="color:#FDB631;"><%= @inquiry.status.capitalize %> </h3>
       <p>A gibber is checking your order now!</p>
