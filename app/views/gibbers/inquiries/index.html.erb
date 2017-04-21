@@ -51,12 +51,12 @@
         <% @empties.each do |empty| %>
           <div class="request">
             <div class="gibber-current">
-              <p><strong><%= empty.status.capitalize %></strong></p>
+              <button class="gibber-pending-button"><%= empty.status.capitalize %></button>
             </div>
             <div class="gibber-choices">
               <%= form_tag assign_gibber_gibbers_inquiry_path(empty), method: :patch do %>
                 <%= collection_select :gibber, :id, @gibbers,:id, :first_name %>
-                <%= submit_tag "Assign", class: "btn assign-button" %>
+                <%= submit_tag "Assign", class: "btn gibber-assign-button" %>
               <% end %>
             </div>
               <div class="gibber-description">
@@ -72,21 +72,30 @@
         <% end %>
       </div>
 
+<!-- PENDING ORDERS  -->
+
       <div class="request-wrap">
         <h3 class="request-title">Open Requests</h3>
         <hr>
         <% @pendings.each do |pending| %>
           <div class="request">
             <div class="gibber-current">
-              <p><strong><%= pending.status.capitalize %></strong></p>
-              <p><%= pending.gibber.nil? ? "No gibbers yet!" : pending.gibber.first_name %></p>
+              <button class="gibber-pending-button"><%= pending.status.capitalize %></button>
+              <!-- <p><%= pending.gibber.nil? ? "No gibbers yet!" : pending.gibber.first_name %></p> -->
+              <div class="btn-group">
+                <button type="button" class="btn change-status-button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Status</button>
+                <div class="dropdown-menu">
+                  <ul>
+                    <li><%= link_to "Pending", pending_gibbers_inquiry_path(pending), method: :patch, class: "dropdown-item" %></li>
+                    <li><%= link_to "Propose", propose_gibbers_inquiry_path(pending), method: :patch, class: "dropdown-item" %></li>
+                    <li><%= link_to "Complete", complete_gibbers_inquiry_path(pending), method: :patch, class: "dropdown-item" %></li>
+                    </ul>
+                </div>
+              </div>
             </div>
             <div class="gibber-choices">
               <!-- Button trigger modal -->
-              <button type="button" class="btn propose-button" data-toggle="modal" data-target="#myModal">
-                Propose
-              </button>
-
+            </div>
               <!-- Modal -->
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -111,7 +120,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+
 
             <div class="gibber-description">
               <%= link_to inquiry_path(pending) do %>
@@ -124,14 +133,24 @@
           </div>
           <hr>
         <% end %>
+<!-- PROPOSAL ORDERS  -->
         <% @proposals.each do |proposal| %>
           <div class="request">
             <div class="gibber-current">
-              <p><strong><%= proposal.status.capitalize %></strong></p>
-              <p><%= proposal.gibber.nil? ? "No gibbers!" : proposal.gibber.first_name %></p>
+              <button class="gibber-propose-button"><%= proposal.status.capitalize %></button>
+<!--               <p><%= proposal.gibber.nil? ? "No gibbers!" : proposal.gibber.first_name %></p> -->
+              <div class="btn-group">
+                <button type="button" class="btn change-status-button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Status</button>
+                <div class="dropdown-menu">
+                  <ul>
+                  <li><%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "dropdown-item" %></li>
+                  <li><%= link_to "Propose", propose_gibbers_inquiry_path(proposal), method: :patch, class: "dropdown-item" %></li>
+                  <li><%= link_to "Complete", complete_gibbers_inquiry_path(proposal), method: :patch, class: "dropdown-item" %></li>
+                  </ul>
+              </div>
             </div>
+          </div>
             <div class="gibber-choices">
-            <div class="btn pending-button">Pending</div>
 <!--               <%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "btn pending-button" %> -->
             </div>
             <div class="gibber-description">
@@ -145,14 +164,24 @@
           </div>
           <hr>
         <% end %>
+<!-- ACCEPTED ORDERS  -->
         <% @acceptions.each do |acception| %>
           <div class="request">
             <div class="gibber-current">
-              <p><strong><%= acception.status.capitalize %></strong></p>
-               <p><%= acception.gibber.nil? ? "No gibbers!" : acception.gibber.first_name %></p>
+              <button class="gibber-complete-button"><%= acception.status.capitalize %></button>
+<!--                <p><%= acception.gibber.nil? ? "No gibbers!" : acception.gibber.first_name %></p> -->
+              <div class="btn-group">
+                <button type="button" class="btn change-status-button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Status</button>
+                <div class="dropdown-menu">
+                <ul>
+                  <li><%= link_to "Pending", pending_gibbers_inquiry_path(acception), method: :patch, class: "dropdown-item" %></li>
+                  <li><%= link_to "Propose", propose_gibbers_inquiry_path(acception), method: :patch, class: "dropdown-item" %></li>
+                  <li><%= link_to "Complete", complete_gibbers_inquiry_path(acception), method: :patch, class: "dropdown-item" %></li>
+                  </ul>
+                </div>
+              </div>
             </div>
             <div class="gibber-choices">
-              <%= link_to "Complete", complete_gibbers_inquiry_path(acception), method: :patch, class: "btn complete-button" %>
             </div>
             <div class="gibber-description">
               <%= link_to inquiry_path(acception) do %>
