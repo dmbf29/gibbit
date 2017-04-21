@@ -188,11 +188,19 @@
   border: 5px solid $green;
 }
 
+.show-complete-button {
+  width: 200px;
+  background-color: #424244;
+  color: white;
+  border: 5px solid $green;
+}
 
-
-
-
-
+.show-complete-button:hover {
+  width: 200px;
+  background-color: #424244;
+  color: #D7D7D7;
+  border: 5px solid $green;
+}
 
 
 
