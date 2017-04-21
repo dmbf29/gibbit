@@ -108,12 +108,14 @@
                     </div>
                     <div class="modal-body">
                       <% if pending.messages == [] %>
+                        <div class="modal-messages">
                         <%=  "No messages yet" %>
+                        </div>
                       <% else %>
                         <% pending.messages.each do |message| %>
-                        <div class="modal-messages text-left">
+                          <div class="modal-messages text-left">
                           <p><%= message.sender.first_name %> : <%= message.content %></p>
-                           </div>
+                          </div>
                           <% end %>
                       <% end %>
                     </div>
@@ -180,10 +182,12 @@
                     </div>
                     <div class="modal-body">
                       <% if proposal.messages == [] %>
+                        <div class="modal-messages">
                         <%=  "No messages yet" %>
+                        </div>
                       <% else %>
                         <% proposal.messages.each do |message| %>
-                        <div class="modal-messages text-left">
+                          <div class="modal-messages text-left">
                           <p><%= message.sender.first_name %> : <%= message.content %></p>
                           </div>
                           <% end %>

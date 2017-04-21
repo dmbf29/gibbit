@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  authenticated :gibber do
+    root to: 'gibbers/inquiries#index', as: :authenticated_root
+  end
+
   root to: 'pages#home'
   devise_for :gibbers
   devise_for :users,
