@@ -237,6 +237,44 @@
               </div>
             </div>
             <div class="gibber-choices">
+                          <!-- Button trigger modal -->
+              <button type="button" class="btn view-request-button" data-toggle="modal" data-target="#modal-inquiry-<%= acception.id %>">
+                Messages
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="modal-inquiry-<%= acception.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel"><%= acception.description %> </h4>
+                    </div>
+                    <div class="modal-body">
+                      <% if acception.messages == [] %>
+                        <div class="modal-messages">
+                        <%=  "No messages yet" %>
+                        </div>
+                      <% else %>
+                        <% acception.messages.each do |message| %>
+                          <div class="modal-messages text-left">
+                          <p><%= message.sender.first_name %> : <%= message.content %></p>
+                          </div>
+                          <% end %>
+                      <% end %>
+                    </div>
+                    <div class="modal-footer">
+                      <div class="gibber-message-propose">
+                        <%= simple_form_for [acception, @message] do |f| %>
+                        <%= f.input :content, placeholder: "Type your message", label: false %>
+                        <%= f.submit "Send", class: "btn gibbit-button" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
             <div class="gibber-description">
               <%= link_to inquiry_path(acception) do %>
