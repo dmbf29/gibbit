@@ -21,10 +21,23 @@
 }
 
 .banner-title {
-  font-family: 'Rock Salt', cursive;
-  font-size: 60px;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 90px;
   margin-bottom: 22px;
-  margin-top: 40px;
+  margin-top: 50px;
+}
+
+.banner-button {
+  background-color: $green;
+  color: white;
+  padding: 20px;
+  border: 2px solid white;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-family: 'Walter Turncoat';
 }
 
 .banner-image-search {
