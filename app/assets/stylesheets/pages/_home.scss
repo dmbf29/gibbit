@@ -46,6 +46,19 @@
   box-shadow: 1px 1px 2px #e7e7e7;
   border-radius: 4px;
   margin: 20px 10px;
+  height: 250px;
+  position: relative;
+}
+.review-card-white {
+  background: white;
+  padding: 30px;
+  // padding-right: 50px;
+  // padding-left: 50px;
+  box-shadow: 1px 1px 2px #e7e7e7;
+  border-radius: 4px;
+  margin: 20px 10px;
+  height: 250px;
+  position: relative;
 }
 
 .wrapper-gray {
@@ -72,4 +85,40 @@
   margin-top: 0px;
   padding-top: 27px;
   color: #636363;
+}
+
+.card-white:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.review-card-white:hover {
+        box-shadow:
+                1px 1px #c6c6ce,
+                2px 2px #c6c6ce,
+                3px 3px #c6c6ce;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+}
+
+.review-card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.review-card-quote {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.quote-bubble {
+  width: 30px;
+  border-radius: 50%;
+}
+
+.ribbon-green {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
 }
