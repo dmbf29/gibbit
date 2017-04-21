@@ -13,8 +13,8 @@ class Gibbers::InquiriesController < ApplicationController
     @rejections = Inquiry.where(status: "rejected")
     @completions = Inquiry.where(status: "completed")
     @gibbers = Gibber.all
-    # @gibbers = Gibber.where.not(id: current_gibber)
-    @gibber = Gibber.find(current_gibber.id)
+    @gibber = current_gibber
+    # binding.pry
     @message = Message.new
   end
 
@@ -38,7 +38,6 @@ class Gibbers::InquiriesController < ApplicationController
   end
 
   def assign_gibber
-    # binding.pry
     @gibber = Gibber.find(params[:gibber][:id])
     @inquiry.gibber = @gibber
     @inquiry.save
