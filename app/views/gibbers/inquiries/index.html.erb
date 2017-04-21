@@ -96,7 +96,7 @@
             <div class="gibber-choices">
               <!-- Button trigger modal -->
               <button type="button" class="btn view-request-button" data-toggle="modal" data-target="#modal-inquiry-<%= pending.id %>">
-                Check
+               Messages
               </button>
               <!-- Modal -->
               <div class="modal fade" id="modal-inquiry-<%= pending.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -121,7 +121,7 @@
                       <div class="gibber-message-propose">
                         <%= simple_form_for [pending, @message] do |f| %>
                         <%= f.input :content, placeholder: "Type your message", label: false %>
-                        <%= f.submit "Send", class: "btn propose-button" %>
+                        <%= f.submit "Send", class: "btn gibbit-button" %>
                         <% end %>
                       </div>
                     </div>
@@ -166,6 +166,41 @@
           </div>
             <div class="gibber-choices">
  <!-- needs the view request button -->
+              <!-- Button trigger modal -->
+              <button type="button" class="btn view-request-button" data-toggle="modal" data-target="#modal-inquiry-<%= proposal.id %>">
+                Messages
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="modal-inquiry-<%= proposal.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel"><%= proposal.description %> </h4>
+                    </div>
+                    <div class="modal-body">
+                      <% if proposal.messages == [] %>
+                        <%=  "No messages yet" %>
+                      <% else %>
+                        <ul>
+                        <% proposal.messages.each do |message| %>
+                          <li> <%= message.sender.first_name %> : <%= message.content %> </li>
+                          <% end %>
+                          </ul>
+                      <% end %>
+                    </div>
+                    <div class="modal-footer">
+                      <div class="gibber-message-propose">
+                        <%= simple_form_for [proposal, @message] do |f| %>
+                        <%= f.input :content, placeholder: "Type your message", label: false %>
+                        <%= f.submit "Send", class: "btn gibbit-button" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
             <div class="gibber-description">
               <%= link_to inquiry_path(proposal) do %>
