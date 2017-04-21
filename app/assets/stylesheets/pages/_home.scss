@@ -9,9 +9,22 @@
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
   background-position: center;
+  background-image: linear-gradient(135deg, rgba(9, 71, 22,0.8) 0%, rgba(0,0,0,0.2) 50%),
+  url('http://res.cloudinary.com/dmbf29/image/upload/v1492588671/shibuya_mqo0go.jpg');
+}
+
+.banner-call-action {
+  margin-top: 90px;
+}
+
+.banner-title {
+  font-family: 'Rock Salt', cursive;
+  font-size: 60px;
+  margin-bottom: 22px;
+  margin-top: 40px;
 }
 
 .banner-image-search {
