@@ -77,7 +77,7 @@
       <div class="request-wrap">
         <h3 class="request-title">Open Requests</h3>
         <hr>
-        <% @pendings.each do |pending| %>
+      <% @pendings.each do |pending| %>
           <div class="request">
             <div class="gibber-current">
               <button class="gibber-pending-button"><%= pending.status.capitalize %></button>
@@ -95,28 +95,36 @@
             </div>
             <div class="gibber-choices">
               <!-- Button trigger modal -->
-            </div>
+              <button type="button" class="btn view-request-button" data-toggle="modal" data-target="#modal-inquiry-<%= pending.id %>">
+                Check
+              </button>
               <!-- Modal -->
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal fade" id="modal-inquiry-<%= pending.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Send a proposal</h4>
+                      <h4 class="modal-title" id="myModalLabel"><%= pending.description %> </h4>
                     </div>
                     <div class="modal-body">
-                        <div class="gibber-message-propose">
-                          <%= simple_form_for [pending, @message] do |f| %>
-                          <%= f.input :content, placeholder: "Type your message", label: false %>
-                          <%= f.submit "Propose", class: "btn propose-button" %>
+                      <% if pending.messages == [] %>
+                        <%=  "No messages yet" %>
+                      <% else %>
+                        <ul>
+                        <% pending.messages.each do |message| %>
+                          <li> <%= message.sender.first_name %> : <%= message.content %> </li>
                           <% end %>
-                        </div>
+                          </ul>
+                      <% end %>
                     </div>
-<!--                     <div class="modal-footer"> -->
-<!--                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-              <!--         <button type="button" class="btn btn-primary">Save changes</button> -->
-<!--                       <%= link_to "Propose", propose_gibbers_inquiry_path(pending), method: :patch, class: "btn propose-button" %> -->
-<!--                     </div> -->
+                    <div class="modal-footer">
+                      <div class="gibber-message-propose">
+                        <%= simple_form_for [pending, @message] do |f| %>
+                        <%= f.input :content, placeholder: "Type your message", label: false %>
+                        <%= f.submit "Send", class: "btn propose-button" %>
+                        <% end %>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -127,13 +135,16 @@
                 <p><%= pending.description %></p>
               <% end %>
             </div>
+
           </div>
+
           <div class="progress">
             <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
+    <% end %>
+
           <hr>
-        <% end %>
-<!-- PROPOSAL ORDERS  -->
+   <!-- PROPOSALS -->
         <% @proposals.each do |proposal| %>
           <div class="request">
             <div class="gibber-current">
@@ -151,7 +162,7 @@
             </div>
           </div>
             <div class="gibber-choices">
-<!--               <%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "btn pending-button" %> -->
+ <!-- needs the view request button -->
             </div>
             <div class="gibber-description">
               <%= link_to inquiry_path(proposal) do %>
@@ -164,7 +175,9 @@
           </div>
           <hr>
         <% end %>
+
 <!-- ACCEPTED ORDERS  -->
+
         <% @acceptions.each do |acception| %>
           <div class="request">
             <div class="gibber-current">
