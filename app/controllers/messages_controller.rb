@@ -7,10 +7,6 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.inquiry = @inquiry
     @message.sender = @sender
-    if @sender == current_gibber && @inquiry.status == "pending"
-      @inquiry.status = "proposed"
-      @inquiry.save
-    end
     if @message.save
       redirect_to inquiry_path(@inquiry)
     else
