@@ -66,11 +66,49 @@
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
+        <% if user_signed_in? %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to inquiries_path do %>
+                <i class="fa fa-user"></i>
+                <%= t(".profile", default: "My Requests") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>
+                <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+
+        <% elsif gibber_signed_in? %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to t(".sign_in", default: "Dashboard"),  gibbers_inquiries_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+            <li>
+              <%= link_to "Sign Out", destroy_gibber_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+          </ul>
+
+        <% else %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to t(".sign_in", default: "Gibber"), new_gibber_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+            <li>
+              <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+            <li>
+              <%= link_to t(".top_call_to_action", default: "Join"), new_user_registration_path, class: "navbar-wagon-item join-button btn", style: "
+                                                padding-left: 20px;
+                                                margin-left: 17px;
+                                                margin-right: 17px;"
+              %>
+            </li>
+          </ul>
+        <% end %>
     </div>
   </div>
 </div>
