@@ -5,4 +5,10 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Welcome to Gibbit')
   end
+
+  def received_proposal(inquiry)
+     @user = inquiry.user
+
+    mail(to: @user.email, subject: 'You have a proposal for your Gibbit request!')
+  end
 end
