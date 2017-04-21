@@ -10,7 +10,7 @@
 }
 
 .gibber-choices a {
-  color: white;
+  color: #424244;
 }
 
 .gibber-choices a:hover {
@@ -50,10 +50,56 @@
   border: 5px solid $green;
 }
 
-.assign-button {
+
+.gibber-propose-button {
+  width: 120px;
+  background-color: #424244;
+  color: white;
+  border: 5px solid $yellow;
+}
+
+.gibber-pending-button {
+  width: 120px;
+  background-color: #424244;
+  color: white;
+  border: 5px solid $red;
+}
+
+.gibber-complete-button {
+  width: 120px;
+  background-color: #424244;
+  color: white;
+  border: 5px solid $green;
+}
+
+.gibber-assign-button {
   width: 75px;
   background-color: #424244;
   color: white;
   border: 3px solid $blue;
   text-align: center;
+}
+
+.change-status-button {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 120px;
+  padding: 0 20px;
+  border-radius: 5px;
+  line-height: 30px;
+  background-color: #E0E0E0;
+  color: $green;
+  font-size: 14px;
+  border: 2px solid $green;
+}
+.change-status-button:hover {
+  color: #424244;
+  background: #E0E0E0;
+  border-color: #424244;
+}
+
+.view-request-button {
+  width: 120px;
+  background-color: #424244;
+  color: white;
 }
