@@ -13,7 +13,7 @@ class Inquiry < ApplicationRecord
   # validates :status, presence: true, inclusion: { in: %w(pending proposed accepted rejected completed) }
 
   def send_inquiry_email
-    UserMailer.inquiry(self).deliver_now
+    UserMailer.received_proposal(self).deliver_now
   end
 
   def proposed?
