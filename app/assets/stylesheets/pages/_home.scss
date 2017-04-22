@@ -33,11 +33,11 @@
   background-color: $green;
   color: white;
   padding: 20px;
-  border: 2px solid white;
   font-size: 25px;
   font-weight: bold;
   border-radius: 5px;
   font-family: 'Walter Turncoat';
+  letter-spacing: 2px;
 }
 
 .banner-image-search {
@@ -66,13 +66,14 @@
 
 .card-white {
   background: white;
-  padding: 30px;
+  padding: 20px;
   // padding-right: 50px;
   // padding-left: 50px;
   box-shadow: 1px 1px 2px #e7e7e7;
   border-radius: 4px;
-  margin: 20px 10px;
-  height: 250px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  height: 225px;
   position: relative;
 }
 .review-card-white {
@@ -102,7 +103,8 @@
 .wrapper-header {
   text-align: center;
   margin-top: 0px;
-  padding-top: 27px;
+  margin-bottom: 0px;
+  padding: 50px;
   color: #000000;
 }
 
