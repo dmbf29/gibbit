@@ -14,17 +14,38 @@
 }
 
 #footer p {
-  margin-top: 17px;
+  font-size: 14px;
 }
-#footer ul {
+
+.footer-information ul {
   margin-top: 10px;
 }
-#footer a {
+
+.footer-information a {
   color: #CCCCCC ;
   font-size: 30px;
   letter-spacing: 20px;
   transition: color 0.5s ease;
 }
-#footer a:hover{
-  color: yellow;
+
+#footer a {
+  color: #CCCCCC ;
 }
+
+#footer a:hover {
+  color: #3ECC49 ;
+}
+
+.footer-email-input{
+  flex: 0 1 300px;
+  transition: all 0.10s ease;
+  line-height: 30px;
+  font-weight: lighter;
+  color: #666666;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+
