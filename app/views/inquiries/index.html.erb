@@ -109,8 +109,10 @@
             </div>
             <div class="completed-choices">
               <ul class="list-inline">
-                <li><i class="fa fa-share" aria-hidden="true"></i></li>
-                <li><i class="fa fa-trash-o" aria-hidden="true"></i></li>
+                <li><%= social_share_button_tag(completion.description, url: "http://gibbit.online") %></li>
+                <li>
+                <%= link_to raw("<i class='fa fa-trash-o' aria-hidden='true'></i>"), inquiry_path(completion), method: :delete %>
+                </li>
               </ul>
             </div>
           </div>
@@ -131,7 +133,9 @@
             </div>
             <div class="completed-choices">
               <ul class="list-inline">
-                <li><i class="fa fa-trash-o" aria-hidden="true"></i></li>
+                <li>
+                <%= link_to raw("<i class='fa fa-trash-o' aria-hidden='true'></i>"), inquiry_path(rejection), method: :delete %>
+                </li>
               </ul>
             </div>
           </div>
