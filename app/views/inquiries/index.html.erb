@@ -48,7 +48,7 @@
           <%= link_to inquiry_path(pending) do %>
           <div class="request">
             <div class="request-current">
-              <button class="pending-button"><%= pending.status.capitalize %></button>
+              <button class="view-request-button pending-user-underline"><%= pending.status.capitalize %></button>
             </div>
             <div class="request-description">
               <p><%= pending.description %></p>
@@ -64,7 +64,7 @@
           <%= link_to inquiry_path(proposal) do %>
           <div class="request">
             <div class="request-current">
-              <button class="propose-button"><%= proposal.status.capitalize %></button>
+              <button class="view-request-button proposed-user-underline"><%= proposal.status.capitalize %></button>
             </div>
             <div class="request-description">
               <p><%= proposal.description %></p>
@@ -80,7 +80,7 @@
           <%= link_to inquiry_path(accepetion) do %>
           <div class="request">
             <div class="request-current">
-              <button class="complete-button"><%= accepetion.status.capitalize %></button>
+              <button class="view-request-button accepted-user-underline"><%= accepetion.status.capitalize %></button>
             </div>
             <div class="request-description">
               <p><%= accepetion.description %></p>
@@ -99,47 +99,49 @@
         <h3 class="request-title">Completed Requests</h3>
         <hr>
         <% @completions.each do |completion| %>
-          <%= link_to inquiry_path(completion) do %>
           <div class="request">
+          <%#= link_to inquiry_path(completion) do %>
             <div class="completed-current">
-              <button class="complete-button"><%= completion.status.capitalize %></button>
+              <button class="view-request-button accepted-user-underline"><%= completion.status.capitalize %></button>
             </div>
             <div class="completed-description">
               <p><%= completion.description %></p>
             </div>
-            <div class="completed-choices">
-              <ul class="list-inline">
-                <li><%= social_share_button_tag(completion.description, url: "http://gibbit.online") %></li>
-                <li>
-                <%= link_to raw("<i class='fa fa-trash-o' aria-hidden='true'></i>"), inquiry_path(completion), method: :delete %>
-                </li>
-              </ul>
+          <%# end %>
+            <div class="completed-request-choices">
+              <div class="completed-links">
+                <div class="completed-facebook">
+                <%= social_share_button_tag(completion.description, url: "http://gibbit.online") %></li>
+                </div>
+                <div class="completed-destroy">
+                <%= link_to raw("<i class='fa fa-trash' aria-hidden='true'></i>"), inquiry_path(completion), method: :delete %>
+                </div>
+              </div>
             </div>
           </div>
-          <% end %>
           <div class="progress">
             <div class="progress-bar progress-bar-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <hr>
         <% end %>
+          <hr>
         <% @rejections.each do |rejection| %>
-          <%= link_to inquiry_path(rejection) do %>
+          <%#= link_to inquiry_path(rejection) do %>
           <div class="request">
             <div class="completed-current">
-              <p><strong><%= rejection.status.capitalize %></strong></p>
+              <button class="view-request-button proposed-user-underline"><%= rejection.status.capitalize %></button>
             </div>
             <div class="completed-description">
               <p><%= rejection.description %></p>
             </div>
-            <div class="completed-choices">
+            <div class="completed-request-choices">
               <ul class="list-inline">
                 <li>
-                <%= link_to raw("<i class='fa fa-trash-o' aria-hidden='true'></i>"), inquiry_path(rejection), method: :delete %>
+                <%= link_to raw("<i class='fa fa-trash' aria-hidden='true'></i>"), inquiry_path(rejection), method: :delete %>
                 </li>
               </ul>
             </div>
           </div>
-          <% end %>
+          <%# end %>
           <hr>
         <% end %>
       </div>

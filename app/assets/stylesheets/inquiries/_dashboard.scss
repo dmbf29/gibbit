@@ -26,7 +26,7 @@ hr {
 
 .request {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
@@ -75,11 +75,17 @@ margin-top: 0;
 }
 
 .completed-description {
-  flex: 1 1 auto;
+  flex: 0 0 69%;
   margin-left: 5px;
 }
 
 .completed-choices {
+  flex: 0 0 10%;
+  text-align: right;
+  margin-left: 5px;
+}
+
+.completed-request-choices {
   flex: 0 0 10%;
   text-align: right;
   margin-left: 5px;
@@ -99,4 +105,33 @@ margin-top: 0;
   margin-bottom: 5px;
   align-items: center;
   margin-left: 20px;
+}
+
+.completed-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.completed-facebook {
+    margin-top: 5px;
+}
+
+.pending-user-underline {
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, darken($yellow,11), darken($yellow,1)) 10% round;
+
+}
+.proposed-user-underline {
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, darken($red,11), darken($red,1)) 10% round;
+
+}
+
+.accepted-user-underline {
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, darken($green,11), darken($green,1)) 10% round;
+
 }
