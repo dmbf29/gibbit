@@ -292,7 +292,7 @@
         <% @completions.each do |completion| %>
           <div class="request">
             <div class="request-current">
-              <div class="btn-group">
+              <div class="dropdown">
                 <button class="btn view-request-button accepted-gibber-underline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= completion.status.capitalize %>     <i class="fa fa-caret-down" aria-hidden="true"></i></button>
                 <div class="dropdown-menu">
                 <ul>
@@ -324,7 +324,7 @@
         <% @rejections.each do |rejection| %>
           <div class="request">
             <div class="request-current">
-              <div class="btn-group">
+              <div class="dropup">
               <button class="btn view-request-button pending-gibber-underline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= rejection.status.capitalize %>     <i class="fa fa-caret-down" aria-hidden="true"></i></button>
 
                 <div class="dropdown-menu">

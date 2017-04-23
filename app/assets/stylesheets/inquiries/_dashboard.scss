@@ -30,6 +30,8 @@ hr {
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .request:hover {
@@ -43,7 +45,7 @@ hr {
   margin-bottom: 0;
   text-align: center;
   border-radius: 0 0 5px 5px;
-  padding: 5px;
+  padding: 20px;
   margin-top: 0;
 }
 
@@ -56,6 +58,7 @@ hr {
 .request-description {
   flex: 1 1 auto;
   margin-left: 5px;
+  padding-left: 10px;
 }
 
 .dashboard-headers {
@@ -75,8 +78,10 @@ margin-top: 0;
 }
 
 .completed-description {
-  flex: 0 0 69%;
+  flex: 1 0 auto;
   margin-left: 5px;
+  padding-left: 10px;
+
 }
 
 .completed-choices {
