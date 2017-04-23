@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-sm-6">
       <div class="chatbox-wrap">
         <div class="chatbox-title">
           <h2>Messages</h2>
@@ -10,33 +10,43 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <div class="chatdetails-wrap">
-        <div class="message-box">
-          <div class="message-box-field">
-            <%= simple_form_for [@inquiry, @message] do |f| %>
-            <%= f.input :content, placeholder: "You can add more details here", label: false %>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="chatdetails-wrap">
+            <div class="chatbox-title">
+              <h2>Order Status</h2>
+            </div>
+            <div class="chatdetails-status">
+              <%= render 'inquiries/order_status' %>
+            </div>
           </div>
-          <div class="message-box-button">
-            <%= f.submit "Send", class: "gibbit-button btn" %>
-          </div>
-            <% end %>
         </div>
-        <ul class="list-inline text-center helper-button">
-          <%= render 'inquiries/helper_buttons' %>
-        </ul>
+        <div class="col-xs-12">
+          <div class="chatdetails-wrap">
+            <div class="message-box">
+              <div class="message-box-field">
+                <%= simple_form_for [@inquiry, @message] do |f| %>
+                <%= f.input :content, placeholder: "Enter your chat messages here", label: false %>
+              </div>
+              <div class="message-box-button">
+                <%= f.submit "Send", class: "gibbit-button btn" %>
+              </div>
+                <% end %>
+            </div>
+            <ul class="list-inline text-center helper-button">
+              <%= render 'inquiries/helper_buttons' %>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-6">
-      <div class="chatdetails-wrap">
-        <div class="chatbox-title">
-          <h5>Order Status</h5>
-        </div>
-        <div class="chatdetails-status">
-          <%= render 'inquiries/order_status' %>
-        </div>
-      </div>
-    </div>
   </div>
+</div>
+
+
+
+
+
+
+
