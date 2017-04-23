@@ -28,4 +28,10 @@ Rails.application.routes.draw do
     end
     resources :messages, only:[:create]
   end
+
+  resources :notices do
+    collection do
+      post :mark_as_read
+    end
+  end
 end

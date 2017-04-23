@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419024126) do
+ActiveRecord::Schema.define(version: 20170423122045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,31 @@ ActiveRecord::Schema.define(version: 20170419024126) do
     t.index ["sender_type", "sender_id"], name: "index_messages_on_sender_type_and_sender_id", using: :btree
   end
 
+  create_table "notices", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "gibber_id"
+    t.datetime "read_at"
+    t.string   "action"
+    t.string   "notifiable_id"
+    t.string   "integer"
+    t.string   "notifiable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["gibber_id"], name: "index_notices_on_gibber_id", using: :btree
+    t.index ["user_id"], name: "index_notices_on_user_id", using: :btree
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "recepient_id"
+    t.integer  "actor_id"
+    t.datetime "read_at"
+    t.string   "action"
+    t.integer  "notifiable_id"
+    t.string   "notifiable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -90,4 +115,6 @@ ActiveRecord::Schema.define(version: 20170419024126) do
   add_foreign_key "inquiries", "gibbers"
   add_foreign_key "inquiries", "users"
   add_foreign_key "messages", "inquiries"
+  add_foreign_key "notices", "gibbers"
+  add_foreign_key "notices", "users"
 end
