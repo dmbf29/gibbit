@@ -1,127 +1,131 @@
 <div class="wrapper">
   <div class="banner">
-  <div class="banner-content">
-    <h1 class="banner-title">Help is Already Here</h1>
+    <div class="banner-content">
+      <h1 class="banner-title">Help is Already Here</h1>
     </div>
   </div>
 
   <div class="wrapper-gray">
     <div class="banner-call-action">
-    <ul class="list-inline wrapper-gray">
-      <!-- <li>
-        <form action="" class="banner-image-search">
-          <input type="text" class="banner-search-input" placeholder="How can we help you?">
-        </form>
-      </li> -->
-      <li class="request-btn">
-      <%= link_to "Make a request", new_inquiry_path, class: "btn banner-button hvr-grow" %>
-      </li>
-    </ul>
+      <ul class="list-inline wrapper-gray" style="margin-bottom: 0px">
+        <!-- <li>
+          <form action="" class="banner-image-search">
+            <input type="text" class="banner-search-input" placeholder="How can we help you?">
+          </form>
+        </li> -->
+        <li class="request-btn">
+        <%= link_to "Make a request", new_inquiry_path, class: "btn banner-button hvr-grow" %>
+        </li>
+      </ul>
     </div>
-<!--   </div> -->
+  </div>
 
-<div class="wrapper-gray">
-  <div class="container padded">
-  <h3 class="wrapper-header">HOW IT WORKS? <i class="fa fa-cogs" aria-hidden="true"></i></h3>
-    <div class="row">
-      <div class="col-xs-12 col-md-4">
-        <div class="card-white">
-          <%= cl_image_tag("v1492744205/ribbon-green_oicsru.png", class: "ribbon-green") %>
-          <h3 style="text-align: center;">Need Help?</h3>
-          <p>
-            Ever needed help but can't manage it on your own? We have a team of Gibbers who are here to help you complete your daily life tasks.
-          </p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <div class="card-white">
-            <%= cl_image_tag("v1492744205/ribbon-green_oicsru.png", class: "ribbon-green") %>
-          <h3 style="text-align: center;">Just Ask</h3>
-          <p>
-            If you fill out our request form with your specific details, one of our Gibbers will start looking into it right away.
-          </p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <div class="card-white">
+  <div class="wrapper-gray">
+    <div class="padded">
+      <div class="container padded">
+        <h3 class="wrapper-header">HOW IT WORKS? <i class="fa fa-cogs" aria-hidden="true"></i></h3>
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+            <div class="card-white">
               <%= cl_image_tag("v1492744205/ribbon-green_oicsru.png", class: "ribbon-green") %>
-            <h3 style="text-align: center;">One-click!</h3>
-            <p>
-              Once one our Gibbers sends you a proposal, just click the big green accept button and be on your way!
-            </p>
+              <h3 style="text-align: center;">Need Help?</h3>
+              <p>
+                Ever needed help but can't manage it on your own? We have a team of Gibbers who are here to help you complete your daily life tasks.
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="card-white">
+                <%= cl_image_tag("v1492744205/ribbon-green_oicsru.png", class: "ribbon-green") %>
+              <h3 style="text-align: center;">Just Ask</h3>
+              <p>
+                If you fill out our request form with your specific details, one of our Gibbers will start looking into it right away.
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="card-white">
+                  <%= cl_image_tag("v1492744205/ribbon-green_oicsru.png", class: "ribbon-green") %>
+                <h3 style="text-align: center;">One-click!</h3>
+                <p>
+                  Once one our Gibbers sends you a proposal, just click the big green accept button and be on your way!
+                </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="wrapper-green">
-<div class="container padded">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="review-section-title">
-      <h2>Gibbit - We want you to succeed </h2>
-      <p><%= link_to "Send us a request and we'll get it done", new_inquiry_path, class: "btn btn-arrow-right hvr-icon-forward" %></p>
+  <div class="wrapper-green">
+    <div class="padded">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="review-section-title">
+              <h2>Gibbit - We want you to succeed </h2>
+              <p><%= link_to "Send us a request and we'll get it done", new_inquiry_path, class: "btn btn-arrow-right hvr-icon-forward" %></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 
-<div class="wrapper-white">
-  <h3 class="wrapper-review-header">WHAT OUR CUSTOMERS SAY <i class="fa fa-commenting-o" aria-hidden="true"></i></h3>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-3">
-        <div class="review-card-white">
-          <h3>Hide</h3>
-            <%= cl_image_tag("v1492743361/icon-quoute_th5bzz.png",
-            class: "quote-bubble review-card-quote") %>
-            <%= cl_image_tag("v1492742645/user1_qnmxmz.jpg",
-            class: "avatar-large review-card-user") %>
-          <p>
-            Any time one of my foreign friends needs help around town, I always recommend Gibbit!
-          </p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <div class="review-card-white">
-          <h3>Chris</h3>
-          <%= cl_image_tag("v1492743361/icon-quoute_th5bzz.png",
-            class: "quote-bubble review-card-quote") %>
-          <%= cl_image_tag("v1492742646/user2_v4t0fe.jpg",
-      class: "avatar-large review-card-user") %>
-          <p>
-            I needed help moving last month and they set me up with an incredibly helpful and cheap mover.
-          </p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <div class="review-card-white">
-            <h3>Biz</h3>
-            <%= cl_image_tag("v1492743361/icon-quoute_th5bzz.png",
-            class: "quote-bubble review-card-quote") %>
-            <%= cl_image_tag("v1492742646/user3_rcvq4e.jpg",
-      class: "avatar-large review-card-user") %>
+  <div class="wrapper-white">
+    <h3 class="wrapper-review-header">WHAT OUR CUSTOMERS SAY <i class="fa fa-commenting-o" aria-hidden="true"></i></h3>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
+          <div class="review-card-white">
+            <h3>Hide</h3>
+              <%= cl_image_tag("v1492743361/icon-quoute_th5bzz.png",
+              class: "quote-bubble review-card-quote") %>
+              <%= cl_image_tag("v1492742645/user1_qnmxmz.jpg",
+              class: "avatar-large review-card-user") %>
             <p>
-              I love Gibbit! I don't know any Japanese so I send requests every week! Ainaa is the best!
+              Any time one of my foreign friends needs help around town, I always recommend Gibbit!
             </p>
+          </div>
         </div>
-      </div>
-      <div class="col-xs-12 col-md-3">
-        <div class="review-card-white">
-            <h3>Nico</h3>
+        <div class="col-xs-12 col-md-3">
+          <div class="review-card-white">
+            <h3>Chris</h3>
             <%= cl_image_tag("v1492743361/icon-quoute_th5bzz.png",
-            class: "quote-bubble review-card-quote") %>
-            <%= cl_image_tag("v1492742646/user4_ezwemv.jpg",
-      class: "avatar-large review-card-user") %>
+              class: "quote-bubble review-card-quote") %>
+            <%= cl_image_tag("v1492742646/user2_v4t0fe.jpg",
+        class: "avatar-large review-card-user") %>
             <p>
-              All of the Gibbers are incredibly helpful and have such a good understanding of the city. I use them all the time!
+              I needed help moving last month and they set me up with an incredibly helpful and cheap mover.
             </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="review-card-white">
+              <h3>Biz</h3>
+              <%= cl_image_tag("v1492743361/icon-quoute_th5bzz.png",
+              class: "quote-bubble review-card-quote") %>
+              <%= cl_image_tag("v1492742646/user3_rcvq4e.jpg",
+        class: "avatar-large review-card-user") %>
+              <p>
+                I love Gibbit! I don't know any Japanese so I send requests every week! Ainaa is the best!
+              </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="review-card-white">
+              <h3>Nico</h3>
+              <%= cl_image_tag("v1492743361/icon-quoute_th5bzz.png",
+              class: "quote-bubble review-card-quote") %>
+              <%= cl_image_tag("v1492742646/user4_ezwemv.jpg",
+        class: "avatar-large review-card-user") %>
+              <p>
+                All of the Gibbers are incredibly helpful and have such a good understanding of the city. I use them all the time!
+              </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
