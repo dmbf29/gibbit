@@ -1,7 +1,11 @@
 <div class="wrapper">
-<div class="banner">
+  <div class="banner">
   <div class="banner-content">
     <h1 class="banner-title">Help is Already Here</h1>
+    </div>
+  </div>
+
+  <div class="wrapper-gray">
     <div class="banner-call-action">
     <ul class="list-inline">
       <!-- <li>
@@ -10,16 +14,15 @@
         </form>
       </li> -->
       <li class="request-btn">
-      <%= link_to "Make a Request", new_inquiry_path, class: "btn banner-button" %>
+      <%= link_to "Make a request", new_inquiry_path, class: "btn banner-button hvr-grow" %>
       </li>
     </ul>
     </div>
-  </div>
-</div>
+<!--   </div> -->
 
-<div class="wrapper-gray">
-  <h3 class="wrapper-header">How it works? <i class="fa fa-cogs" aria-hidden="true"></i></h3>
-  <div class="container">
+<!-- <div class="wrapper-gray"> -->
+  <h3 class="wrapper-header">HOW IT WORKS? <i class="fa fa-cogs" aria-hidden="true"></i></h3>
+  <div class="container padded">
     <div class="row">
       <div class="col-xs-12 col-md-4">
         <div class="card-white">
@@ -52,8 +55,21 @@
   </div>
 </div>
 
+<div class="wrapper-green">
+<div class="container padded">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="review-section-title">
+      <h2>Gibbit - We want you to succeed </h2>
+      <p><%= link_to "Send us a request and we'll get it done", new_inquiry_path, class: "btn btn-arrow-right hvr-icon-forward" %></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="wrapper-white">
-  <h3 class="wrapper-review-header">Gibbit Reviews <i class="fa fa-commenting-o" aria-hidden="true"></i></h3>
+  <h3 class="wrapper-review-header">WHAT OUR CUSTOMERS SAY <i class="fa fa-commenting-o" aria-hidden="true"></i></h3>
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-3">
