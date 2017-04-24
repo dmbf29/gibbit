@@ -5,9 +5,25 @@ class ChatChannel < ApplicationCable::Channel
 
   def receive(data)
     # binding.pry
+    @inquiry = Inquiry.find(data["inquiry_id"])
+    @message = Message.new(content: data["content"])
+    @message.inquiry = @inquiry
 
+    set_sender(data)
+
+    @message.sender = @sender
+    @message.save
+
+    data["sender_first_name"] = @sender.first_name
+
+    # if @message.save
+    #   redirect_to inquiry_path(@inquiry)
+    # else
+    #   render 'inquiries/show'
+    #   # need to check
+    # end
     ActionCable.server.broadcast \
-      specific_channel, format_response(data)
+      specific_channel, data
   end
 
   private
@@ -15,14 +31,7 @@ class ChatChannel < ApplicationCable::Channel
     "chat_#{params[:room]}"
   end
 
-  # Limit text to 140 characters
-  def filter(msg)
-    msg.to_s[0...140]
-  end
-
-  def format_response(data)
-    {
-      content: filter( data["content"] )
-    }
+  def set_sender(data)
+    @sender =  data["sender_type"] == "gibber" ? Gibber.find(data["sender_id"]) : User.find(data["sender_id"])
   end
 end
