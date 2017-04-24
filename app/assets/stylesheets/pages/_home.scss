@@ -69,7 +69,7 @@
 // }
 
 .card-white {
-  background: white;
+  background-color: rgba(191, 191, 191,0.5);
   padding: 20px;
   // padding-right: 50px;
   // padding-left: 50px;
@@ -79,7 +79,17 @@
   margin-bottom: 10px;
   height: 225px;
   position: relative;
+  color: #6d6d6d;
 }
+
+.step-number {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 30px;
+  border-radius: 50%;
+}
+
 .review-card-white {
   background: white;
   padding: 30px;
@@ -93,7 +103,7 @@
 }
 
 .wrapper-gray {
-  background: #BFBFBF;
+  background: white;
   color: #4e4e4e;
   // padding-bottom: 30px;
 }
@@ -109,7 +119,7 @@
   margin-top: 0px;
   // padding-top: 50px;
   // padding-bottom: 35px;
-  margin-bottom: 0px;
+  margin-bottom: 32px;
   padding: 50px;
   color: #000000;
   font-weight: bold;
@@ -117,7 +127,7 @@
 
 .wrapper-review-header {
   text-align: center;
-  margin-top: 0px;
+  margin-top: 26px;
   padding-top: 50px;
   padding-bottom: 20px;
   color: #636363;
@@ -156,7 +166,7 @@
   position: absolute;
   width: 100%;
   bottom: 0px;
-  left: 0px;
+  left: -8px;
 }
 
 .review-section-title {
