@@ -53,11 +53,28 @@
   <div class="entry">
     <div class="type-area">
       <div class="username-input">
-        <%= current_user.first_name %>:
+        <% if current_user %>
+          <%= current_user.first_name %>
+        <% else %>
+          <%= current_gibber.first_name %>:
+        <% end %>
+
       </div>
 
       <div class="user-input">
-        <%= text_field_tag :message, nil, class: "form-control chat-input" %>
+        <%= text_field_tag :content, nil, class: "form-control chat-input" %>
+        <% if current_user %>
+          <% sender_id = current_user.id %>
+          <% sender_type = "user" %>
+        <% else %>
+          <% sender_id = current_gibber.id %>
+          <% sender_type = "gibber" %>
+        <% end %>
+
+        <%= hidden_field_tag :sender_id, sender_id, class: "form-control sender-id" %>
+        <%= hidden_field_tag :inquiry_id, @inquiry.id, class: "form-control inquiry-id" %>
+        <%= hidden_field_tag :sender_type, sender_type, class: "form-control sender-type" %>
+
       </div>
     </div>
   </div>

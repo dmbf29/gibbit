@@ -1,18 +1,18 @@
-$( window ).ready(function() {
+// $( window ).ready(function() {
 
-    var wHeight = $(window).height();
+//     var wHeight = $(window).height();
 
-    $('.slide')
-      .height(wHeight)
-      .scrollie({
-        scrollOffset : -50,
-        scrollingInView : function(elem) {
+//     $('.slide')
+//       .height(wHeight)
+//       .scrollie({
+//         scrollOffset : -50,
+//         scrollingInView : function(elem) {
 
-          var bgColor = elem.data('background');
+//           var bgColor = elem.data('background');
 
-          $('body').css('background-color', bgColor);
+//           $('body').css('background-color', bgColor);
 
-        }
-      });
+//         }
+//       });
 
-  });
+//   });
