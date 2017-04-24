@@ -100,14 +100,14 @@
         <hr>
         <% @completions.each do |completion| %>
           <div class="request">
-          <%#= link_to inquiry_path(completion) do %>
             <div class="completed-current">
               <button class="view-request-button accepted-user-underline"><%= completion.status.capitalize %></button>
             </div>
+          <%= link_to inquiry_path(completion) do %>
             <div class="completed-description">
               <p><%= completion.description %></p>
             </div>
-          <%# end %>
+          <% end %>
             <div class="completed-request-choices">
               <div class="completed-links">
                 <div class="completed-facebook">
@@ -125,23 +125,21 @@
         <% end %>
           <hr>
         <% @rejections.each do |rejection| %>
-          <%#= link_to inquiry_path(rejection) do %>
           <div class="request">
             <div class="completed-current">
               <button class="view-request-button proposed-user-underline"><%= rejection.status.capitalize %></button>
             </div>
+          <%= link_to inquiry_path(rejection) do %>
             <div class="completed-description">
               <p><%= rejection.description %></p>
             </div>
+          <% end %>
             <div class="completed-request-choices">
-              <ul class="list-inline">
-                <li>
+              <div class="completed-links">
                 <%= link_to raw("<i class='fa fa-trash' aria-hidden='true'></i>"), inquiry_path(rejection), method: :delete %>
-                </li>
-              </ul>
+              </div>
             </div>
           </div>
-          <%# end %>
           <hr>
         <% end %>
       </div>
