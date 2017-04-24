@@ -15,6 +15,7 @@ gem "letter_opener", group: :development
 gem 'social-share-button'
 gem 'coffee-script'
 gem 'money-rails'
+gem 'stripe'
 
 gem 'sass-rails'
 gem 'jquery-rails'

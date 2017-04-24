@@ -8,6 +8,10 @@
     </div>
     <div class="chat-order-accrej-button">
       <ul class="list-inline">
+        <li><%= form_tag orders_path do %>
+              <%= hidden_field_tag 'inquiry_id', @inquiry.id %>
+              <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+            <% end %></li>
         <li><%= link_to "Accept", accept_inquiry_path(@inquiry), method: :patch, class: "btn accept-button" %></li>
         <li><%= link_to "Reject", reject_inquiry_path(@inquiry), method: :patch, class: "btn reject-button" %></li>
       </ul>

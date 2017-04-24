@@ -34,4 +34,8 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
 end

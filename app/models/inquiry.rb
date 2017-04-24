@@ -7,6 +7,8 @@ class Inquiry < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  monetize :price_cents
+
   validates :description, presence: true
   # validates :email, presence: true
   # validates :first_name, presence: true
