@@ -2,7 +2,13 @@
   <div class="container">
     <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3">
       <div class="session">
-        <h2>Sign up</h2>
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-info" %><br />
+            <hr class="hr-color">
+          <% end -%>
+        <% end -%>
+        <h2>Join</h2>
 
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
@@ -14,13 +20,13 @@
             <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
             <%= f.input :password_confirmation, required: true %>
           </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
+          <div class="link-margin">
+            <%= f.button :submit, "Join", class: "navbar-wagon-item join-button btn" %>
           </div>
         <% end %>
-
-        <%= render "devise/shared/links" %>
+        <ul class="link-list">
+          <%= render "devise/shared/links" %>
+        </ul>
       </div>
     </div>
   </div>
