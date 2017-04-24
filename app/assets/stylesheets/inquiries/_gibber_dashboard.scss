@@ -29,49 +29,6 @@
   margin-left: 5px;
 }
 
-.propose-button {
-  width: 120px;
-  background-color: #424244;
-  color: white;
-  border: 5px solid $red;
-}
-
-.pending-button {
-  width: 120px;
-  background-color: #424244;
-  color: white;
-  border: 5px solid $yellow;
-}
-
-.complete-button {
-  width: 120px;
-  background-color: #424244;
-  color: white;
-  border: 5px solid $green;
-}
-
-
-.gibber-propose-button {
-  width: 120px;
-  background-color: #424244;
-  color: white;
-  border: 5px solid $yellow;
-}
-
-.gibber-pending-button {
-  width: 120px;
-  background-color: #424244;
-  color: white;
-  border: 5px solid $red;
-}
-
-.gibber-complete-button {
-  width: 120px;
-  background-color: #424244;
-  color: white;
-  border: 5px solid $green;
-}
-
 .gibber-assign-button {
   width: 75px;
   background-color: #424244;
@@ -79,7 +36,6 @@
   border: 3px solid $blue;
   text-align: center;
 }
-
 .change-status-button {
   margin-left: 10px;
   margin-top: 10px;
@@ -88,9 +44,9 @@
   border-radius: 5px;
   line-height: 30px;
   background-color: #E0E0E0;
-  color: $green;
+  color: #424244;
   font-size: 14px;
-  border: 2px solid $green;
+  border: 2px solid #424244;
 }
 .change-status-button:hover {
   color: #424244;
@@ -103,10 +59,39 @@
   background-color: #424244;
   color: white;
 }
+.view-request-button-large {
+  width: 200px;
+  background-color: #424244;
+  color: white;
+}
 
 .view-request-button:hover {
   width: 120px;
   background-color: #424244;
   color: #E0E0E0;
 }
+.view-request-button-large:hover {
+  width: 200px;
+  background-color: #424244;
+  color: #E0E0E0;
+}
 
+.proposed-gibber-underline {
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, darken($yellow,11), darken($yellow,1)) 10% round;
+
+}
+.pending-gibber-underline {
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, darken($red,11), darken($red,1)) 10% round;
+
+}
+
+.accepted-gibber-underline {
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, darken($green,11), darken($green,1)) 10% round;
+
+}

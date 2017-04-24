@@ -22,8 +22,12 @@
   background-color: #424244;
   color: $green;
   border-radius: 0 0 5px 5px;
-  padding: 5px;
-  margin-top: 0;
+  padding: 15px;
+  letter-spacing: 1px;
+}
+.chatbox-title h2 {
+  margin-top: 11px;
+  margin-bottom: 11px;
 }
 
 .chatbox-messages {
@@ -202,7 +206,23 @@
   border: 5px solid $green;
 }
 
+.chat-order-status-title h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
+.chat-order-status-text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
+.chat-order-accrej-button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
-
+.chat-gibber-status-button {
+  lines-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
