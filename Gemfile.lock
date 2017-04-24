@@ -247,6 +247,7 @@ DEPENDENCIES
   bootstrap-sass
   carrierwave (~> 0.11.2)
   cloudinary
+  coffee-script
   devise
   figaro
   font-awesome-sass
