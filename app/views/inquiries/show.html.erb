@@ -46,7 +46,22 @@
 
 
 
+<div class="lobby-chat">
+  <div id="chat-feed" class="log" data-chatroom='Lobby'>
 
+  </div>
+  <div class="entry">
+    <div class="type-area">
+      <div class="username-input">
+        <%= current_user.first_name %>:
+      </div>
+
+      <div class="user-input">
+        <%= text_field_tag :message, nil, class: "form-control chat-input" %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
