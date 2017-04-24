@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       patch :reject
     end
     resources :messages, only:[:create]
+    resources :payments, only: [:new, :create]
   end
 
   resources :notices do
@@ -35,7 +36,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:show, :create] do
-    resources :payments, only: [:new, :create]
-  end
+  # resources :orders, only: [:show, :create] do
+  #   resources :payments, only: [:new, :create]
+  # end
 end

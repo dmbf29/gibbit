@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_order, only: [:new, :create]
+  before_action :set_inquiry, only: [:new, :create]
 
   def new
   end
@@ -15,22 +15,22 @@ class PaymentsController < ApplicationController
 
     charge = Stripe::Charge.create(
       customer:     customer.id,   # You should store this customer id and re-use it.
-      amount:       @order.amount_cents, # or amount_pennies
-      description:  "Payment for request # #{@order.inquiry_id} for order #{@order.id}",
-      currency:     @order.amount.currency
+      amount:       @inquiry.price_cents, # or amount_pennies
+      description:  "Payment for request # #{@inquiry.id}",
+      currency:     @inquiry.price.currency
     )
 
-    @order.update(payment: charge.to_json, state: 'paid')
-    redirect_to order_path(@order)
+    @inquiry.update(payment: charge.to_json, status: 'accepted')
+    redirect_to inquiry_path(@inquiry)
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to new_order_payment_path(@order)
+      redirect_to inquiry_path(@inquiry)
     end
 
 
   private
-  def set_order
-    @order = Order.where(state: 'pending').find(params[:order_id])
+  def set_inquiry
+    @inquiry = Inquiry.where(status: 'proposed').find(params[:inquiry_id])
   end
 end

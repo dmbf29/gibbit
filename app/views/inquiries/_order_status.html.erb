@@ -1,90 +1,92 @@
 <% if user_signed_in? %>
-  <% if @inquiry.status == "proposed" %>
+  <% if inquiry.status == "proposed" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#469AE0;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#469AE0;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
       <p>Your proposal is in your messages.</p>
     </div>
     <div class="chat-order-accrej-button">
-      <ul class="list-inline">
-        <li><%= form_tag orders_path do %>
-              <%= hidden_field_tag 'inquiry_id', @inquiry.id %>
-              <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-            <% end %></li>
-        <li><%= link_to "Accept", accept_inquiry_path(@inquiry), method: :patch, class: "btn accept-button" %></li>
-        <li><%= link_to "Reject", reject_inquiry_path(@inquiry), method: :patch, class: "btn reject-button" %></li>
-      </ul>
+      <%= render 'payments/payment_button', inquiry: inquiry %>
+
+      <!-- <ul class="list-inline"> -->
+        <!-- <li><%# form_tag orders_path do %>
+              <%# hidden_field_tag 'inquiry_id', inquiry.id %>
+              <%# submit_tag 'Purchase', class: 'btn btn-primary' %>
+            <%# end %></li> -->
+<!--         <li><%# link_to "Accept", accept_inquiry_path(inquiry), method: :patch, class: "btn accept-button" %></li>
+        <li><%# link_to "Reject", reject_inquiry_path(inquiry), method: :patch, class: "btn reject-button" %></li> -->
+      <!-- </ul> -->
     </div>
     <p style="text-align: center;">Price: 1 credit</p>
-  <% elsif @inquiry.status == "pending" %>
+  <% elsif inquiry.status == "pending" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#FDB631;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#FDB631;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
       <p>A gibber is checking your order now!</p>
     </div>
-  <% elsif @inquiry.status == "accepted" %>
+  <% elsif inquiry.status == "accepted" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#20bd3e;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#20bd3e;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
       <p>A gibber will finalize your order now!</p>
     </div>
-  <% elsif @inquiry.status == "rejected" %>
+  <% elsif inquiry.status == "rejected" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#EE5F5B;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#EE5F5B;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
       <p>We're sorry the proposal didn't meet your needs. Let us know if we can do anything differently.</p>
     </div>
-  <% elsif @inquiry.status == "completed" %>
+  <% elsif inquiry.status == "completed" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#20bd3e;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#20bd3e;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
       <p>You're all set! Thank you for choosing Gibbit.</p>
     </div>
   <% end %>
 <% elsif gibber_signed_in? %>
-  <% if @inquiry.status == "pending" %>
+  <% if inquiry.status == "pending" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#FDB631;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#FDB631;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
-      <p><%= @inquiry.user.first_name %> needs a proposal...</p>
+      <p><%= inquiry.user.first_name %> needs a proposal...</p>
     </div>
     <div class="chat-gibber-status-button">
-      <%= link_to "Make a proposal", propose_gibbers_inquiry_path(@inquiry), method: :patch, class: "btn view-request-button-large pending-gibber-underline" %>
+      <%= link_to "Make a proposal", propose_gibbers_inquiry_path(inquiry), method: :patch, class: "btn view-request-button-large pending-gibber-underline" %>
     </div>
-  <% elsif @inquiry.status == "proposed" %>
+  <% elsif inquiry.status == "proposed" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#469AE0;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#469AE0;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
-      <p>Awaiting <%= @inquiry.user.first_name %>'s response.</p>
+      <p>Awaiting <%= inquiry.user.first_name %>'s response.</p>
     </div>
-  <% elsif @inquiry.status == "accepted" %>
+  <% elsif inquiry.status == "accepted" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#20bd3e;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#20bd3e;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
-      <p>Lock that request in for <%= @inquiry.user.first_name %>!</p>
+      <p>Lock that request in for <%= inquiry.user.first_name %>!</p>
     </div>
     <div class="chat-gibber-status-button">
-      <%= link_to "Complete the Request", complete_gibbers_inquiry_path(@inquiry), method: :patch, class: "btn view-request-button-large accepted-gibber-underline" %>
+      <%= link_to "Complete the Request", complete_gibbers_inquiry_path(inquiry), method: :patch, class: "btn view-request-button-large accepted-gibber-underline" %>
     </div>
 
-  <% elsif @inquiry.status == "completed" %>
+  <% elsif inquiry.status == "completed" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#20bd3e;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#20bd3e;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
       <p>Job well done!</p>
     </div>
-  <% elsif @inquiry.status == "rejected" %>
+  <% elsif inquiry.status == "rejected" %>
     <div class="chat-order-status-title">
-      <h3 style="color:#EE5F5B;"><%= @inquiry.status.capitalize %> </h3>
+      <h3 style="color:#EE5F5B;"><%= inquiry.status.capitalize %> </h3>
     </div>
     <div class="chat-order-status-text">
       <p>Well we can't win them all.</p>

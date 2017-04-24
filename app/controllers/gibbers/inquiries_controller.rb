@@ -22,6 +22,7 @@ class Gibbers::InquiriesController < ApplicationController
     @inquiry.status = "proposed"
     @inquiry.gibber = current_gibber
     @inquiry.save
+    # @order = Order.create!(inquiry_id: @inquiry.id, amount: @inquiry.price, state: 'pending')
     Notice.create(user: @inquiry.user, gibber: @inquiry.gibber, action: "sent a proposal", notifiable: @inquiry)
     redirect_to inquiry_path(@inquiry)
   end
