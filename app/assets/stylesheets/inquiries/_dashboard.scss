@@ -1,5 +1,5 @@
 .avatar-wrap {
-  background-color: #424244;
+  background-color: $dark-gray;
   text-align: center;
   color: white;
   padding: 10px;
@@ -16,7 +16,7 @@
 
 .request-wrap a {
   text-decoration: none;
-  color: #424244;
+  color: $dark-gray;
 }
 
 hr {
@@ -41,7 +41,7 @@ hr {
 }
 
 .request-title {
-  background-color: #424244;
+  background-color: $dark-gray;
   color: white;
   margin-bottom: 0;
   text-align: center;
