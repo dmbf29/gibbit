@@ -12,6 +12,7 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 gem 'omniauth-facebook'
 gem "letter_opener", group: :development
+gem 'social-share-button'
 
 gem 'sass-rails'
 gem 'jquery-rails'
