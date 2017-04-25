@@ -1,5 +1,5 @@
 .avatar-wrap {
-  background-color: #424244;
+  background-color: $dark-gray;
   text-align: center;
   color: white;
   padding: 10px;
@@ -7,15 +7,16 @@
 }
 
 .request-wrap {
-  background-color: #E0E0E0;
+  // background-color: #E0E0E0;
   border-radius: 0 0 5px 5px;
   box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
   margin-top: 10px;
+  border: 1px solid $green;
 }
 
 .request-wrap a {
   text-decoration: none;
-  color: #424244;
+  color: $dark-gray;
 }
 
 hr {
@@ -40,7 +41,7 @@ hr {
 }
 
 .request-title {
-  background-color: #424244;
+  background-color: $dark-gray;
   color: white;
   margin-bottom: 0;
   text-align: center;

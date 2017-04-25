@@ -1,35 +1,34 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+// START OF BANNER CONTENT
 .banner {
   color: white;
   text-align: center;
-  height:70vh;
+  height:100vh;
+  padding: 30px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
-  // align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   background-position: center;
-  background-image: linear-gradient(135deg, rgba(0, 90, 50, 0.2) 40%, rgba(0,0,0,0.2) 60%),
+  background-image: linear-gradient(135deg, rgba(0, 90, 50, 0.3) 40%, rgba(0,0,0,0.3) 60%),
   url('http://res.cloudinary.com/dmbf29/image/upload/v1492588671/shibuya_mqo0go.jpg');
-}
-
-.banner-call-action {
-  // margin-top: 10px;
-  justify-content: center;
-  text-align: center;
-  background: #FFFFFF;
 }
 
 .banner-title {
   font-family: 'Permanent Marker', cursive;
   font-weight: normal;
   font-style: normal;
-  font-size: 90px;
-  margin-bottom: 22px;
-  margin-top: 50px;
+  font-size: 9vw;
+}
+
+.banner-values {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 3vw;
+}
+
+.banner-call-action {
+  text-align: center;
 }
 
 .banner-button {
@@ -37,64 +36,120 @@
   background-color: $green;
   color: white;
   padding: 20px;
-  // border: 2px solid white;
   font-size: 18px;
   font-weight: 700;
   border-radius: 5px;
-  // font-family: 'Walter Turncoat';
 }
 
-.banner-image-search {
-  flex: 0 1 300px;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 10px;
-  position: relative;
+.banner-card-icon {
+  width: 50px;
 }
 
-.banner-search-input {
-  flex: 0 1 300px;
-  transition: all 0.15s ease;
-  line-height: 40px;
+.banner-hr-green {
+    border: 0;
+    height: 1px;
+    width: 75%;
+    background: $green;
+}
+
+.banner-card-content h5 {
+  font-weight: bolder;
+}
+.banner-card-content p {
   font-weight: lighter;
-  color: #666666;
-  border: 1px solid #E6E6E6;
-  border-radius: 5px;
-  padding: 0 10px;
-  font-size: 14px;
-  outline: none;
 }
-// .banner-search-input:focus  {
-//   border: 1px solid #CCCCCC;
-// }
+// END OF BANNER
 
-.card-white {
+// HOW IT WORKS UNDER BANNER
+.homepage-wrapper-white {
+  background: white;
+  color: $dark-gray;
+}
+
+.homepage-section-header {
+  text-align: center;
+  color: $dark-gray;
+  font-weight: bold;
+}
+
+.homepage-section-header h2 {
+  margin: 0px;
+  padding: 40px;
+}
+
+.homepage-works-card {
   background-color: rgba(32, 189, 62,0.1);
-  padding: 20px;
-  // padding-right: 50px;
-  // padding-left: 50px;
   box-shadow: 1px 1px 2px #e7e7e7;
   border-radius: 4px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  height: 225px;
   position: relative;
-  color: #6d6d6d;
+  color: $dark-gray;
 }
 
-.step-number {
+.homepage-works-card:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.homepage-works-card-number {
   position: absolute;
-  left: 10px;
-  top: 10px;
+  left: 0px;
+  top: 0px;
   width: 30px;
+  border-radius: 50%;
+}
+
+.homepage-works-card-ribbon {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+}
+
+.homepage-works-card-content {
+  text-align: center;
+}
+
+.homepage-works-card-content h4 {
+  margin: 0px;
+  padding: 15px;
+  font-weight: bolder;
+}
+
+.homepage-works-card-content p {
+  padding: 0 20px;
+  padding-bottom: 20px;
+  font-weight: lighter;
+}
+
+.homepage-wrapper-green {
+  margin-top: 30px;
+  background: $green;
+  color: $dark-gray;
+}
+.gibbit-plea-content {
+  padding-bottom: 40px;
+}
+
+.gibbit-plea-content h2 {
+  margin: 0px;
+  padding-top: 40px;
+  padding-bottom: 15px;
+}
+
+.gibbit-plea-content a {
+  margin-top: 0px;
+  color: white;
+  padding-left: 5px;
+}
+
+.review-avatar {
+  width: 75px;
   border-radius: 50%;
 }
 
 .review-card-white {
   background: white;
   padding: 30px;
-  // padding-right: 50px;
-  // padding-left: 50px;
   box-shadow: 1px 1px 2px #e7e7e7;
   border-radius: 4px;
   margin: 20px 10px;
@@ -102,42 +157,6 @@
   position: relative;
 }
 
-.wrapper-gray {
-  background: white;
-  color: #4e4e4e;
-  // padding-bottom: 30px;
-}
-
-.wrapper-white {
-  background: white;
-  color: #4e4e4e;
-  // padding-bottom: 45px;
-}
-
-.wrapper-header {
-  text-align: center;
-  margin-top: 0px;
-  // padding-top: 50px;
-  // padding-bottom: 35px;
-  margin-bottom: 32px;
-  padding: 50px;
-  color: #000000;
-  font-weight: bold;
-}
-
-.wrapper-review-header {
-  text-align: center;
-  margin-top: 26px;
-  padding-top: 50px;
-  padding-bottom: 20px;
-  color: #636363;
-}
-
-.card-white:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
 .review-card-white:hover {
         box-shadow:
                 1px 1px #c6c6ce,
@@ -157,62 +176,10 @@
   left: 10px;
   top: 10px;
 }
-.quote-bubble {
+.review-card-bubble {
   width: 25px;
   border-radius: 50%;
 }
 
-.ribbon-green {
-  position: absolute;
-  width: 100%;
-  bottom: 0px;
-  left: -8px;
-}
 
-.review-section-title {
-  color: white;
-  line-height: 1.3;
-  padding: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 
-.review-section-title h2 {
-  font-size: 60px;
-  font-weight: 700;
-}
-
-.review-section-title a {
-  font-size: 24px;
-  color: white;
-}
-
-.review-section-title a:hover {
-  color: white;
-}
-
-.wrapper-green {
-  background-color: $green;
-}
-/* .banner-button-underline {
-  position: relative;
-
-  &:hover,
-  &:focus,
-  &:active {
-    cursor: pointer;
-    &:after {
-      width: 100%;
-    }
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: 10px;
-    height: 3px;
-    background-color: #000;
-    width: 0;
-    transition: width .4s;
-  }
-} */
