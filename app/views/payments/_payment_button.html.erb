@@ -1,5 +1,5 @@
 <%= form_tag inquiry_payments_path(inquiry) do %>
-  <article>
+  <article class=payment-button-padding>
     <label class="amount">
       <span>Amount: <%= humanized_money_with_symbol(inquiry.price) %></span>
     </label>
@@ -13,3 +13,5 @@
     data-amount="<%= inquiry.price_cents %>"
     data-currency="<%= inquiry.price.currency %>"></script>
 <% end %>
+
+<%= link_to "Cancel", reject_inquiry_path(inquiry), method: :patch, class: "btn reject-button" %>
