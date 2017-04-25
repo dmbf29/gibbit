@@ -59,24 +59,35 @@
 
 
 
-<div class="review-box">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-    <div class="chatbox-title">
-    <h2>Rate us!</h2>
-    </div>
-    <div class="chatdetails-wrap">
-     <div class="chatdetails-status">
-      <% if @inquiry.status == "completed" && @inquiry.review.nil? %>
-      <%= render 'inquiries/review', inquiry: @inquiry %>
-      <% elsif @inquiry.review.nil? %>
-      We're checking your request now
-      <% else %>
-      Review : <%= @inquiry.review %>
-      Rating : <%= @inquiry.rating %>
-      <% end %>
-     </div>
+
+<button type="button" class="btn gibbit-button" data-toggle="modal" data-target="#modal-review-<%= @inquiry.id %>">
+  Rate us!
+</button>
+    <!-- Modal -->
+<div class="modal fade" id="modal-review-<%= @inquiry.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">
+        Review </h4>
+      </div>
+      <div class="modal-body">
+        <div class="review-form">
+        <% if @inquiry.review.nil? %>
+        <p>Let us know what you think!</p>
+        <%= render 'inquiries/review' %>
+        <% else %>
+        <%= @inquiry.review %>
+        <%= @inquiry.rating  %>
+        <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+      placehold
+      </div>
     </div>
   </div>
 </div>
+
 
