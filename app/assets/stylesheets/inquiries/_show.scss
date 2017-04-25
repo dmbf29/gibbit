@@ -1,12 +1,12 @@
 .chatbox-wrap {
-  background-color: #E0E0E0;
+  background-color: $gray;
   margin-bottom: 10px;
   margin-top: 10px;
   border-radius: 0 0 5px 5px;
   box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
 }
 .chatdetails-wrap {
-  background-color: #E0E0E0;
+  background-color: $gray;
   margin-bottom: 10px;
   margin-top: 10px;
   border-radius: 0 0 5px 5px;
@@ -19,7 +19,7 @@
 }
 
 .chatbox-title {
-  background-color: #424244;
+  background-color: $dark-gray;
   color: $green;
   border-radius: 0 0 5px 5px;
   padding: 15px;
@@ -71,15 +71,15 @@
   padding: 0 20px;
   border-radius: 5px;
   line-height: 40px;
-  background-color: #E0E0E0;
+  background-color: $gray;
   color: $green;
   font-size: 14px;
   border: 2px solid $green;
 }
 .show-button:hover {
-  color: #424244;
-  background: #E0E0E0;
-  border-color: #424244;
+  color: $dark-gray;
+  background: $gray;
+  border-color: $dark-gray;
 }
 
 .accept-button {
@@ -94,7 +94,7 @@
 }
 .accept-button:hover {
   color: $green;
-  background: #E0E0E0;
+  background: $gray;
   border-color: $green;
 }
 
@@ -110,7 +110,7 @@
 }
 .reject-button:hover {
   color: $red;
-  background: #E0E0E0;
+  background: $gray;
   border-color: $red;
 }
 
@@ -173,35 +173,35 @@
 
 .show-propose-button {
   width: 200px;
-  background-color: #424244;
+  background-color: $dark-gray;
   color: white;
   border: 5px solid $red;
 }
 
 .show-pending-button {
   width: 200px;
-  background-color: #424244;
+  background-color: $dark-gray;
   color: white;
   border: 5px solid $yellow;
 }
 
 .show-complete-button {
   width: 200px;
-  background-color: #424244;
+  background-color: $dark-gray;
   color: white;
   border: 5px solid $green;
 }
 
 .show-complete-button {
   width: 200px;
-  background-color: #424244;
+  background-color: $dark-gray;
   color: white;
   border: 5px solid $green;
 }
 
 .show-complete-button:hover {
   width: 200px;
-  background-color: #424244;
+  background-color: $dark-gray;
   color: #D7D7D7;
   border: 5px solid $green;
 }

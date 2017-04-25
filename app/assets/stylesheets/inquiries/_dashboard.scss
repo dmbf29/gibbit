@@ -7,7 +7,8 @@
 }
 
 .request-wrap {
-  // background-color: #E0E0E0;
+  // background-color: $gray
+  ;
   border-radius: 0 0 5px 5px;
   box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
   margin-top: 10px;
@@ -19,7 +20,7 @@
   color: $dark-gray;
 }
 
-hr {
+.dashboard-hr {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 95%;
@@ -36,7 +37,7 @@ hr {
 }
 
 .request:hover {
-  background-color: #CECECE;
+  background-color: $gray;
   cursor: pointer;
 }
 
@@ -66,6 +67,7 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: $dark-gray;
 }
 
 .mini-form {
@@ -102,7 +104,7 @@ margin-top: 0;
 }
 
 .completed-choices a:hover {
-  color: #E0E0E0;
+  color: $gray;
 }
 .progress {
   height: 4px;
