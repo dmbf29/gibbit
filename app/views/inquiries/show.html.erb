@@ -26,13 +26,34 @@
           <div class="chatdetails-wrap">
             <div class="message-box">
               <div class="message-box-field">
-                <%= simple_form_for [@inquiry, @message] do |f| %>
-                <%= f.input :content, placeholder: "Enter your chat messages here", label: false %>
-              </div>
-              <div class="message-box-button">
-                <%= f.submit "Send", class: "gibbit-button btn" %>
-              </div>
-                <% end %>
+                <div class="entry">
+                  <div class="type-area">
+                    <!-- <div class="username-input">
+                      <% if current_user %>
+                        <%= current_user.first_name %>
+                      <% else %>
+                        <%= current_gibber.first_name %>:
+                      <% end %>
+
+                    </div> -->
+
+                    <div class="user-input">
+                      <%= text_field_tag :content, nil, class: "form-control chat-input", placeholder: "Enter your chat messages here through Action Cable" %>
+                      <% if current_user %>
+                        <% sender_id = current_user.id %>
+                        <% sender_type = "user" %>
+                      <% else %>
+                        <% sender_id = current_gibber.id %>
+                        <% sender_type = "gibber" %>
+                      <% end %>
+
+                      <%= hidden_field_tag :sender_id, sender_id, class: "form-control sender-id" %>
+                      <%= hidden_field_tag :inquiry_id, @inquiry.id, class: "form-control inquiry-id" %>
+                      <%= hidden_field_tag :sender_type, sender_type, class: "form-control sender-type" %>
+
+                    </div>
+                  </div>
+                </div>
             </div>
             <ul class="list-inline text-center helper-button">
               <%= render 'inquiries/helper_buttons' %>
@@ -50,3 +71,13 @@
 
 
 
+
+
+
+
+<%= simple_form_for [@inquiry, @message] do |f| %>
+  <%= f.input :content, placeholder: "Enter your chat messages here", label: false %>
+  <div class="message-box-button">
+    <%= f.submit "Send", class: "gibbit-button btn" %>
+  </div>
+<% end %>

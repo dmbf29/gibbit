@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home'
 
+  mount ActionCable.server => '/cable'
+
+
   devise_for :gibbers
   devise_for :users,
       controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
