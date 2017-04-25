@@ -28,17 +28,9 @@
               <div class="message-box-field">
                 <div class="entry">
                   <div class="type-area">
-                    <!-- <div class="username-input">
-                      <% if current_user %>
-                        <%= current_user.first_name %>
-                      <% else %>
-                        <%= current_gibber.first_name %>:
-                      <% end %>
-
-                    </div> -->
 
                     <div class="user-input">
-                      <%= text_field_tag :content, nil, class: "form-control chat-input", placeholder: "Enter your chat messages here through Action Cable" %>
+                      <%= text_field_tag :content, nil, class: "form-control chat-input", placeholder: "Enter your chat messages here. Press enter to send" %>
                       <% if current_user %>
                         <% sender_id = current_user.id %>
                         <% sender_type = "user" %>
@@ -56,7 +48,7 @@
                 </div>
             </div>
             <ul class="list-inline text-center helper-button">
-              <%= render 'inquiries/helper_buttons' %>
+              <%#= render 'inquiries/helper_buttons' %>
             </ul>
           </div>
         </div>
@@ -67,17 +59,24 @@
 
 
 
-
-
-
-
-
-
-
-
-<%= simple_form_for [@inquiry, @message] do |f| %>
-  <%= f.input :content, placeholder: "Enter your chat messages here", label: false %>
-  <div class="message-box-button">
-    <%= f.submit "Send", class: "gibbit-button btn" %>
+<div class="review-box">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+    <div class="chatbox-title">
+    <h2>Rate us!</h2>
+    </div>
+    <div class="chatdetails-wrap">
+     <div class="chatdetails-status">
+      <% if @inquiry.status == "completed" && @inquiry.review.nil? %>
+      <%= render 'inquiries/review', inquiry: @inquiry %>
+      <% elsif @inquiry.review.nil? %>
+      We're checking your request now
+      <% else %>
+      Review : <%= @inquiry.review %>
+      Rating : <%= @inquiry.rating %>
+      <% end %>
+     </div>
+    </div>
   </div>
-<% end %>
+</div>
+

@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       patch :pending
       patch :accept
       patch :reject
+      patch :add_review
     end
     resources :messages, only:[:create]
     resources :payments, only: [:new, :create]

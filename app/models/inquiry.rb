@@ -11,6 +11,7 @@ class Inquiry < ApplicationRecord
   monetize :price_cents
 
   validates :description, presence: true
+  validates :rating, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5}
   # validates :email, presence: true
   # validates :first_name, presence: true
   # validates :status, presence: true, inclusion: { in: %w(pending proposed accepted rejected completed) }

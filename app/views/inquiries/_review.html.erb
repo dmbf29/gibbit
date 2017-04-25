@@ -1,0 +1,9 @@
+<div class="review-form">
+  <%= simple_form_for @inquiry, url: add_review_inquiry_path(@inquiry), method: :patch do |f| %>
+    <%= f.select :rating, options_for_select(0..5) ,label: false %>
+    <%= f.input :review, placeholder: "Let us know how you feel about our service", label: false %>
+    <div class="message-box-button">
+      <%= f.submit "Send", class: "btn gibbit-button" %>
+    </div>
+  <% end %>
+</div>
