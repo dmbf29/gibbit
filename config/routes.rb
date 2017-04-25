@@ -30,5 +30,16 @@ Rails.application.routes.draw do
       patch :reject
     end
     resources :messages, only:[:create]
+    resources :payments, only: [:new, :create]
   end
+
+  resources :notices do
+    collection do
+      post :mark_as_read
+    end
+  end
+
+  # resources :orders, only: [:show, :create] do
+  #   resources :payments, only: [:new, :create]
+  # end
 end

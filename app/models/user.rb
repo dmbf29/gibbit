@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :messages, :as => :sender
   has_many :inquiries
+  has_many :notices
 
   validates :first_name, presence: true
 

@@ -4,8 +4,11 @@ class Inquiry < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :gibber, optional: true
   has_many :messages, :dependent => :destroy
+  has_many :orders
 
   mount_uploader :photo, PhotoUploader
+
+  monetize :price_cents
 
   validates :description, presence: true
   # validates :email, presence: true

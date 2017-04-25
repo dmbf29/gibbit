@@ -11,9 +11,25 @@
     <% if user_signed_in? %>
       <%= link_to "My Requests", inquiries_path, class: "navbar-wagon-link" %>
       <!-- Notification -->
- <!--      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
+      <div class="dropdown" data-behavior="notices">
+        <div class="dropdown-toggle navbar-wagon-item" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-behavior="notices-link">
           <i class="fa fa-envelope-o"></i>
+          <span class="caret"></span>
+          <div class="badge badge-blue" data-behavior="unread-count"></div>
+        </div>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" data-behavior="notice-items">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+        </ul>
+      </div>
+
+
+
+
+   <!--    <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+        <div class="badge-container">
+
           <div class="badge badge-blue">3</div>
         </div>
       <% end %> -->
