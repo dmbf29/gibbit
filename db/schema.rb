@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424055943) do
+ActiveRecord::Schema.define(version: 20170425014556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20170424055943) do
     t.string   "first_name"
     t.integer  "price_cents", default: 400,       null: false
     t.json     "payment"
+    t.integer  "rating",      default: 0,         null: false
+    t.text     "review"
     t.index ["gibber_id"], name: "index_inquiries_on_gibber_id", using: :btree
     t.index ["user_id"], name: "index_inquiries_on_user_id", using: :btree
   end
