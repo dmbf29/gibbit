@@ -2,8 +2,8 @@
 .banner {
   color: white;
   text-align: center;
-  height:100vh;
-  padding: 30px;
+  height:92vh;
+  padding:30px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -24,7 +24,8 @@
 .banner-values {
   font-weight: normal;
   font-style: normal;
-  font-size: 3vw;
+  font-size: 32px;
+  margin-top: 50px;
 }
 
 .banner-call-action {
@@ -32,38 +33,74 @@
 }
 
 .banner-button {
-  margin-top: -25px;
   background-color: $green;
   color: white;
-  padding: 20px;
+  padding: 25px;
   font-size: 18px;
   font-weight: 700;
   border-radius: 5px;
+}
+.banner-cards {
+  margin-top: 20px;
 }
 
 .banner-card-icon {
   width: 50px;
 }
+.banner-card:hover {
+  .banner-hr-green-top {
+    -ms-transform: rotate(5deg); /* IE 9 */
+    -webkit-transform: rotate(5deg); /* Chrome, Safari, Opera */
+    transform: rotate(5deg);
+  }
+  .banner-hr-green-bottom {
+    -ms-transform: rotate(-5deg); /* IE 9 */
+    -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+    transform: rotate(-5deg);
+  }
+}
 
-.banner-hr-green {
+.banner-hr-green-top {
     border: 0;
     height: 1px;
-    width: 75%;
+    width: 100%;
+    background: $green;
+    margin-bottom: 0px;
+}
+.banner-hr-green-bottom {
+    margin-top: 0px;
+    border: 0;
+    height: 1px;
+    width: 100%;
     background: $green;
 }
 
+.banner-card-content-header {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+
 .banner-card-content h5 {
   font-weight: bolder;
+  letter-spacing: 1px;
 }
 .banner-card-content p {
   font-weight: lighter;
 }
+
+.banner-card-content-text {
+  margin-bottom: 20px;
+}
+
+
 // END OF BANNER
 
 // HOW IT WORKS UNDER BANNER
 .homepage-wrapper-white {
   background: white;
   color: $dark-gray;
+  margin-bottom: 70px;
 }
 
 .homepage-section-header {
@@ -74,7 +111,8 @@
 
 .homepage-section-header h2 {
   margin: 0px;
-  padding: 40px;
+  padding-top: 50px;
+  padding-bottom: 35px;
 }
 
 .homepage-works-card {
@@ -125,15 +163,21 @@
   margin-top: 30px;
   background: $green;
   color: $dark-gray;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .gibbit-plea-content {
   padding-bottom: 40px;
+}
+.gibbit-plea-content {
+  text-align: center;
 }
 
 .gibbit-plea-content h2 {
   margin: 0px;
   padding-top: 40px;
   padding-bottom: 15px;
+  color: white;
 }
 
 .gibbit-plea-content a {
