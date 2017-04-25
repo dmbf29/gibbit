@@ -95,3 +95,12 @@
     border-image: linear-gradient(45deg, darken($green,11), darken($green,1)) 10% round;
 
 }
+
+.avatar-wrap h5 {
+  color: $green;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+.avatar-wrap p {
+  font-weight: lighter;
+}
