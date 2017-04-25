@@ -1,7 +1,10 @@
 <% if user_signed_in? %>
   <% if inquiry.status == "proposed" %>
-    <div class="chat-order-status-title">
-      <h3 style="color:#469AE0;"><%= inquiry.status.capitalize %> </h3>
+    <div class="chat-order-status-box">
+      <div class="chat-order-status-title">
+        <h3 style="color:#469AE0;"><%= inquiry.status.capitalize %> </h3>
+      </div>
+        <%= cl_image_tag("v1493097017/005-delivery_zy72g2.png") %>
     </div>
     <div class="chat-order-status-text">
       <p>Your proposal is in your messages.</p>
@@ -20,29 +23,42 @@
     </div>
     <p style="text-align: center;">Price: 1 credit</p>
   <% elsif inquiry.status == "pending" %>
-    <div class="chat-order-status-title">
-      <h3 style="color:#FDB631;"><%= inquiry.status.capitalize %> </h3>
+    <div class="chat-order-status-box">
+      <div class="chat-order-status-title">
+        <h3 style="color:#FDB631;"><%= inquiry.status.capitalize %> </h3>
+      </div>
+      <%= cl_image_tag("v1493097018/007-waiting_yqip14.png") %>
     </div>
     <div class="chat-order-status-text">
       <p>A gibber is checking your order now!</p>
     </div>
   <% elsif inquiry.status == "accepted" %>
-    <div class="chat-order-status-title">
-      <h3 style="color:#20bd3e;"><%= inquiry.status.capitalize %> </h3>
+    <div class="chat-order-status-box">
+      <div class="chat-order-status-title">
+        <h3 style="color:#20bd3e;"><%= inquiry.status.capitalize %> </h3>
+      </div>
+        <%= cl_image_tag("v1493097017/004-done_mzqn2s.png") %>
     </div>
     <div class="chat-order-status-text">
+      <p><strong>Your order of ¥<%= inquiry.price_cents %> has been accepted.</strong></p>
       <p>A gibber will finalize your order now!</p>
     </div>
   <% elsif inquiry.status == "rejected" %>
-    <div class="chat-order-status-title">
-      <h3 style="color:#EE5F5B;"><%= inquiry.status.capitalize %> </h3>
+    <div class="chat-order-status-box">
+      <div class="chat-order-status-title">
+        <h3 style="color:#EE5F5B;"><%= inquiry.status.capitalize %> </h3>
+      </div>
+        <%= cl_image_tag("v1493097017/003-delete-button_shgvzi.png") %>
     </div>
     <div class="chat-order-status-text">
       <p>We're sorry the proposal didn't meet your needs. Let us know if we can do anything differently.</p>
     </div>
   <% elsif inquiry.status == "completed" %>
-    <div class="chat-order-status-title">
-      <h3 style="color:#20bd3e;"><%= inquiry.status.capitalize %> </h3>
+    <div class="chat-order-status-box">
+      <div class="chat-order-status-title">
+        <h3 style="color:#20bd3e;"><%= inquiry.status.capitalize %> </h3>
+      </div>
+        <%= cl_image_tag("v1493097017/002-task-complete_flthe0.png") %>
     </div>
     <div class="chat-order-status-text">
       <p>You're all set! Thank you for choosing Gibbit.</p>
