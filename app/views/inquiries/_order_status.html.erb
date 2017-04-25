@@ -62,6 +62,35 @@
     <div class="chat-order-status-text">
       <p>You're all set! Thank you for choosing Gibbit.</p>
     </div>
+      <button type="button" class="btn gibbit-button"   data-toggle="modal" data-target="#modal-review-<%= @inquiry.id %>">
+      Rate us!
+      </button>
+          <!-- Modal -->
+      <div class="modal fade" id="modal-review-<%= @inquiry.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">
+              Review </h4>
+            </div>
+            <div class="modal-body">
+              <div class="review-form">
+              <% if @inquiry.review.nil? %>
+              <p>Let us know what you think!</p>
+              <%= render 'inquiries/review' %>
+              <% else %>
+              <%= @inquiry.review %>
+              <%= @inquiry.rating  %>
+              <% end %>
+              </div>
+            </div>
+            <div class="modal-footer">
+            <!-- YOU CAN ADD INSIDE DIV HERE -->
+            </div>
+          </div>
+        </div>
+      </div>
   <% end %>
 <% elsif gibber_signed_in? %>
   <% if inquiry.status == "pending" %>

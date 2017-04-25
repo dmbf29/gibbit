@@ -1,90 +1,52 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <div class="chatbox-wrap">
         <div class="chatbox-title">
           <h2>Messages</h2>
         </div>
+      <div class="chatbox-wrap">
         <div class="chatbox-messages">
           <%= render 'inquiries/chatbox' %>
         </div>
       </div>
-    </div>
+        <div class="chatdetails-wrap">
+          <div class="message-box">
+            <div class="message-box-field">
+              <div class="entry">
+                <div class="type-area">
+                  <div class="user-input">
+                    <%= text_field_tag :content, nil, class: "form-control chat-input", placeholder: "Enter your chat messages here. Press enter to send" %>
+                    <% if current_user %>
+                      <% sender_id = current_user.id %>
+                      <% sender_type = "user" %>
+                    <% else %>
+                      <% sender_id = current_gibber.id %>
+                      <% sender_type = "gibber" %>
+                    <% end %>
+
+                    <%= hidden_field_tag :sender_id, sender_id, class: "form-control sender-id" %>
+                    <%= hidden_field_tag :inquiry_id, @inquiry.id, class: "form-control inquiry-id" %>
+                    <%= hidden_field_tag :sender_type, sender_type, class: "form-control sender-type" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <div class="col-xs-12 col-sm-6">
       <div class="row">
         <div class="col-xs-12">
-          <div class="chatdetails-wrap">
             <div class="chatbox-title">
               <h2>Order Status</h2>
             </div>
+          <div class="chatdetails-wrap">
             <div class="chatdetails-status">
               <%= render 'inquiries/order_status', inquiry: @inquiry %>
             </div>
           </div>
         </div>
-        <div class="col-xs-12">
-          <div class="chatdetails-wrap">
-            <div class="message-box">
-              <div class="message-box-field">
-                <div class="entry">
-                  <div class="type-area">
-
-                    <div class="user-input">
-                      <%= text_field_tag :content, nil, class: "form-control chat-input", placeholder: "Enter your chat messages here. Press enter to send" %>
-                      <% if current_user %>
-                        <% sender_id = current_user.id %>
-                        <% sender_type = "user" %>
-                      <% else %>
-                        <% sender_id = current_gibber.id %>
-                        <% sender_type = "gibber" %>
-                      <% end %>
-
-                      <%= hidden_field_tag :sender_id, sender_id, class: "form-control sender-id" %>
-                      <%= hidden_field_tag :inquiry_id, @inquiry.id, class: "form-control inquiry-id" %>
-                      <%= hidden_field_tag :sender_type, sender_type, class: "form-control sender-type" %>
-
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <ul class="list-inline text-center helper-button">
-              <%#= render 'inquiries/helper_buttons' %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-<button type="button" class="btn gibbit-button" data-toggle="modal" data-target="#modal-review-<%= @inquiry.id %>">
-  Rate us!
-</button>
-    <!-- Modal -->
-<div class="modal fade" id="modal-review-<%= @inquiry.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">
-        Review </h4>
-      </div>
-      <div class="modal-body">
-        <div class="review-form">
-        <% if @inquiry.review.nil? %>
-        <p>Let us know what you think!</p>
-        <%= render 'inquiries/review' %>
-        <% else %>
-        <%= @inquiry.review %>
-        <%= @inquiry.rating  %>
-        <% end %>
-        </div>
-      </div>
-      <div class="modal-footer">
-      placehold
       </div>
     </div>
   </div>
