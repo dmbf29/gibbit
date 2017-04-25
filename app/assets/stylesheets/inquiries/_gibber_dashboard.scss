@@ -36,6 +36,7 @@
   border: 3px solid $blue;
   text-align: center;
 }
+
 .change-status-button {
   margin-left: 10px;
   margin-top: 10px;
@@ -43,15 +44,15 @@
   padding: 0 20px;
   border-radius: 5px;
   line-height: 30px;
-  background-color: $gray;
-  color: $dark-gray;
+  background-color: $dash-back;
+  color: white;
   font-size: 14px;
-  border: 2px solid $dark-gray;
+  border: 2px solid $dash-back;
 }
 .change-status-button:hover {
-  color: $dark-gray;
-  background: $gray;
-  border-color: $dark-gray;
+  color: $dash-back;
+  background: white;
+  border-color: $dash-back;
 }
 
 .view-request-button {
