@@ -2,3 +2,7 @@
 @import "new";
 @import "gibber_dashboard";
 @import "show";
+
+body {
+  color: $dark-gray;
+}
