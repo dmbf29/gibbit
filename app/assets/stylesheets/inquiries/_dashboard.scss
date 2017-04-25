@@ -1,18 +1,25 @@
+.wrapper-content {
+  margin-top: 30px;
+}
+
 .avatar-wrap {
-  background-color: $dark-gray;
+  background-color: $dash-back;
   text-align: center;
   color: white;
   padding: 10px;
   margin-top: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.avatar-wrap-stats {
+  background-color: #FBFBFB;
 }
 
 .request-wrap {
-  // background-color: $gray
-  ;
+  // background-color: $gray;
   border-radius: 0 0 5px 5px;
-  box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
+  box-shadow: 1px 1px 5px rgba(49,48,48,0.15);
   margin-top: 10px;
-  border: 1px solid $green;
 }
 
 .request-wrap a {
@@ -24,6 +31,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   width: 95%;
+  background-color: #F4F7ED;
 }
 
 .request {
@@ -42,11 +50,11 @@
 }
 
 .request-title {
-  background-color: $dark-gray;
+  background-color: $dash-back;
   color: white;
   margin-bottom: 0;
   text-align: center;
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px 5px 0 0;
   padding: 20px;
   margin-top: 0;
 }
@@ -73,6 +81,9 @@
 .mini-form {
 padding: 10px;
 margin-top: 0;
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: #FBFBFB;
 }
 
 .completed-current {
@@ -109,8 +120,8 @@ margin-top: 0;
 .progress {
   height: 4px;
   width: 90%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   align-items: center;
   margin-left: 20px;
 }
