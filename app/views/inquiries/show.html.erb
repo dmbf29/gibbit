@@ -1,50 +1,51 @@
-<div class="wrapper-content">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-          <div class="chatbox-title">
-            <h2>Messages</h2>
+  <div class="wrapper-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="chatbox-title">
+              <h2>Messages</h2>
+            </div>
+          <div class="chatbox-wrap">
+            <div class="chatbox-messages">
+              <%= render 'inquiries/chatbox' %>
+            </div>
           </div>
-        <div class="chatbox-wrap">
-          <div class="chatbox-messages">
-            <%= render 'inquiries/chatbox' %>
-          </div>
-        </div>
-          <div class="chatdetails-wrap">
-            <div class="message-box">
-              <div class="message-box-field">
-                <div class="entry">
-                  <div class="type-area">
-                    <div class="user-input">
-                      <%= text_field_tag :content, nil, class: "form-control chat-input", placeholder: "Enter your chat messages here. Press enter to send" %>
-                      <% if current_user %>
-                        <% sender_id = current_user.id %>
-                        <% sender_type = "user" %>
-                      <% else %>
-                        <% sender_id = current_gibber.id %>
-                        <% sender_type = "gibber" %>
-                      <% end %>
+            <div class="chatdetails-wrap">
+              <div class="message-box">
+                <div class="message-box-field">
+                  <div class="entry">
+                    <div class="type-area">
+                      <div class="user-input">
+                        <%= text_field_tag :content, nil, class: "form-control chat-input", placeholder: "Enter your chat messages here. Press enter to send" %>
+                        <% if current_user %>
+                          <% sender_id = current_user.id %>
+                          <% sender_type = "user" %>
+                        <% else %>
+                          <% sender_id = current_gibber.id %>
+                          <% sender_type = "gibber" %>
+                        <% end %>
 
-                      <%= hidden_field_tag :sender_id, sender_id, class: "form-control sender-id" %>
-                      <%= hidden_field_tag :inquiry_id, @inquiry.id, class: "form-control inquiry-id" %>
-                      <%= hidden_field_tag :sender_type, sender_type, class: "form-control sender-type" %>
+                        <%= hidden_field_tag :sender_id, sender_id, class: "form-control sender-id" %>
+                        <%= hidden_field_tag :inquiry_id, @inquiry.id, class: "form-control inquiry-id" %>
+                        <%= hidden_field_tag :sender_type, sender_type, class: "form-control sender-type" %>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-      <div class="col-xs-12 col-sm-6">
-        <div class="row">
-          <div class="col-xs-12">
-              <div class="chatbox-title">
-                <h2>Order Status</h2>
-              </div>
-            <div class="chatdetails-wrap">
-              <div class="chatdetails-status">
-                <%= render 'inquiries/order_status', inquiry: @inquiry %>
+        <div class="col-xs-12 col-sm-6">
+          <div class="row">
+            <div class="col-xs-12">
+                <div class="chatbox-title">
+                  <h2>Order Status</h2>
+                </div>
+              <div class="chatdetails-wrap">
+                <div class="chatdetails-status">
+                  <%= render 'inquiries/order_status', inquiry: @inquiry %>
+                </div>
               </div>
             </div>
           </div>
@@ -52,6 +53,5 @@
       </div>
     </div>
   </div>
-</div>
-
+<div class="push"></div>
 
