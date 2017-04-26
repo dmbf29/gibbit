@@ -3,6 +3,7 @@ inquiry = $("#chat-feed").attr("data-chatroom")
 App.chatChannel = App.cable.subscriptions.create { channel: "ChatChannel", room: inquiry},
   received: (data) ->
     @appendLine(data)
+    @scrollToBottom()
     # $('#chat-feed').stop().animate { scrollTop: $('#chat-feed')[0].scrollHeight }, 800
 
   appendLine: (data) ->
@@ -13,11 +14,11 @@ App.chatChannel = App.cable.subscriptions.create { channel: "ChatChannel", room:
     if data["sender_type"] is "gibber"
       """
       <div class="message-gibber">
+        <div class="message-gibber-name">
+          <span>  #{data["sender_first_name"]}</span>
+        </div>
         <div class="message-gibber-content">
           <span>#{data["content"]}</span>
-        </div>
-        <div class="message-gibber-name">
-          <span> : #{data["sender_first_name"]}</span>
         </div>
       </div>
       """
@@ -25,7 +26,7 @@ App.chatChannel = App.cable.subscriptions.create { channel: "ChatChannel", room:
       """
       <div class="message-user">
         <div class="message-user-name">
-          <span>#{data["sender_first_name"]} : </span>
+          <span>#{data["sender_first_name"]}  </span>
         </div>
         <div class="message-user-content">
           <span>#{data["content"]}</span>
@@ -39,6 +40,10 @@ App.chatChannel = App.cable.subscriptions.create { channel: "ChatChannel", room:
     #   <span class="body">#{data["content"]}</span>
     # </article>
     # """
+
+  scrollToBottom: ->
+    height = $(".chatbox-messages")[0].scrollHeight
+    $(".chatbox-messages").scrollTop(height)
 
 $(document).on 'keypress', 'input.chat-input', (event) ->
   if event.keyCode is 13

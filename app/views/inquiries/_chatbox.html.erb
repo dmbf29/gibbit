@@ -1,6 +1,6 @@
 <div class="message-user">
   <div class="message-user-name">
-    <span><%= @inquiry.user.first_name %>: </span>
+    <span><%= @inquiry.user.first_name %></span>
   </div>
   <div class="message-user-content">
     <span><%= @inquiry.description %></span>
@@ -8,21 +8,21 @@
 </div>
 
 <div class="message-gibber">
+  <div class="message-gibber-name">
+    <span>Auto-Gibber</span>
+  </div>
   <div class="message-gibber-content">
     <span>Your request has been received!</span>
-  </div>
-  <div class="message-gibber-name">
-    <span>: Auto-Gibber</span>
   </div>
 </div>
 
 
 <div class="message-gibber">
+<!--   <div class="message-gibber-name">
+    <span>Auto-Gibber</span>
+  </div> -->
   <div class="message-gibber-content">
-    <span>A gibber will email you within the next 30 minutes.</span>
-  </div>
-  <div class="message-gibber-name">
-    <span> : Auto-Gibber</span>
+    <span>A gibber will get back to you shortly</span>
   </div>
 </div>
 
@@ -30,17 +30,17 @@
 <% @messages.each do |message| %>
   <% if message.sender_type == "Gibber" %>
     <div class="message-gibber">
+      <div class="message-gibber-name">
+        <span><%= message.sender.first_name %></span>
+      </div>
       <div class="message-gibber-content">
         <span><%= message.content %></span>
-      </div>
-      <div class="message-gibber-name">
-        <span> : <%= message.sender.first_name %></span>
       </div>
     </div>
   <% else %>
     <div class="message-user">
       <div class="message-user-name">
-        <span><%= message.sender.first_name %> : </span>
+        <span><%= message.sender.first_name %></span>
       </div>
       <div class="message-user-content">
         <span><%= message.content %></span>
