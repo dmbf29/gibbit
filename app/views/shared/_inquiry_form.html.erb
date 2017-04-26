@@ -1,8 +1,13 @@
-<%= simple_form_for [@inquiry] do |f| %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :photo, required: false %>
-  <%= f.input :photo_cache, required: false, as: :hidden %>
-  <div class="form-button">
-  <%= f.submit "Make Request", class: "btn gibbit-button" %>
-  </div>
-<% end %>
+<div class="wrapper-inquiry-form">
+  <%= simple_form_for [@inquiry] do |f| %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :photo, required: false %>
+    <%= f.input :photo_cache, required: false, as: :hidden %>
+    <div class="form-button">
+      <%= f.submit "Make Request", class: "btn gibbit-button" %>
+      <i type="button" data-container="body" data-toggle="popover" data-placement="right" data-content="Ok, I wanna eat banana.">
+          <%= cl_image_tag url="v1493029127/001-round-help-button_fkvtni.png", class: "question-button" %>
+      </i>
+    </div>
+  <% end %>
+</div>
