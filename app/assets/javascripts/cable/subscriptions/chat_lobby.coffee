@@ -3,6 +3,7 @@ inquiry = $("#chat-feed").attr("data-chatroom")
 App.chatChannel = App.cable.subscriptions.create { channel: "ChatChannel", room: inquiry},
   received: (data) ->
     @appendLine(data)
+    @scrollToBottom()
     # $('#chat-feed').stop().animate { scrollTop: $('#chat-feed')[0].scrollHeight }, 800
 
   appendLine: (data) ->
@@ -39,6 +40,10 @@ App.chatChannel = App.cable.subscriptions.create { channel: "ChatChannel", room:
     #   <span class="body">#{data["content"]}</span>
     # </article>
     # """
+
+  scrollToBottom: ->
+    height = $(".chatbox-messages")[0].scrollHeight
+    $(".chatbox-messages").scrollTop(height)
 
 $(document).on 'keypress', 'input.chat-input', (event) ->
   if event.keyCode is 13
