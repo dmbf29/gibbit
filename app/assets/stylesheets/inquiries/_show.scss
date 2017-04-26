@@ -37,9 +37,13 @@
   font-size: 18px;
   margin-top: 0px;
   min-height: 30vh;
+  max-height: 60vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  // justify-content: flex-end;
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .message-box {
@@ -121,17 +125,15 @@
   text-align: left;
   margin-bottom: 10px;
   margin-top: 10px;
-  display: flex;
   justify-content: flex-start;
-  align-items: center
+  align-items: center;
 }
 .message-gibber {
   text-align: right;
   margin-bottom: 10px;
   margin-top: 10px;
-  display: flex;
   justify-content: flex-end;
-  align-items: center
+  align-items: center;
 }
 
 .message-user-name {
@@ -159,6 +161,7 @@
   padding: 5px;
   color: white;
   box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
+  display: inline-block;
 }
 
 .message-gibber-content {
@@ -168,6 +171,7 @@
   padding: 5px;
   color: $green;
   box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
+  display: inline-block;
 }
 
 .helper-button {
