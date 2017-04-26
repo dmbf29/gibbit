@@ -103,7 +103,7 @@
             <div class="modal-body">
               <div class="review-form">
               <% if @inquiry.review.nil? %>
-              <p>Let us know what you think!</p>
+              <p>Any good? Rate us out of 5</p>
               <%= render 'inquiries/review' %>
               <% else %>
               <%= @inquiry.review %>
