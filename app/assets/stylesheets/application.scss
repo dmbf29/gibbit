@@ -17,3 +17,8 @@
 @import "components/index";
 @import "pages/index";
 @import "inquiries/index";
+
+html,body {
+  height: 100%;
+  margin: 0;
+}
