@@ -17,7 +17,7 @@ App.chatChannel = App.cable.subscriptions.create { channel: "ChatChannel", room:
           <span>#{data["content"]}</span>
         </div>
         <div class="message-gibber-name">
-          <span> : #{data["sender_first_name"]}</span>
+          <span>  #{data["sender_first_name"]}</span>
         </div>
       </div>
       """
@@ -25,7 +25,7 @@ App.chatChannel = App.cable.subscriptions.create { channel: "ChatChannel", room:
       """
       <div class="message-user">
         <div class="message-user-name">
-          <span>#{data["sender_first_name"]} : </span>
+          <span>#{data["sender_first_name"]}  </span>
         </div>
         <div class="message-user-content">
           <span>#{data["content"]}</span>

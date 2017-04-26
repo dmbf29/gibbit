@@ -1,4 +1,8 @@
-$("div.message-user").scroll(function() {
-    // div要素内でスクロールされた時に実行する処理
-
+var height = 0;
+$("div.message-user").each(function(i, value){
+    height += parseInt($(this).height());
 });
+
+height += '';
+
+$('div').animate({scrollTop: height});
