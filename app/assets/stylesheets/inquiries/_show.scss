@@ -37,7 +37,7 @@
   font-size: 18px;
   margin-top: 0px;
   min-height: 30vh;
-  max-height: 60vh;
+  max-height: 50vh;
   display: flex;
   flex-direction: column;
   // justify-content: flex-end;
@@ -157,20 +157,20 @@
 .message-user-content {
   flex: 0 1 auto;
   background-color: $green;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 5px;
   color: white;
-  box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
+  // box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
   display: inline-block;
 }
 
 .message-gibber-content {
   flex: 0 1 auto;
-  background-color: white;
-  border-radius: 10px;
+  background-color: #D7D7D7;
+  border-radius: 5px;
   padding: 5px;
-  color: $green;
-  box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
+  color: black;
+  // box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
   display: inline-block;
 }
 
