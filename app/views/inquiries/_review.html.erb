@@ -1,6 +1,6 @@
 <%= simple_form_for @inquiry, url: add_review_inquiry_path(@inquiry), method: :patch do |f| %>
 <%#= f.select :rating, options_for_select(0..5) ,label: false %>
-<%= f.input :rating, label: false, as: :radio_buttons, collection: (1..5).each %>
+<%= f.input :rating, label: false, as: :radio_buttons, collection: (1..5).each, collection_style: :inline %>
 <%= f.input :review, placeholder: "Let us know how you feel about our service", label: false %>
 
 <div class="message-box-button">

@@ -242,5 +242,66 @@
   padding-bottom: 20px;
 }
 
+.chat-order-status-completed {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
 
+.social-share-button {
+    height: 40px;
+    width: 40px;
+  .ssb-icon {
+    background-size: 40px 40px; // height width
+    height: 40px;
+    width: 40px;
+  }
+}
 
+.review-button {
+  background-color: $green;
+  color: white;
+  border-radius: 10px;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+}
+
+.review-button-image {
+  height: 35px;
+  width: 35px;
+}
+.complete-action {
+  color: $dash-back;
+}
+
+.rating-print {
+  width: 40px;
+}
+
+.chat-order-status-completed-review {
+  padding-left: 10px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// .review-content {
+//   border: 1px solid $dash-back;
+//   border-radius: 10px;
+//   padding-top: 11px;
+// }
+
+.review-share-middle {
+  margin-top: 15px;
+}
+
+.review-content {
+  background-color: $green;
+  border-radius: 10px;
+  padding-top: 11px;
+  color: white;
+  margin-bottom: 0px;
+  opacity: 0.8;
+}
