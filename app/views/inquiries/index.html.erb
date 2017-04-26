@@ -21,7 +21,19 @@
           <li class="list-group-item justify-content-between avatar-wrap-stats">
             <div class="dashboard-headers">
             <h4>Pending</h4>
-            <span class="dashboard-badges"><%= @user.inquiries.count %></span>
+            <span class="dashboard-badges"><%= @pendings.count %></span>
+            </div>
+          </li>
+          <li class="list-group-item justify-content-between avatar-wrap-stats">
+            <div class="dashboard-headers">
+            <h4>Proposed</h4>
+            <span class="dashboard-badges"><%= @proposals.count %></span>
+            </div>
+          </li>
+            <li class="list-group-item justify-content-between avatar-wrap-stats">
+            <div class="dashboard-headers">
+            <h4>Accepted</h4>
+            <span class="dashboard-badges"><%= @acceptions.count %></span>
             </div>
           </li>
           <li class="list-group-item justify-content-between avatar-wrap-stats">
