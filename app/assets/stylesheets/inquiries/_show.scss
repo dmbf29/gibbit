@@ -238,5 +238,35 @@
   padding-bottom: 20px;
 }
 
+.chat-order-status-completed {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
+.social-share-button {
+    height: 60px;
+    width: 60px;
+  .ssb-icon {
+    background-size: 60px 60px; // height width
+    height: 60px;
+    width: 60px;
+  }
+}
 
+.review-button {
+  background-color: $green;
+  color: white;
+  border-radius: 10px;
+  height: 60px;
+  width: 60px;
+  padding: 0;
+}
+
+.review-button-image {
+  height: 50px;
+  width: 50px;
+}
+.complete-action {
+  color: $dash-back;
+}

@@ -62,9 +62,18 @@
     <div class="chat-order-status-text">
       <p>You're all set! Thank you for choosing Gibbit.</p>
     </div>
-      <button type="button" class="btn gibbit-button"   data-toggle="modal" data-target="#modal-review-<%= @inquiry.id %>">
-      Rate us!
-      </button>
+    <div class="chat-order-status-completed">
+      <div class="chat-order-status-completed-review">
+        <button type="button" class="btn review-button"   data-toggle="modal" data-target="#modal-review-<%= @inquiry.id %>">
+        <%= cl_image_tag("v1493097017/001-speech-bubble_fjxzlv.png", class: "review-button-image") %>
+        </button>
+        <h5 class="complete-action">Rate</h5>
+      </div>
+      <div class="chat-order-status-completed-share">
+        <%= social_share_button_tag(inquiry.description, url: "http://gibbit.online", class: "social-button-big") %>
+        <h5 class="complete-action">Share</h5>
+      </div>
+    </div>
           <!-- Modal -->
       <div class="modal fade" id="modal-review-<%= @inquiry.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
