@@ -60,17 +60,29 @@
             <% @pendings.each do |pending| %>
               <%= link_to inquiry_path(pending) do %>
               <div class="request">
-                <div class="request-current">
-                  <button class="view-request-button pending-user-underline"><%= pending.status.capitalize %></button>
+                <div class="request-current pending-user-underline">
+                  <h4><%= pending.status.capitalize %></h4>
                 </div>
                 <div class="request-description">
+                  <h5>Request:</h5>
                   <p><%= pending.description %></p>
+                </div>
+                <div class="completed-calender">
+                  <%= cl_image_tag("v1493200052/calendar-page-empty_mmkbwq.png", class: "status-calendar") %>
+                  <div class="inside-calendar">
+                    <p><%= pending.created_at.strftime("%b %e ") %></p>
+                  </div>
+                    <!-- <div class="inside-calendar"> -->
+                    <!-- </div> -->
+                </div>
+                <div class="completed-request-choices">
+                  <div class="progress-radial progress-25">
+                    <div class="overlay"></div>
+                  </div>
                 </div>
               </div>
               <% end %>
-              <div class="progress">
-                <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+
 
             <% end %>
             <% @proposals.each do |proposal| %>
@@ -82,11 +94,14 @@
                 <div class="request-description">
                   <p><%= proposal.description %></p>
                 </div>
+                <div class="completed-request-choices">
+                  <div class="progress-radial progress-50">
+                    <div class="overlay"></div>
+                  </div>
+                </div>
               </div>
               <% end %>
-              <div class="progress">
-                <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+
 
             <% end %>
             <% @acceptions.each do |accepetion| %>
@@ -98,11 +113,14 @@
                 <div class="request-description">
                   <p><%= accepetion.description %></p>
                 </div>
+                <div class="completed-request-choices">
+                  <div class="progress-radial progress-75">
+                    <div class="overlay"></div>
+                  </div>
+                </div>
               </div>
               <% end %>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+
 
             <% end %>
           </dir>
@@ -124,6 +142,9 @@
                 </div>
               <% end %>
                 <div class="completed-request-choices">
+                  <div class="progress-radial progress-100">
+                    <div class="overlay"></div>
+                  </div>
                   <div class="completed-links">
                     <div class="completed-destroy">
                     <%= link_to raw("<i class='fa fa-trash' aria-hidden='true'></i>"), inquiry_path(completion), method: :delete %>
@@ -131,9 +152,7 @@
                   </div>
                 </div>
               </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+
             <% end %>
 
             <% @rejections.each do |rejection| %>
