@@ -14,11 +14,11 @@ App.chatChannel = App.cable.subscriptions.create { channel: "ChatChannel", room:
     if data["sender_type"] is "gibber"
       """
       <div class="message-gibber">
-        <div class="message-gibber-content">
-          <span>#{data["content"]}</span>
-        </div>
         <div class="message-gibber-name">
           <span>  #{data["sender_first_name"]}</span>
+        </div>
+        <div class="message-gibber-content">
+          <span>#{data["content"]}</span>
         </div>
       </div>
       """
