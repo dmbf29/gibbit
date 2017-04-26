@@ -12,19 +12,19 @@
           <p><%= @user.email %></p>
         </div>
         <ul class="list-group">
-          <li class="list-group-item justify-content-between avatar-wrap-stats">
+          <li class="list-group-item justify-content-between avatar-wrap-stats box-bgcolor">
             <div class="dashboard-headers">
               <h4>Credits</h4>
               <span class="dashboard-badges"><%= @user.credits %></span>
             </div>
           </li>
-          <li class="list-group-item justify-content-between avatar-wrap-stats">
+          <li class="list-group-item justify-content-between avatar-wrap-stats box-bgcolor">
             <div class="dashboard-headers">
             <h4>Pending</h4>
             <span class="dashboard-badges"><%= @user.inquiries.count %></span>
             </div>
           </li>
-          <li class="list-group-item justify-content-between avatar-wrap-stats">
+          <li class="list-group-item justify-content-between avatar-wrap-stats box-bgcolor">
           <div class="dashboard-headers">
             <h4>Completed</h4>
             <span class="dashboard-badges"><%= @completions.count %></span>
