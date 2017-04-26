@@ -1,5 +1,5 @@
 meta_product_name: "Gibbit"
 meta_title: "Gibbit - Help is already here"
 meta_description: "Ever needed help but can't manage it on your own? We have a team of Gibbers who are here to help you complete your daily life tasks."
-meta_image: "gibbitwhite.png"                       # should exist in `app/assets/images/`
+meta_image: "gibbit-logo-large.png"                       # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
