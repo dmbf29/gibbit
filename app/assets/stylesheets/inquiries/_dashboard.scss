@@ -45,7 +45,7 @@
   padding-bottom: 15px;
 }
 
-.request:hover {
+.mini-form:hover {
   background-color: $gray;
   cursor: pointer;
 }
@@ -76,6 +76,20 @@
   margin-left: 5px;
   padding-left: 10px;
 }
+
+.request-description h5 {
+  margin-bottom: 2px;
+  font-weight: bolder;
+  color: $dash-back;
+  font-size: 18px;
+}
+
+.request-description p {
+  font-weight: lighter;
+  font-size: 18px;
+  color: $dash-back;
+}
+
 
 .dashboard-headers {
   display: flex;
@@ -123,21 +137,33 @@
 
 }
 .completed-calendar {
-  flex: 0 0 20%;
+  flex: 0 0 15%;
   text-align: center;
   margin-left: 5px;
-  margin-right: 20px;
+  margin-right: 5px;
+
+}
+.calendar-flex {
+  width: 100px;
+  height: 100px;
   position: relative;
 }
 
 .status-calendar {
   width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .inside-calendar {
-  margin-top: -40px;
-  margin-left: 30px;
+  z-index: 100;
+  position: absolute;
+  left: 25px;
+  top: 50px;
 }
+
 
 .completed-choices {
   flex: 0 0 25%;
@@ -147,7 +173,7 @@
 
 .completed-request-choices {
   flex: 0 0 10%;
-  text-align: right;
+  text-align: center;
   margin-left: 5px;
 }
 
@@ -196,9 +222,6 @@
 
 }
 
-.request-description p {
-  font-weight: lighter;
-}
 
 
 /* -------------------------------------
@@ -213,6 +236,7 @@
   border-radius: 50%;
   border: 0px solid $dash-back;
   background-color: green;
+  color: $dash-back;
 }
 
 /* -------------------------------------
