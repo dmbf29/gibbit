@@ -113,9 +113,6 @@
               <% end %>
                 <div class="completed-request-choices">
                   <div class="completed-links">
-                    <div class="completed-facebook">
-                    <%= social_share_button_tag(completion.description, url: "http://gibbit.online") %></li>
-                    </div>
                     <div class="completed-destroy">
                     <%= link_to raw("<i class='fa fa-trash' aria-hidden='true'></i>"), inquiry_path(completion), method: :delete %>
                     </div>

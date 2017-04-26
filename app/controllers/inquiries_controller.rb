@@ -56,6 +56,7 @@ class InquiriesController < ApplicationController
   def destroy
     @inquiry = Inquiry.find(params[:id])
     @inquiry.destroy
+    redirect_to inquiries_path
   end
 
   private
