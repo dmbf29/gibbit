@@ -365,14 +365,15 @@
   justify-content: center;
   .social-share-button {
     width: 100px;
+    .ssb-icon {
+      background-image: url("http://www.indievox.com/public/anniversary/six/image/fb-share-button.png");
+      background-size: 100px auto;
+      height: 45px;
+      width: 100px;
+    }
   }
 }
 
 .social-share-button {
-  .ssb-icon {
-    background-image: url("http://www.indievox.com/public/anniversary/six/image/fb-share-button.png");
-    background-size: 100px auto;
-    height: 45px;
-    width: 100px;
-  }
+
 }
