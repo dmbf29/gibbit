@@ -54,3 +54,5 @@ $(document).on 'keypress', 'input.chat-input', (event) ->
       inquiry_id:  $('input.inquiry-id').val()
       room: inquiry
     event.target.value = ''
+
+
