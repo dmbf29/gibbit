@@ -14,12 +14,6 @@
         <ul class="list-group">
           <li class="list-group-item justify-content-between avatar-wrap-stats box-bgcolor">
             <div class="dashboard-headers">
-              <h4>Credits</h4>
-              <span class="dashboard-badges"><%= @user.credits %></span>
-            </div>
-          </li>
-          <li class="list-group-item justify-content-between avatar-wrap-stats box-bgcolor">
-            <div class="dashboard-headers">
             <h4>Pending</h4>
             <span class="dashboard-badges"><%= @pendings.count %></span>
             </div>
@@ -55,6 +49,9 @@
 
         <div class="request-wrap">
           <h3 class="request-title">Open Requests</h3>
+          <% if @pendings.empty? && @proposals.empty? && @acceptions.empty? %>
+            <h5 class="default-empty-response">You currently have no open requests.</h5>
+          <% else %>
           <% @pendings.each do |pending| %>
           <div class="mini-form">
               <%= link_to inquiry_path(pending) do %>
@@ -140,11 +137,14 @@
               <% end %>
             </div>
           <% end %>
+      <% end %>
         </div>
-
 
         <div class="request-wrap">
           <h3 class="request-title">Completed Requests</h3>
+          <% if @completions.empty? && @rejections.empty? %>
+            <h5 class="default-empty-response">You currently have no completed requests.</h5>
+          <% else %>
           <% @completions.each do |completion| %>
             <div class="mini-form">
               <%= link_to inquiry_path(completion) do %>
@@ -202,6 +202,7 @@
             <% end %>
           <% end %>
           </div>
+        <% end %>
         </div>
       </div>
     </div>
