@@ -41,98 +41,98 @@ ryo = Gibber.new(
 
 ryo.save
 
-felix_user = User.new(
-  first_name: "Felix",
-  last_name: "the cat",
-  email: "felixthecat@fakemail.com",
-  password: "123456",
-  credits: 50
-  )
+# felix_user = User.new(
+#   first_name: "Felix",
+#   last_name: "the cat",
+#   email: "felixthecat@fakemail.com",
+#   password: "123456",
+#   credits: 50
+#   )
 
-felix_user.save
+# felix_user.save
 
-garfield_user = User.new(
-  first_name: "Garfield",
-  last_name: "the cat",
-  email: "garfield@fakemail.com",
-  password: "123456",
-  credits: 50
-  )
+# garfield_user = User.new(
+#   first_name: "Garfield",
+#   last_name: "the cat",
+#   email: "garfield@fakemail.com",
+#   password: "123456",
+#   credits: 50
+#   )
 
-garfield_user.save
+# garfield_user.save
 
-luna_user = User.new(
-  first_name: "Luna",
-  last_name: "the cat",
-  email: "luna@fakemail.com",
-  password: "123456",
-  credits: 50
-  )
+# luna_user = User.new(
+#   first_name: "Luna",
+#   last_name: "the cat",
+#   email: "luna@fakemail.com",
+#   password: "123456",
+#   credits: 50
+#   )
 
-luna_user.save
+# luna_user.save
 
-completed_inquiry = Inquiry.new(
-  description: "I need a booking for 2 at a good izakaya in meguro for tomorrow",
-  status: "completed",
-  live: false,
-  credits: 1,
-  gibber: ainaa,
-  user: felix_user,
-  email: felix_user.email,
-  first_name: felix_user.first_name
-  )
+# completed_inquiry = Inquiry.new(
+#   description: "I need a booking for 2 at a good izakaya in meguro for tomorrow",
+#   status: "completed",
+#   live: false,
+#   credits: 1,
+#   gibber: ainaa,
+#   user: felix_user,
+#   email: felix_user.email,
+#   first_name: felix_user.first_name
+#   )
 
-completed_inquiry.save
+# completed_inquiry.save
 
-accepted_inquiry = Inquiry.new(
-  description: "I need a booking for 2 at a good izakaya in meguro for tomorrow",
-  status: "accepted",
-  live: false,
-  credits: 1,
-  gibber: doug,
-  user: garfield_user,
-  email: garfield_user.email,
-  first_name: garfield_user.first_name
-  )
+# accepted_inquiry = Inquiry.new(
+#   description: "I need a booking for 2 at a good izakaya in meguro for tomorrow",
+#   status: "accepted",
+#   live: false,
+#   credits: 1,
+#   gibber: doug,
+#   user: garfield_user,
+#   email: garfield_user.email,
+#   first_name: garfield_user.first_name
+#   )
 
-accepted_inquiry.save
+# accepted_inquiry.save
 
-proposed_inquiry = Inquiry.new(
-  description: "I need a booking for 2 at a good izakaya in meguro for tomorrow",
-  status: "accepted",
-  live: false,
-  credits: 1,
-  gibber: ryo,
-  user: luna_user,
-  email: luna_user.email,
-  first_name: luna_user.first_name
-  )
+# proposed_inquiry = Inquiry.new(
+#   description: "I need a booking for 2 at a good izakaya in meguro for tomorrow",
+#   status: "accepted",
+#   live: false,
+#   credits: 1,
+#   gibber: ryo,
+#   user: luna_user,
+#   email: luna_user.email,
+#   first_name: luna_user.first_name
+#   )
 
-proposed_inquiry.save
+# proposed_inquiry.save
 
-rejected_inquiry = Inquiry.new(
-  description: "I need a booking for 2 at a good izakaya in meguro for tomorrow",
-  status: "rejected",
-  live: false,
-  credits: 1,
-  gibber: ryo,
-  user: luna_user,
-  email: luna_user.email,
-  first_name: luna_user.first_name
-  )
+# rejected_inquiry = Inquiry.new(
+#   description: "I need a booking for 2 at a good izakaya in meguro for tomorrow",
+#   status: "rejected",
+#   live: false,
+#   credits: 1,
+#   gibber: ryo,
+#   user: luna_user,
+#   email: luna_user.email,
+#   first_name: luna_user.first_name
+#   )
 
-rejected_inquiry.save
+# rejected_inquiry.save
 
-pending_inquiry = Inquiry.new(
-  description: "Need to find English speaking doctor in Shinjuku",
-  status: "pending",
-  live: false,
-  credits: 1,
-  user: felix_user,
-  email: felix_user.email,
-  first_name: felix_user.first_name
-  )
+# pending_inquiry = Inquiry.new(
+#   description: "Need to find English speaking doctor in Shinjuku",
+#   status: "pending",
+#   live: false,
+#   credits: 1,
+#   user: felix_user,
+#   email: felix_user.email,
+#   first_name: felix_user.first_name
+#   )
 
-pending_inquiry.save
+# pending_inquiry.save
 
 puts "..Done"
