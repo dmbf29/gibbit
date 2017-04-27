@@ -73,20 +73,22 @@
         <div class="chat-order-status-completed-share">
           <%= social_share_button_tag(inquiry.description, url: "http://gibbit.online", class: "social-button-big") %>
           <h5 class="complete-action">Share</h5>
-         </div>
+        </div>
       <% else %>
         <div class="chat-order-status-completed-review">
           <h4 class="complete-action">Review</h4>
-          <ul class="list-inline">
-          <% inquiry.rating.times do %>
-            <li><%= cl_image_tag("v1493185389/singlefroghand_tjzirq.png", class: "rating-print") %></li>
-          <% end %>
-          </ul>
-          <div class="review-content">
-            <p><%= inquiry.review %></p>
+          <div class="flex-for-review">
+            <ul class="list-inline">
+              <% inquiry.rating.times do %>
+                <li><%= cl_image_tag("v1493268906/green-star_rmk7ly.png", class: "rating-print") %></li>
+              <% end %>
+            </ul>
+            <div class="review-content">
+              <p><%= inquiry.review %></p>
+            </div>
           </div>
-          <div class="review-share-middle">
-          <%= social_share_button_tag(inquiry.review, url: "http://gibbit.online" ) %>
+          <div class="flex-for-review-share">
+            <%= social_share_button_tag(inquiry.review, url: "http://gibbit.online", image: "https://raw.github.com/vkulpa/social-share-button/master/lib/assets/images/sprites/social-share-button/tumblr.png" ) %></div>
           </div>
         </div>
       <% end %>
@@ -163,3 +165,6 @@
     </div>
   <% end %>
 <% end %>
+
+
+

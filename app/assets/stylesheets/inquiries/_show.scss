@@ -284,26 +284,95 @@
 }
 
 .rating-print {
-  width: 40px;
+  width: 25px;
+  flex: 1 1 100%;
 }
 
 .chat-order-status-completed-review {
   padding-left: 10px;
-  padding-right: 20px;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  border-style: solid;
+  border-color: #20bd3e;
+  // padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  h4 {
+    margin: 0;
+  }
 }
 
 .review-share-middle {
-  margin-top: 15px;
+  margin-top: 0px;
+  flex: 1 0 40%;
+  // position: absolute;
+  // bottom: 10px;
+  // left: 10px;
+}
+
+.share-message {
+  flex: 1 0 100%;
 }
 
 .review-content {
   background-color: $green;
   border-radius: 10px;
-  padding-top: 11px;
+  // padding-top: 11px;
+  // padding: 5px;
+  margin-left: 5px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex: 0 0 40%;
   color: white;
-  margin-bottom: 0px;
   opacity: 0.8;
+  p {
+    margin-bottom: 0px;
+    margin: 0px;
+  }
+}
+
+.flex-for-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // align-self: flex-start;
+  margin: 20px 0;
+  // padding-right: 20px;
+  // padding-left: 20px;
+  ul {
+    flex: 0 0 40%;
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.flex-for-review-share {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .social-share-button {
+    width: 100px;
+  }
+}
+
+.social-share-button {
+  .ssb-icon {
+    background-image: url("http://www.indievox.com/public/anniversary/six/image/fb-share-button.png");
+    background-size: 100px auto;
+    height: 45px;
+    width: 100px;
+  }
 }
