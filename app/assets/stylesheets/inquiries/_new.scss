@@ -17,7 +17,7 @@
 .new-inquiry-banner {
   background-image: url('http://res.cloudinary.com/dmbf29/image/upload/v1492614887/frogtoilet_gmeeys.jpg');
   color: $cream;
-  height: 70vh;
+  height: calc(100vh - 140px);
   background-size: cover !important;
   // display: flex;
   // align-items: center;

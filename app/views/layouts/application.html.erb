@@ -24,10 +24,10 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-<!--     <div class="slide" data-background="white"> -->
+    <div class="main">
       <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
-<!--     </div> -->
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
