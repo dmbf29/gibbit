@@ -31,4 +31,18 @@
 
 .question-button {
   background-color: transparent;
+  width: 30px;
+  margin: 10px;
+  // position: absolute;
+  // right: 92px;
+  // top: 164px;
+}
+
+.submit-question {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper-inquiry-form {
+  // position: relative;
 }
