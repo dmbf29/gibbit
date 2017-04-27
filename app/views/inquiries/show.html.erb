@@ -16,7 +16,7 @@
                   <div class="entry">
                     <div class="type-area">
                       <div class="user-input">
-                        <%= text_field_tag :content, nil, class: "form-control chat-input", placeholder: "Enter your chat messages here. Press enter to send" %>
+                        <%= text_field_tag :content, nil, class: "form-control chat-input", placeholder: "Enter your chat messages here. Press enter to send." %>
                         <% if current_user %>
                           <% sender_id = current_user.id %>
                           <% sender_type = "user" %>
