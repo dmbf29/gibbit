@@ -55,8 +55,8 @@
 
         <div class="request-wrap">
           <h3 class="request-title">Open Requests</h3>
+          <% @pendings.each do |pending| %>
           <div class="mini-form">
-            <% @pendings.each do |pending| %>
               <%= link_to inquiry_path(pending) do %>
               <div class="request">
                 <div class="request-current pending-user-underline">
@@ -65,7 +65,6 @@
                 <div class="request-description">
                   <h5>Request</h5>
                   <p><%= pending.description %></p>
-
                 </div>
                 <div class="completed-calendar">
                   <div class="calendar-flex">
@@ -78,43 +77,43 @@
                 <div class="completed-request-choices">
                   <div class="progress-radial progress-25">
                     <div class="overlay">25%</div>
-                  </div>
                 </div>
               </div>
-            <% end %>
-          </div>
-            <% end %>
-          <div class="mini-form">
-            <% @proposals.each do |proposal| %>
-              <%= link_to inquiry_path(proposal) do %>
-              <div class="request">
-                <div class="request-current proposed-user-underline">
-                  <h4><%= proposal.status.capitalize %></h4>
-                </div>
-                <div class="request-description">
-                  <h5>Request</h5>
-                  <p><%= proposal.description %></p>
-
-                </div>
-                <div class="completed-calendar">
-                  <div class="calendar-flex">
-                    <%= cl_image_tag("v1493200052/calendar-page-empty_mmkbwq.png", class: "status-calendar") %>
-                    <div class="inside-calendar">
-                      <p><%= proposal.created_at.strftime("%b %e ") %></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="completed-request-choices">
-                  <div class="progress-radial progress-50">
-                    <div class="overlay">50%</div>
-                  </div>
-                </div>
-              </div>
-              <% end %>
             </div>
             <% end %>
+          </div>
+          <% end %>
+          <% @proposals.each do |proposal| %>
+          <div class="mini-form">
+            <%= link_to inquiry_path(proposal) do %>
+            <div class="request">
+              <div class="request-current proposed-user-underline">
+                <h4><%= proposal.status.capitalize %></h4>
+              </div>
+              <div class="request-description">
+                <h5>Request</h5>
+                <p><%= proposal.description %></p>
+
+              </div>
+              <div class="completed-calendar">
+                <div class="calendar-flex">
+                  <%= cl_image_tag("v1493200052/calendar-page-empty_mmkbwq.png", class: "status-calendar") %>
+                  <div class="inside-calendar">
+                    <p><%= proposal.created_at.strftime("%b %e ") %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="completed-request-choices">
+                <div class="progress-radial progress-50">
+                  <div class="overlay">50%</div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          <% end %>
+          <% @acceptions.each do |acception| %>
             <div class="mini-form">
-            <% @acceptions.each do |acception| %>
               <%= link_to inquiry_path(acception) do %>
                 <div class="request">
                   <div class="request-current accepted-user-underline">
@@ -123,7 +122,6 @@
                   <div class="request-description">
                     <h5>Request</h5>
                     <p><%= acception.description %></p>
-
                   </div>
                   <div class="completed-calendar">
                     <div class="calendar-flex">
@@ -135,21 +133,21 @@
                   </div>
                   <div class="completed-request-choices">
                     <div class="progress-radial progress-75">
-                      <div class="overlay">70%</div>
+                      <div class="overlay">75%</div>
                     </div>
                   </div>
                 </div>
-                <% end %>
-              </div>
               <% end %>
-            </di>
-          </div>
+            </div>
+          <% end %>
+        </div>
 
 
         <div class="request-wrap">
           <h3 class="request-title">Completed Requests</h3>
-          <div class="mini-form">
-            <% @completions.each do |completion| %>
+          <% @completions.each do |completion| %>
+            <div class="mini-form">
+              <%= link_to inquiry_path(completion) do %>
                 <div class="request">
                   <div class="request-current accepted-user-underline">
                     <h4><%= completion.status.capitalize %></h4>
@@ -167,16 +165,18 @@
                       </div>
                     </div>
                   </div>
-                <div class="completed-request-choices">
-                  <div class="progress-radial progress-100">
-                    <div class="overlay">100%</div>
+                  <div class="completed-request-choices">
+                    <div class="progress-radial progress-100">
+                      <div class="overlay">100%</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
-          </div>
-          <div class="mini-form">
-            <% @rejections.each do |rejection| %>
+              <% end %>
+            </div>
+          <% end %>
+          <% @rejections.each do |rejection| %>
+            <div class="mini-form">
+              <%= link_to inquiry_path(rejection) do %>
                 <div class="request">
                   <div class="request-current proposed-user-underline">
                     <h4><%= rejection.status.capitalize %></h4>
@@ -200,6 +200,7 @@
                 </div>
               </div>
             <% end %>
+          <% end %>
           </div>
         </div>
       </div>

@@ -96,6 +96,11 @@
     border-image: linear-gradient(45deg, darken($green,11), darken($green,1)) 10% round;
 
 }
+.assign-gibber-underline {
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-image: linear-gradient(45deg, darken($blue,11), darken($blue,1)) 10% round;
+}
 
 .avatar-wrap h5 {
   color: $green;
@@ -104,4 +109,58 @@
 }
 .avatar-wrap p {
   font-weight: lighter;
+}
+
+.completed-message {
+  flex: 0 0 15%;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+
+}
+.message-flex {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.status-message {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.transparent-button {
+  background-color: transparent;
+  width: 100%;
+}
+
+.inside-message {
+  // z-index: 100;
+  position: absolute;
+  left: 5px;
+  top: 10px;
+}
+
+.transparent-message {
+  background-color: transparent;
+  width: 90px;
+  height: 80px;
+}
+
+.modal-backdrop {
+  z-index: 99;
+}
+
+.assign-gibber-empty {
+  background-color: $dash-back;
+  height: 50px;
+  color: $cream;
+  margin-top: 5px;
+
 }
