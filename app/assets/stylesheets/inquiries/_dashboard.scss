@@ -18,7 +18,6 @@
 }
 
 .request-wrap {
-  // background-color: $gray;
   border-radius: 0 0 5px 5px;
   box-shadow: 1px 1px 5px rgba(49,48,48,0.15);
   margin-top: 10px;
@@ -46,7 +45,7 @@
   padding-bottom: 15px;
 }
 
-.request:hover {
+.mini-form:hover {
   background-color: $gray;
   cursor: pointer;
 }
@@ -64,7 +63,12 @@
 
 .request-current {
   flex: 0 0 20%;
-  text-align: center;
+  background-color: rgba(15,89,94,0.6);
+  height: 100px;
+  color: $cream;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .request-description {
@@ -72,6 +76,20 @@
   margin-left: 5px;
   padding-left: 10px;
 }
+
+.request-description h5 {
+  margin-bottom: 2px;
+  font-weight: bolder;
+  color: $dash-back;
+  font-size: 18px;
+}
+
+.request-description p {
+  font-weight: lighter;
+  font-size: 18px;
+  color: $dash-back;
+}
+
 
 .dashboard-headers {
   display: flex;
@@ -118,16 +136,44 @@
   padding-left: 10px;
 
 }
+.completed-calendar {
+  flex: 0 0 15%;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+
+}
+.calendar-flex {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.status-calendar {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.inside-calendar {
+  z-index: 100;
+  position: absolute;
+  left: 25px;
+  top: 50px;
+}
+
 
 .completed-choices {
-  flex: 0 0 10%;
+  flex: 0 0 25%;
   text-align: right;
   margin-left: 5px;
 }
 
 .completed-request-choices {
   flex: 0 0 10%;
-  text-align: right;
+  text-align: center;
   margin-left: 5px;
 }
 
@@ -174,4 +220,124 @@
     border-style: solid;
     border-image: linear-gradient(45deg, darken($green,11), darken($green,1)) 10% round;
 
+}
+
+
+
+/* -------------------------------------
+ * Bar container
+ * ------------------------------------- */
+.progress-radial {
+  float: left;
+  margin-right: 30px;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 0px solid $dash-back;
+  background-color: green;
+  color: $dash-back;
+}
+
+/* -------------------------------------
+ * Optional centered circle w/text
+ * ------------------------------------- */
+.progress-radial .overlay {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #fffde8;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 16px;
+}
+
+/* -------------------------------------
+ * Mixin for progress-% class
+ * ------------------------------------- */
+.progress-0 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(90deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-5 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(108deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-10 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(126deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-15 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(144deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-20 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(162deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-25 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(180deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-30 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(198deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-35 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(216deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-40 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(234deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-45 {
+  background-image: linear-gradient(90deg, $dash-back 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(252deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-50 {
+  background-image: linear-gradient(-90deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-55 {
+  background-image: linear-gradient(-72deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-60 {
+  background-image: linear-gradient(-54deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-65 {
+  background-image: linear-gradient(-36deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-70 {
+  background-image: linear-gradient(-18deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-75 {
+  background-image: linear-gradient(0deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-80 {
+  background-image: linear-gradient(18deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-85 {
+  background-image: linear-gradient(36deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-90 {
+  background-image: linear-gradient(54deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-95 {
+  background-image: linear-gradient(72deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
+}
+
+.progress-100 {
+  background-image: linear-gradient(90deg, $green 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, $green 50%, $dash-back 50%, $dash-back);
 }

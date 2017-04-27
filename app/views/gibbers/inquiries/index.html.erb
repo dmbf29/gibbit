@@ -1,6 +1,6 @@
 
-<div class="wrapper-content">
-  <div class="container">
+<div class="container">
+  <div class="wrapper-content">
     <div class="row">
       <div class="col-xs-12 col-sm-3">
         <div class="avatar-wrap">
@@ -47,317 +47,405 @@
      <div class="col-xs-12 col-sm-9">
         <div class="request-wrap">
           <h3 class="request-title">Need Assignment</h3>
-          <!-- <div class="box-bgcolor"> -->
-          <div class="mini-form">
             <% @empties.each do |empty| %>
+          <div class="mini-form">
               <div class="request">
-                <div class="gibber-current">
-                  <button class="btn view-request-button pending-gibber-underline"><%= empty.status.capitalize %></button>
+                <div class="request-current proposed-user-underline">
+                  <h4><%= empty.status.capitalize %></h4>
                 </div>
-                <div class="gibber-choices">
+                <div class="completed-message">
                   <%= form_tag assign_gibber_gibbers_inquiry_path(empty), method: :patch do %>
                     <%= collection_select :gibber, :id, @gibbers,:id, :first_name %>
-                    <%= submit_tag "Assign", class: "btn gibber-assign-button" %>
+                    <p><%= submit_tag "Assign", class: "btn assign-gibber-empty assign-gibber-underline" %></p>
                   <% end %>
                 </div>
-                  <div class="gibber-description">
-                <%= link_to inquiry_path(empty) do %>
+                <div class="request-description">
+                  <%= link_to inquiry_path(empty) do %>
+                    <h5>Request</h5>
                     <p><%= empty.description %></p>
-                <% end %>
+                  <% end %>
+                </div>
+                <div class="completed-request-choices">
+                  <div class="progress-radial progress-15">
+                    <div class="overlay">15%</div>
                   </div>
+                </div>
               </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-
-            <% end %>
           </div>
+            <% end %>
         </div>
 
   <!-- PENDING ORDERS  -->
 
         <div class="request-wrap">
           <h3 class="request-title">Open Requests</h3>
+          <% @pendings.each do |pending| %>
           <div class="mini-form">
-
-            <% @pendings.each do |pending| %>
-            <div class="request">
-              <div class="gibber-current">
-                <!-- <p><%= pending.gibber.nil? ? "No gibbers yet!" : pending.gibber.first_name %></p> -->
-                <div class="btn-group">
-                  <button class="btn view-request-button pending-gibber-underline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= pending.status.capitalize %>     <i class="fa fa-caret-down" aria-hidden="true"></i></button>
-
-                  <div class="dropdown-menu">
-                    <ul>
-                      <li><%= link_to "Pending", pending_gibbers_inquiry_path(pending), method: :patch, class: "dropdown-item" %></li>
-                      <li><%= link_to "Propose", propose_gibbers_inquiry_path(pending), method: :patch, class: "dropdown-item" %></li>
-                      <li><%= link_to "Complete", complete_gibbers_inquiry_path(pending), method: :patch, class: "dropdown-item" %></li>
-                      </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="gibber-choices">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn change-status-button" data-toggle="modal" data-target="#modal-inquiry-<%= pending.id %>">
-                 Messages
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="modal-inquiry-<%= pending.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel"><%= pending.description %> </h4>
-                      </div>
-                      <div class="modal-body">
-                        <% if pending.messages == [] %>
-                          <div class="modal-messages">
-                          <%=  "No messages yet" %>
-                          </div>
-                        <% else %>
-                          <% pending.messages.each do |message| %>
-                            <div class="modal-messages text-left">
-                            <p><%= message.sender.first_name %> : <%= message.content %></p>
-                            </div>
-                            <% end %>
-                        <% end %>
-                      </div>
-                      <div class="modal-footer">
-                        <div class="gibber-message-propose">
-                          <%= simple_form_for [pending, @message] do |f| %>
-                          <%= f.input :content, placeholder: "Type your message", label: false %>
-                          <%= f.submit "Send", class: "btn gibbit-button" %>
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="gibber-description">
-                <%= link_to inquiry_path(pending) do %>
-                  <p><%= pending.description %></p>
-                <% end %>
-              </div>
-
-            </div>
-
-            <div class="progress">
-              <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <% end %>
-
-
-
-
-
-     <!-- PROPOSALS -->
-          <% @proposals.each do |proposal| %>
-            <div class="request">
-              <div class="gibber-current">
-  <!--               <p><%= proposal.gibber.nil? ? "No gibbers!" : proposal.gibber.first_name %></p> -->
-                <div class="btn-group">
-                  <button class="btn view-request-button proposed-gibber-underline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= proposal.status.capitalize %>     <i class="fa fa-caret-down" aria-hidden="true"></i></button>
-                  <div class="dropdown-menu">
-                    <ul>
-                    <li><%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "dropdown-item" %></li>
-                    <li><%= link_to "Propose", propose_gibbers_inquiry_path(proposal), method: :patch, class: "dropdown-item" %></li>
-                    <li><%= link_to "Complete", complete_gibbers_inquiry_path(proposal), method: :patch, class: "dropdown-item" %></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="gibber-choices">
-   <!-- needs the view request button -->
-                <!-- Button trigger modal -->
-                <button type="button" class="btn change-status-button" data-toggle="modal" data-target="#modal-inquiry-<%= proposal.id %>">
-                  Messages
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="modal-inquiry-<%= proposal.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel"><%= proposal.description %> </h4>
-                      </div>
-                      <div class="modal-body">
-                        <% if proposal.messages == [] %>
-                          <div class="modal-messages">
-                          <%=  "No messages yet" %>
-                          </div>
-                        <% else %>
-                          <% proposal.messages.each do |message| %>
-                            <div class="modal-messages text-left">
-                            <p><%= message.sender.first_name %> : <%= message.content %></p>
-                            </div>
-                            <% end %>
-                        <% end %>
-                      </div>
-                      <div class="modal-footer">
-                        <div class="gibber-message-propose">
-                          <%= simple_form_for [proposal, @message] do |f| %>
-                          <%= f.input :content, placeholder: "Type your message", label: false %>
-                          <%= f.submit "Send", class: "btn gibbit-button" %>
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="gibber-description">
-                <%= link_to inquiry_path(proposal) do %>
-                  <p><%= proposal.description %></p>
-                <% end %>
-              </div>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-
-          <% end %>
-
-  <!-- ACCEPTED ORDERS  -->
-
-          <% @acceptions.each do |acception| %>
-            <div class="request">
-              <div class="gibber-current">
-  <!--                <p><%= acception.gibber.nil? ? "No gibbers!" : acception.gibber.first_name %></p> -->
-                <div class="btn-group">
-                  <button class="btn view-request-button accepted-gibber-underline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= acception.status.capitalize %>     <i class="fa fa-caret-down" aria-hidden="true"></i></button>
-                  <div class="dropdown-menu">
-                    <ul>
-                      <li><%= link_to "Pending", pending_gibbers_inquiry_path(acception), method: :patch, class: "dropdown-item" %></li>
-                      <li><%= link_to "Propose", propose_gibbers_inquiry_path(acception), method: :patch, class: "dropdown-item" %></li>
-                      <li><%= link_to "Complete", complete_gibbers_inquiry_path(acception), method: :patch, class: "dropdown-item" %></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="gibber-choices">
-                            <!-- Button trigger modal -->
-                <button type="button" class="btn change-status-button" data-toggle="modal" data-target="#modal-inquiry-<%= acception.id %>">
-                  Messages
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="modal-inquiry-<%= acception.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel"><%= acception.description %> </h4>
-                      </div>
-                      <div class="modal-body">
-                        <% if acception.messages == [] %>
-                          <div class="modal-messages">
-                          <%=  "No messages yet" %>
-                          </div>
-                        <% else %>
-                          <% acception.messages.each do |message| %>
-                            <div class="modal-messages text-left">
-                            <p><%= message.sender.first_name %> : <%= message.content %></p>
-                            </div>
-                            <% end %>
-                        <% end %>
-                      </div>
-                      <div class="modal-footer">
-                        <div class="gibber-message-propose">
-                          <%= simple_form_for [acception, @message] do |f| %>
-                          <%= f.input :content, placeholder: "Type your message", label: false %>
-                          <%= f.submit "Send", class: "btn gibbit-button" %>
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-              <div class="gibber-description">
-                <%= link_to inquiry_path(acception) do %>
-                  <%= acception.description %>
-                <% end %>
-              </div>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-
-          <% end %>
-        </div>
-      </div>
-
-
-        <div class="request-wrap">
-          <h3 class="request-title">Completed Requests</h3>
-          <div class="mini-form">
-
-            <% @completions.each do |completion| %>
               <div class="request">
-                <div class="request-current">
-                  <div class="dropdown">
-                    <button class="btn view-request-button accepted-gibber-underline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= completion.status.capitalize %>     <i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                <div class="request-current pending-gibber-underline">
+                  <div class="btn-group">
+                    <button class="btn transparent-button
+                    dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h4><%= pending.status.capitalize %><i class="fa fa-caret-down" aria-hidden="true"></i></h4></button>
+
                     <div class="dropdown-menu">
-                    <ul>
-                      <li><%= link_to "Pending", pending_gibbers_inquiry_path(completion), method: :patch, class: "dropdown-item" %></li>
-                      <li><%= link_to "Propose", propose_gibbers_inquiry_path(completion), method: :patch, class: "dropdown-item" %></li>
-                      <li><%= link_to "Complete", complete_gibbers_inquiry_path(completion), method: :patch, class: "dropdown-item" %></li>
-                      </ul>
+                      <ul>
+                        <li><%= link_to "Pending", pending_gibbers_inquiry_path(pending), method: :patch, class: "dropdown-item" %></li>
+                        <li><%= link_to "Propose", propose_gibbers_inquiry_path(pending), method: :patch, class: "dropdown-item" %></li>
+                        <li><%= link_to "Complete", complete_gibbers_inquiry_path(pending), method: :patch, class: "dropdown-item" %></li>
+                        </ul>
                     </div>
                   </div>
                 </div>
                 <div class="request-description">
-                  <%= link_to inquiry_path(completion) do %>
-                    <%= completion.description %></p>
+                  <%= link_to inquiry_path(pending) do %>
+                    <h5>Request</h5>
+                    <p><%= pending.description %></p>
                   <% end %>
                 </div>
+                <div class="completed-message">
+                    <div class="message-flex">
+                      <%= cl_image_tag("v1493251807/message-icon_ikbcjm.png", class: "status-message") %>
+                      <div class="inside-message">
+                        <button type="button" class="btn transparent-message" data-toggle="modal" data-target="#modal-inquiry-<%= pending.id %>">
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-inquiry-<%= pending.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"><%= pending.description %> </h4>
+                              </div>
+                              <div class="modal-body">
+                                <% if pending.messages == [] %>
+                                  <div class="modal-messages">
+                                  <%=  "No messages yet" %>
+                                  </div>
+                                <% else %>
+                                  <% pending.messages.each do |message| %>
+                                    <div class="modal-messages text-left">
+                                    <p><%= message.sender.first_name %> : <%= message.content %></p>
+                                    </div>
+                                    <% end %>
+                                <% end %>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="gibber-message-propose">
+                                  <%= simple_form_for [pending, @message] do |f| %>
+                                  <%= f.input :content, placeholder: "Type your message", label: false %>
+                                  <%= f.submit "Send", class: "btn gibbit-button" %>
+                                  <% end %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 <div class="completed-request-choices">
-                  <div class="completed-links">
-                    <div class="completed-destroy">
-                    <%= link_to raw("<i class='fa fa-trash' aria-hidden='true'></i>"), inquiry_path(completion), method: :delete %>
+                  <div class="progress-radial progress-25">
+                    <div class="overlay">25%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% @proposals.each do |proposal| %>
+          <div class="mini-form">
+            <div class="request">
+              <div class="request-current pending-user-underline">
+               <div class="btn-group">
+                  <button class="btn transparent-button
+                  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h4><%= proposal.status.capitalize %><i class="fa fa-caret-down" aria-hidden="true"></i></h4></button>
+
+                  <div class="dropdown-menu">
+                    <ul>
+                      <li><%= link_to "Pending", pending_gibbers_inquiry_path(proposal), method: :patch, class: "dropdown-item" %></li>
+                      <li><%= link_to "Propose", propose_gibbers_inquiry_path(proposal), method: :patch, class: "dropdown-item" %></li>
+                      <li><%= link_to "Complete", complete_gibbers_inquiry_path(proposal), method: :patch, class: "dropdown-item" %></li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="request-description">
+                <%= link_to inquiry_path(proposal) do %>
+                  <h5>Request</h5>
+                  <p><%= proposal.description %></p>
+                <% end %>
+              </div>
+              <div class="completed-message">
+                <div class="message-flex">
+                  <%= cl_image_tag("v1493251807/message-icon_ikbcjm.png", class: "status-message") %>
+                  <div class="inside-message">
+                    <button type="button" class="btn transparent-message" data-toggle="modal" data-target="#modal-inquiry-<%= proposal.id %>">
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal-inquiry-<%= proposal.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel"><%= proposal.description %> </h4>
+                          </div>
+                          <div class="modal-body">
+                            <% if proposal.messages == [] %>
+                              <div class="modal-messages">
+                              <%=  "No messages yet" %>
+                              </div>
+                            <% else %>
+                              <% proposal.messages.each do |message| %>
+                                <div class="modal-messages text-left">
+                                <p><%= message.sender.first_name %> : <%= message.content %></p>
+                                </div>
+                                <% end %>
+                            <% end %>
+                          </div>
+                          <div class="modal-footer">
+                            <div class="gibber-message-propose">
+                              <%= simple_form_for [proposal, @message] do |f| %>
+                              <%= f.input :content, placeholder: "Type your message", label: false %>
+                              <%= f.submit "Send", class: "btn gibbit-button" %>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 100%;" aria-valuenow="1000" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="completed-request-choices">
+                <div class="progress-radial progress-50">
+                  <div class="overlay">50%</div>
+                </div>
               </div>
+            </div>
+          </div>
+          <% end %>
+          <% @acceptions.each do |acception| %>
+            <div class="mini-form">
+                <div class="request">
+                  <div class="request-current accepted-user-underline">
+                 <div class="btn-group">
+                    <button class="btn transparent-button
+                    dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h4><%= acception.status.capitalize %><i class="fa fa-caret-down" aria-hidden="true"></i></h4></button>
 
-            <% end %>
-            <% @rejections.each do |rejection| %>
-              <div class="request">
-                <div class="request-current">
-                  <div class="dropup">
-                  <button class="btn view-request-button pending-gibber-underline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= rejection.status.capitalize %>     <i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                    <div class="dropdown-menu">
+                      <ul>
+                        <li><%= link_to "Pending", pending_gibbers_inquiry_path(acception), method: :patch, class: "dropdown-item" %></li>
+                        <li><%= link_to "Propose", propose_gibbers_inquiry_path(acception), method: :patch, class: "dropdown-item" %></li>
+                        <li><%= link_to "Complete", complete_gibbers_inquiry_path(acception), method: :patch, class: "dropdown-item" %></li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                  <div class="request-description">
+                    <%= link_to inquiry_path(acception) do %>
+                      <h5>Request</h5>
+                      <p><%= acception.description %></p>
+                    <% end %>
+                  </div>
+                  <div class="completed-message">
+                    <div class="message-flex">
+                      <%= cl_image_tag("v1493251807/message-icon_ikbcjm.png", class: "status-message") %>
+                      <div class="inside-message">
+                        <button type="button" class="btn transparent-message" data-toggle="modal" data-target="#modal-inquiry-<%= acception.id %>">
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-inquiry-<%= acception.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"><%= acception.description %> </h4>
+                              </div>
+                              <div class="modal-body">
+                                <% if acception.messages == [] %>
+                                  <div class="modal-messages">
+                                  <%=  "No messages yet" %>
+                                  </div>
+                                <% else %>
+                                  <% acception.messages.each do |message| %>
+                                    <div class="modal-messages text-left">
+                                    <p><%= message.sender.first_name %> : <%= message.content %></p>
+                                    </div>
+                                    <% end %>
+                                <% end %>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="gibber-message-propose">
+                                  <%= simple_form_for [acception, @message] do |f| %>
+                                  <%= f.input :content, placeholder: "Type your message", label: false %>
+                                  <%= f.submit "Send", class: "btn gibbit-button" %>
+                                  <% end %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="completed-request-choices">
+                    <div class="progress-radial progress-75">
+                      <div class="overlay">75%</div>
+                    </div>
+                  </div>
+                </div>
+              <%# end %>
+            </div>
+          <% end %>
+        </div>
+
+
+        <div class="request-wrap">
+          <h3 class="request-title">Completed Requests</h3>
+          <% @completions.each do |completion| %>
+            <div class="mini-form">
+                <div class="request">
+                  <div class="request-current accepted-user-underline">
+                 <div class="btn-group">
+                    <button class="btn transparent-button
+                    dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h4><%= completion.status.capitalize %><i class="fa fa-caret-down" aria-hidden="true"></i></h4></button>
+
+                    <div class="dropdown-menu">
+                      <ul>
+                        <li><%= link_to "Pending", pending_gibbers_inquiry_path(completion), method: :patch, class: "dropdown-item" %></li>
+                        <li><%= link_to "Propose", propose_gibbers_inquiry_path(completion), method: :patch, class: "dropdown-item" %></li>
+                        <li><%= link_to "Complete", complete_gibbers_inquiry_path(completion), method: :patch, class: "dropdown-item" %></li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                  <div class="request-description">
+                    <%= link_to inquiry_path(completion) do %>
+                      <h5>Request</h5>
+                      <p><%= completion.description %></p>
+                    <% end %>
+                  </div>
+                  <div class="completed-message">
+                    <div class="message-flex">
+                      <%= cl_image_tag("v1493251807/message-icon_ikbcjm.png", class: "status-message") %>
+                      <div class="inside-message">
+                        <button type="button" class="btn transparent-message" data-toggle="modal" data-target="#modal-inquiry-<%= completion.id %>">
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-inquiry-<%= completion.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"><%= completion.description %> </h4>
+                              </div>
+                              <div class="modal-body">
+                                <% if completion.messages == [] %>
+                                  <div class="modal-messages">
+                                  <%=  "No messages yet" %>
+                                  </div>
+                                <% else %>
+                                  <% completion.messages.each do |message| %>
+                                    <div class="modal-messages text-left">
+                                    <p><%= message.sender.first_name %> : <%= message.content %></p>
+                                    </div>
+                                    <% end %>
+                                <% end %>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="gibber-message-propose">
+                                  <%= simple_form_for [completion, @message] do |f| %>
+                                  <%= f.input :content, placeholder: "Type your message", label: false %>
+                                  <%= f.submit "Send", class: "btn gibbit-button" %>
+                                  <% end %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="completed-request-choices">
+                    <div class="progress-radial progress-100">
+                      <div class="overlay">100%</div>
+                    </div>
+                  </div>
+                </div>
+              <%# end %>
+            </div>
+          <% end %>
+          <% @rejections.each do |rejection| %>
+            <div class="mini-form">
+                <div class="request">
+                  <div class="request-current proposed-user-underline">
+                 <div class="btn-group">
+                    <button class="btn transparent-button
+                    dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h4><%= rejection.status.capitalize %><i class="fa fa-caret-down" aria-hidden="true"></i></h4></button>
 
                     <div class="dropdown-menu">
                       <ul>
                         <li><%= link_to "Pending", pending_gibbers_inquiry_path(rejection), method: :patch, class: "dropdown-item" %></li>
                         <li><%= link_to "Propose", propose_gibbers_inquiry_path(rejection), method: :patch, class: "dropdown-item" %></li>
                         <li><%= link_to "Complete", complete_gibbers_inquiry_path(rejection), method: :patch, class: "dropdown-item" %></li>
-                      </ul>
+                        </ul>
                     </div>
                   </div>
                 </div>
                 <div class="request-description">
                   <%= link_to inquiry_path(rejection) do %>
+                    <h5>Request</h5>
                     <p><%= rejection.description %></p>
                   <% end %>
                 </div>
-                <div class="completed-request-choices">
-                  <div class="completed-links">
-                    <div class="completed-destroy">
-                    <%= link_to raw("<i class='fa fa-trash' aria-hidden='true'></i>"), inquiry_path(rejection), method: :delete %>
+                  <div class="completed-message">
+                    <div class="message-flex">
+                      <%= cl_image_tag("v1493251807/message-icon_ikbcjm.png", class: "status-message") %>
+                      <div class="inside-message">
+                        <button type="button" class="btn transparent-message" data-toggle="modal" data-target="#modal-inquiry-<%= rejection.id %>">
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-inquiry-<%= rejection.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"><%= rejection.description %> </h4>
+                              </div>
+                              <div class="modal-body">
+                                <% if rejection.messages == [] %>
+                                  <div class="modal-messages">
+                                  <%=  "No messages yet" %>
+                                  </div>
+                                <% else %>
+                                  <% rejection.messages.each do |message| %>
+                                    <div class="modal-messages text-left">
+                                    <p><%= message.sender.first_name %> : <%= message.content %></p>
+                                    </div>
+                                    <% end %>
+                                <% end %>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="gibber-message-propose">
+                                  <%= simple_form_for [rejection, @message] do |f| %>
+                                  <%= f.input :content, placeholder: "Type your message", label: false %>
+                                  <%= f.submit "Send", class: "btn gibbit-button" %>
+                                  <% end %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                <div class="completed-request-choices">
+                  <div class="progress-radial progress-0">
+                    <div class="overlay"></div>
                   </div>
                 </div>
               </div>
-
-            <% end %>
+            <%# end %>
+          <% end %>
           </div>
         </div>
       </div>
