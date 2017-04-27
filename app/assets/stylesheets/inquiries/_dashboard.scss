@@ -98,6 +98,11 @@
   color: $dark-gray;
 }
 
+.dashboard-headers h4 {
+ font-size: 17px;
+ font-weight: 300;
+}
+
 .dashboard-badges {
   display: inline-block;
   min-width: 10px;
@@ -226,6 +231,8 @@
   text-align: center;
   padding: 20px;
   margin-top: 0px;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 
