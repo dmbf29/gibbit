@@ -142,6 +142,8 @@
   font-weight: bold;
   span {
     white-space: nowrap;
+    font-size: 13px;
+    color: #b1b1b1;
   }
 }
 
@@ -151,6 +153,8 @@
   font-weight: bold;
   span {
     white-space: nowrap;
+    font-size: 13px;
+    color: #b1b1b1;
   }
 }
 
@@ -159,6 +163,8 @@
   background-color: $green;
   border-radius: 5px;
   padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   color: white;
   // box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
   display: inline-block;
@@ -169,6 +175,8 @@
   background-color: $sand;
   border-radius: 5px;
   padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   color: black;
   // box-shadow: 10px 10px 5px -8px rgba(49,48,48,0.41);
   display: inline-block;
