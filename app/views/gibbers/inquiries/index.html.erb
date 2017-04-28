@@ -47,7 +47,7 @@
      <div class="col-xs-12 col-sm-9">
         <div class="request-wrap">
           <h3 class="request-title">Need Assignment</h3>
-          <% if @pendings.empty? && @proposals.empty? && @acceptions.empty? %>
+          <% if @empties.empty? %>
             <h5 class="default-empty-response">You currently have no open requests.</h5>
           <% else %>
             <% @empties.each do |empty| %>
