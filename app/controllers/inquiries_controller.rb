@@ -15,7 +15,7 @@ class InquiriesController < ApplicationController
 
   def show
     @inquiry = Inquiry.find(params[:id])
-    @messages = Message.where(inquiry: @inquiry)
+    @messages = Message.where(inquiry: @inquiry).order(:created_at)
     @message = Message.new
   end
 
