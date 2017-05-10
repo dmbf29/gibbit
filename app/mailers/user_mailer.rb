@@ -17,4 +17,11 @@ class UserMailer < ApplicationMailer
 
     mail(to: Gibber.second.email, subject: 'You have a new Gibbit request from #{@user.first_name}!')
   end
+
+  def message_received(message)
+    @sender_type = message.sender_type
+    @content = message.content
+
+    mail(to: Gibber.second.email, subject: '#{@sender_type}: #{@content}')
+  end
 end
