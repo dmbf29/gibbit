@@ -26,6 +26,6 @@ class Inquiry < ApplicationRecord
   end
 
   def send_new_inquiry_email
-    UserMailer.new_proposal(self).deliver_now
+    UserMailer.new_inquiry(self).deliver_now
   end
 end
