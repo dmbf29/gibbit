@@ -11,4 +11,10 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'You have a proposal for your Gibbit request!')
   end
+
+  def new_inquiry(inquiry)
+    @user = inquiry.user
+
+    mail(to: douglasmberkley@gmail.com, subject: 'You have a new Gibbit request from #{@user.first_name}!')
+  end
 end

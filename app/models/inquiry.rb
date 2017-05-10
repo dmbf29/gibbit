@@ -1,5 +1,6 @@
 class Inquiry < ApplicationRecord
   after_update :send_inquiry_email, if: :proposed?
+  after_create :send_new_inquiry_email
 
   belongs_to :user, optional: true
   belongs_to :gibber, optional: true
@@ -22,5 +23,9 @@ class Inquiry < ApplicationRecord
 
   def proposed?
     status == "proposed"
+  end
+
+  def send_new_inquiry_email
+    UserMailer.new_proposal(self).deliver_now
   end
 end
