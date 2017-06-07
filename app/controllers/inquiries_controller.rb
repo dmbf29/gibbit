@@ -2,6 +2,7 @@ class InquiriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show ]
   before_action :set_user, only: [:new, :create, :show, :index]
   before_action :set_inquiry, only: [:accept, :reject, :add_review]
+  before_action :correct_user, only: [:show]
 
   def index
     @inquiries = current_user.inquiries
@@ -67,6 +68,11 @@ class InquiriesController < ApplicationController
 
   def set_user
     current_user.nil? ? @gibber = current_gibber : @user = current_user
+  end
+
+  def correct_user
+    @inquiry = Inquiry.find(params[:id])
+    redirect_to(root_path) if current_user != @inquiry.user
   end
 
   def set_inquiry
