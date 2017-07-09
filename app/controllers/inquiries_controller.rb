@@ -72,7 +72,9 @@ class InquiriesController < ApplicationController
 
   def correct_user
     @inquiry = Inquiry.find(params[:id])
+    if current_user
     redirect_to(root_path) if current_user != @inquiry.user
+    end
   end
 
   def set_inquiry
